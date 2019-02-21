@@ -6,7 +6,8 @@
 | `email`           | string        | not null, indexed, unique |
 | `password_digest` | string        | not null                  |
 | `session_token`   | string        | not null, indexed         |
-* index on `email, unique: true` 
+* index on `email, unique: true`
+* index on `username`
 * index on `session_token`
 
 ## `tracks`
@@ -19,12 +20,14 @@
 | `genre_id`      | integer       | not null, indexed, foreign key |
 * `album_id` references `albums`
 * index on `album_id`
+* index on `genre_id`
 
 ## `artists`
 | **column name** | **data type** | **details**           |
 |-----------------|---------------|-----------------------|
 | `id`            | integer       | not null, primary key |
 | `name`          | string        | not null, indexed     |
+* index on `name`
 
 ## `albums`
 | **column name** | **data type** | **details**           |
@@ -33,6 +36,7 @@
 | `title`         | string        | not null, indexed     |
 | `popularity`    | integer       | not null              |
 | `year`          | integer       |                       |
+* index on `title`
 
 ## `playlists`
 | **column name** | **data type** | **details**                    |
@@ -48,6 +52,7 @@
 |-----------------|---------------|-----------------------|
 | `id`            | integer       | not null, primary key |
 | `name`          | string        | not null, indexed     |
+* index on `name`
 
 ## `user-follows`
 | **column name** | **data type** | **details**                    |
@@ -67,6 +72,8 @@
 | `track_id`      | integer       | not null, indexed, foreign key |
 * `playlist_id` references `playlists`
 * `track_id` references `tracks`
+* index on `playlist_id`
+* index on `track_id`
 
 
 ## `playlist-follows`
