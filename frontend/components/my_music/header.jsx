@@ -10,25 +10,39 @@ class Header extends React.Component {
             toggled: false
         };
         this.handleClick = this.handleClick.bind(this);
+        this.handleOtherClick = this.handleOtherClick.bind(this);
+        this.toggle = this.toggle.bind(this);
     }
     handleClick() {
         this.props.logout();
+    }
+    handleOtherClick() {
+        this.setState({toggled: false});
+    }
+    toggle(){
+        this.setState({toggled: !this.state.toggled})
     }
     
     render() {
         const linkClassMM = cx('my-music-header-link', { 'selected-link': this.props.location.pathname === '/my-music' });
         const linkClassNP = cx('my-music-header-link', { 'selected-link': this.props.location.pathname === '/now-playing' });
         return (
-            <div className='my-music-header'>
-                <div>
-                    <Link to='/now-playing' className={linkClassNP}>Now Playing</Link>
-                    <Link to='/my-music' className={linkClassMM}>My Music</Link>
-                </div>
-                <div>
-                    <input type="text" placeholder='search for a song' className='searchbar'/>
+            <div className='my-music-header' >
+                <div className='music-header-left' onClick={this.handleOtherClick}>
+                    <div>
+                        <Link to='/now-playing' className={linkClassNP}>Now Playing</Link>
+                        <Link to='/my-music' className={linkClassMM}>My Music</Link>
+                    </div>
+                    <div onClick={this.handleOtherClick}>
+                        <input type="text" placeholder='search for a song' className='searchbar'/>
+                    </div>
                 </div>
                 <div className='header-right'>
-                    <span><UserLogo username={this.props.currentUser.username} logout={this.handleClick}/></span>
+                    <span><UserLogo 
+                        username={this.props.currentUser.username}
+                        logout={this.handleClick} 
+                        toggled={this.state.toggled}
+                        toggle={this.toggle}/></span>
                     
                 </div>
             </div>
