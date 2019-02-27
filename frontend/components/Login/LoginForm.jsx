@@ -25,6 +25,9 @@ class Login extends Component {
             this.setState({ errors: { ...this.state.errors, password } });
         }
     }
+    componentDidMount(){
+        this.props.clearErrors();
+    }
     
     handleChange(field) {
         return (e) => {
@@ -75,8 +78,9 @@ class Login extends Component {
 
     render() {
         const { errors } = this.state;
-        const inputs = ['email', 'password'].map(field => (
+        const inputs = ['email', 'password'].map((field, i) => (
             <SignupComponent
+                key={i}
                 label={field}
                 value={this.state[field]}
                 handleChange={this.handleChange}

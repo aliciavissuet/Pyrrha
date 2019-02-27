@@ -34,7 +34,7 @@ class Header extends React.Component {
                         <Link to='/my-music' className={linkClassMM}>My Music</Link>
                     </div>
                     <div onClick={this.handleOtherClick}>
-                        <input type="text" placeholder='search for a song' className='searchbar'/>
+                        <input type="text" placeholder='Search' className='searchbar'/>
                     </div>
                 </div>
                 <div className='header-right'>

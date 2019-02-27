@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
-import { createUser, receiveErrors } from '../../actions/session_actions';
+import { createUser, receiveErrors, clearSessionErrors, demoLogin } from '../../actions/session_actions';
 import SignupForm from './SignupForm';
 
 const mapStateToProps = state => ({
@@ -8,7 +8,9 @@ const mapStateToProps = state => ({
 });
 const mapDispatchToProps = dispatch => ({
     createUser: (user) => dispatch(createUser(user)),
-    getErrors: () => dispatch(receiveErrors())
+    getErrors: () => dispatch(receiveErrors()),
+    clearErrors: () => dispatch(clearSessionErrors()),
+    demoLogin: () => dispatch(demoLogin())
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SignupForm));

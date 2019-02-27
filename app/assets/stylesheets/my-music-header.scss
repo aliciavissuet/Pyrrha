@@ -92,9 +92,15 @@
     display: flex;
     flex-direction: column;
     position: absolute;
-    right: 30px;
+    right: 18px;
     top: 0px;
     background: transparent;
+    outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 10px gray;
+    width: 130px;
+    
+    
     
 }
 .user-actions > li {
@@ -102,11 +108,12 @@
     text-align: left;
     padding-right: 40px;
     list-style: none;
-    z-index: 0
+    
 }
 .user-actions > li:hover {
-    background: lightblue;
+    color: darkmagenta;
     opacity: .5;
+    
     
     
 }
@@ -122,5 +129,8 @@
     border-radius: 20px;
     background:  #edeeef;
     border: none;
+    font-size: 17px;
+    text-align: center;
+    
 }
 
