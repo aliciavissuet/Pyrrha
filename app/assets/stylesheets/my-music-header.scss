@@ -33,6 +33,11 @@
     color: black;
     font-weight: 700;
 }
+.music-header-left {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+}
 .pandora-initial {
 	background: linear-gradient(90deg, rgba(63,94,251,1) 0%, rgba(232,8,146,1) 100%);
 	-webkit-background-clip: text;
@@ -64,7 +69,7 @@
     line-height: 40px;
     border-radius: 50%;
     color: white;
-    text-align: center;
+    text-align: right;
     font-size: 1.5em;
     text-align: center;
     margin: 0px;
@@ -73,7 +78,8 @@
 }
 .header-right {
     display: flex;
-
+    flex-direction: row-reverse;
+    width: 5%;
 }
 
 .username-initial:hover {
@@ -109,9 +115,12 @@
 }
 
 .searchbar {
+    position: absolute;
+    left: 45%;
     width: 250px;
     height: 30px;
     border-radius: 20px;
     background:  #edeeef;
     border: none;
 }
+
