@@ -1,6 +1,7 @@
 import {Route, withRouter, Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 import React from 'react';
+import HeaderContainer from '../components/my_music/header_container';
 
 const mapStateToProps = state => (
      { loggedIn: Boolean(state.session.currentUser) }
