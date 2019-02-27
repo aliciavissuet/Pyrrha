@@ -13,4 +13,4 @@ const mapDispatchToProps = dispatch => ({
     clearErrors: ()=> dispatch(clearSessionErrors()),
 });
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Login));
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
