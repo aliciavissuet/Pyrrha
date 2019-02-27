@@ -1,0 +1,117 @@
+.my-music-header {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-content: flex-start;
+    font-family: 'Didact Gothic', sans-serif;
+    color: rgba(0,0,0,.6);
+    font-size: 17px;
+    letter-spacing: 0.05em;
+}
+.my-music-pyrrha {
+    margin: 0;
+   font-size: 25px;
+   font-weight: 700;
+   color: black;
+   height: 30px;
+   padding-right: 10px;
+   font-family: 'Didact Gothic', sans-serif;
+   text-decoration: none;
+   
+}
+
+.my-music-header-link:visited {
+    color: #575859;
+}
+.my-music-header-link {
+    margin: 10px;
+    text-decoration: none;
+    color: #575859
+}
+.selected-link {
+    text-decoration: underline;
+    color: black;
+    font-weight: 700;
+}
+.pandora-initial {
+	background: linear-gradient(90deg, rgba(63,94,251,1) 0%, rgba(232,8,146,1) 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	font: {
+		size: 30px;
+        family: 'Didact Gothic', sans-serif;
+        weight: 900;
+    }
+}
+
+.username-initial {
+    // box-sizing: border-box;
+    // height: 50px;
+    // width: 50px;
+    background: linear-gradient(90deg, rgba(63,94,251,1) 0%, rgba(232,8,146,1) 100%);
+    // font-family: 'Didact Gothic', sans-serif;
+    // font-size: 25px;
+    font-weight: bolder;
+    // color: white;
+    // padding: 0px;
+    // border-radius: 50%;
+    // -moz-border-radius: 50%;
+    // -webkit-border-radius: 50%;
+    
+    display: block;
+    height: 40px;
+    width: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    color: white;
+    text-align: center;
+    font-size: 1.5em;
+    text-align: center;
+    margin: 0px;
+    z-index: 1;
+
+}
+.header-right {
+    display: flex;
+
+}
+
+.username-initial:hover {
+    cursor: pointer;
+}
+.user-actions {
+    display: none;
+}
+.actions-show {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 30px;
+    top: 0px;
+    background: transparent;
+    
+}
+.user-actions > li {
+    margin:0px;
+    text-align: left;
+    padding-right: 40px;
+    list-style: none;
+    z-index: 0
+}
+.user-actions > li:hover {
+    background: lightblue;
+    opacity: .5;
+    
+    
+}
+.user-actions  {
+    padding: 5px;
+}
+
+.searchbar {
+    width: 250px;
+    height: 30px;
+    border-radius: 20px;
+    background:  #edeeef;
+    border: none;
+}

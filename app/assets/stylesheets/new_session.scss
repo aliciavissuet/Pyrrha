@@ -1,0 +1,216 @@
+body {
+    margin: 0px;
+    padding: 0px;
+}
+.new-session {
+    margin: 0;
+    padding:0;
+    min-height: 100vh;
+    background-image: linear-gradient(180deg,#00a0ee,#3668ff 50%);
+    background-color: #3668ff;
+    background-repeat: no-repeat;
+    font-family: 'Didact Gothic', sans-serif;
+    letter-spacing: 0.05em;
+}
+.signup-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.pyrrha-signup {
+   font-size: 25px;
+   font-weight: 700;
+   color: white;
+   margin: 15px;
+   height: 30px;
+   padding: 0px;
+   font-family: 'Didact Gothic', sans-serif;
+   text-decoration: none;
+}
+.Log-in-button {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    color: white;
+    font-size: 15px;
+    margin: 15px;
+    border: none;
+    background-color: hsla(0,0%,100%,.2);
+    height: 30px;
+    font-family: 'Didact Gothic', sans-serif;
+    border-radius: 3px;
+    text-decoration: none;
+}
+.Sign-up-button {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    color: rgb(27, 14, 145);
+    font-size: 15px;
+    margin: 15px;
+    border: none;
+    background-color: white;
+    height: 30px;
+    font-family: 'Didact Gothic', sans-serif;
+    border-radius: 5px;
+    text-decoration: none;
+}
+.sign-up {
+    position: relative;
+    top: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    justify-content: center;
+    font-family: 'Didact Gothic', sans-serif;
+}
+.sign-up input{
+    padding-left: 2px;
+    padding-right: 2px;
+    border-radius: 3px;
+    box-sizing: border-box;
+    height: 40px;
+    margin-top: 1px;
+    margin-bottom: 22px;
+    width: inherit;
+    width: 300px;
+    border: none;
+}
+
+.intro {
+    width: 70%;
+    color: white;
+    font-family: sans-serif;
+    font-size: 42px;
+    margin: 0px;
+    text-align: center;
+    font-weight: 100;
+}
+.sign-up button{
+    background: #224099;
+    margin-top: 10px;
+    box-sizing: border-box;
+    margin-top: 5px;
+    width: 300px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border: none;
+    color: white;
+    height: 50px;
+    font-size: 15px;
+    font-family: 'Didact Gothic', sans-serif;
+}
+.signup-contents {
+    position: relative;
+    top: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.signup-error {
+    border: 1px solid #d64040;
+    margin:0px;
+}
+.signup-error-box {
+    height: 40px;
+    box-sizing: border-box;
+    padding: 10px;
+    margin-top: -20px;
+    background: #d64040;
+    text-align: center;
+    justify-content: center;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+.signup-contents > section, form {
+    margin: 20px;
+    padding: 20px;
+
+}
+.signup-contents > span {
+    padding: 10px;
+    font-weight: 100;
+}
+.signup-label {
+    font-size: 12px;
+    color: white;
+    margin-left: 1px;
+}
+.signup-and-error {
+    background: #d64040;
+    padding-left: 1px;
+    margin-left: 0px;
+    margin-right: 1px;
+    padding-right: 1px;
+    border-radius: 5px;
+}
+
+.smaller-text {
+    color: white;
+    font-size: 20px;
+    font-weight: 300;
+}
+::-webkit-input-placeholder { /* WebKit browsers */
+    padding: 20px;
+}
+.log-in {
+    color: white;
+    font-size: 12px;
+    position: relative;
+    top: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    justify-content: center;
+    font-family: 'Didact Gothic', sans-serif;
+}
+
+.log-in  button {
+    background: #224099;
+    border-radius: 5px;
+    margin-top: 10px;
+    box-sizing: border-box;
+    margin-top: 2px;
+    width: 300px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border: none;
+    color: white;
+    height: 50px;
+    font-size: 15px;
+    font-family: 'Didact Gothic', sans-serif;
+}
+.log-in  input{
+    border-radius: 3px;
+    box-sizing: border-box;
+    height: 40px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    width: inherit;
+    width: 300px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border: none;
+}
+.login-error-box {
+    height: 40px;
+    box-sizing: border-box;
+    padding: 10px;
+    margin-top: 0px;
+    background: #d64040;
+    text-align: center;
+    justify-content: center;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+.login-label {
+    margin-top: -15px;
+
+}
