@@ -18,6 +18,6 @@ const receiveTrackArtist = artist => ({
 export const fetchTrack = (id) => dispatch => (
     TrackAPIUtil.fetchTrack(id).then(track => {
         dispatch(receiveTrack(track.track));
-        dispatch(receiveTrackArtist(track.artist));
+        dispatch(receiveTrackArtist(track.artist.artist));
     })
 );

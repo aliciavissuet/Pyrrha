@@ -1,9 +1,7 @@
 json.album do 
     json.extract! album, :id, :title, :year
     json.track_ids do 
-        json.array! (tracks) do |track|
-            track.id
-        end
+        json.array! tracks, :id          
     end
 end
 json.tracks do 

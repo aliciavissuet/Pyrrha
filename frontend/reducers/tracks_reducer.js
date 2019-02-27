@@ -5,7 +5,7 @@ import merge from 'lodash/merge';
 export default (state={}, action) => {
     switch(action.type) {
         case RECEIVE_TRACK:
-            return merge({}, state, {[action.track.id]: action.track});
+            return merge({}, state, {[action.track.track.id]: action.track.track});
         case RECEIVE_ALBUM_TRACKS:
             console.log(action);
             return merge({}, state, action.tracks);
