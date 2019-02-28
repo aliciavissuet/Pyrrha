@@ -7,10 +7,7 @@ export default (state={}, action) => {
         case RECEIVE_ALBUM:
             return merge({}, state, {[action.album.id]: action.album});
         case RECEIVE_ARTIST_ALBUMS:
-            const albs = Object.values(action.albums).map(album => (
-                {[album.album.id]: album.album}));
-            
-            return merge({}, state, albs[0]);
+            return merge({}, state, action.albums)
         default:
             return state;
     }

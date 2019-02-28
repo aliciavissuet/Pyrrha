@@ -26,8 +26,8 @@ const receiveArtistErrors = (errors) => ({
 //     ()));
 
 export const fetchArtist = (id) => dispatch => (
-    ArtistAPIUtil.fetchArtist(id).then((artist => {
-        dispatch(receiveArtist(artist.artist));
-        dispatch(receiveArtistAlbums(artist.albums));
+    ArtistAPIUtil.fetchArtist(id).then((payload => {
+        dispatch(receiveArtist(payload.artist));
+        dispatch(receiveArtistAlbums(payload.albums));
     }), (errors => dispatch(receiveArtistErrors(errors))))
 );

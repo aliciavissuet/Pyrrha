@@ -16,8 +16,8 @@ const receiveAlbumTracks = tracks => ({
 });
 
 export const fetchAlbum = (id) => dispatch => (
-    AlbumAPIUtil.fetchAlbum(id).then(album => {
-        dispatch(receiveAlbum(album.album));
-        dispatch(receiveAlbumTracks(album.tracks));
+    AlbumAPIUtil.fetchAlbum(id).then(payload => {
+        dispatch(receiveAlbum(payload.album));
+        dispatch(receiveAlbumTracks(payload.tracks));
     })
 );
