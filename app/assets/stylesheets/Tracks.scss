@@ -1,16 +1,7 @@
-.track-display-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    grid-gap: 10px;
-    width: 100vw;
-    background: pink;
-    height: auto;
-    justify-content: space-between;
-    
-}
 
-.track-display-container ul{
+
+.track-display-container {
+    // ul{
   list-style: none;
   display: -ms-flexbox;
   display: -webkit-flex;
@@ -23,49 +14,24 @@
   -ms-flex-flow: row wrap;
   flex-flow: row wrap;
   position:relative;
-  padding:1%;
-  margin-top:10em;
-  margin-left: 10em;
-  margin-right: 10em;
+  width: 100vw;
+
   
+
 }
 
-.track-display-container ul:before {
-  position:absolute;
-  top:-2em;
-  left:2%;
-  font-weight:700;
-}
+// .track-display-container ul:before {
+// //   position:absolute;
+//   top:-2em;
+//   left:2%;
+//   font-weight:700;
+// }
 
-.Track-item li {
-  /* A friendly reminder that flex: auto; is the same as flex: 1 1 auto;. In this case, that means any positive free space after the list items have been sized will be distributed evenly amongst them (since they all are auto). See the spec for more info. */ 
-  -webkit-flex:auto;
-  -moz-flex:auto;
-  flex: auto;
-  width: 100%;
-  min-height:5em;
-  color: white;
-  margin: 1em;
-  padding: 1em;
-  
-  /* Center numbers for the hell of it: anonymous boxes become flex items, btw! */
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flex;
-  display: flex; /* Make each LI a flex container! */
-  align-items: top; /* Cross axis (vertical in this case) */
-  justify-content: center; /* Main axis (horizontal in this case) */
-  box-sizing: border-box;
-  padding: 10px;
-  margin: 10px;
-  list-style: none;
-  height: 100px;
-}
 
 @media only screen and (min-width:30em) {
   li {
-    width:48%; /* Two columns : 48+48=96 + 4 margins of 1%= 4%  */
+    width:48%;
+    margin: 2%; /* Two columns : 48+48=96 + 4 margins of 1%= 4%  */
     // height:48%; /* Two columns : 48+48=96 + 4 margins of 1%= 4%  */
   }
 }
@@ -73,13 +39,14 @@
 @media only screen and (min-width:40em) {
   li {
     width:31%;
+    // height: auto;
     // height:31%;
   }
 }
 
 @media only screen and (min-width:50em) {
   li {
-    width:23%;
+    width:19%;
     // height:23%;
   }
 }
@@ -87,20 +54,32 @@
 @media only screen and (min-width:65em) {
   
   li {
-    width:18%;
+    width:14%;
+    // height: auto;
     // height:18%;
   }
 }
 
 @media only screen and (min-width:80em) {
   li {
-    width:14%;
+    width:15%;
+    // margin: 2%;
+    // 14*6, 6*2
+    // height: auto;
     // height: 14%;
   }
 }
 
 .Track-item {
-    background: yellow;
-    margin: 10px;
+    // background: yellow;
+    box-sizing: border-box;
+    border: 5px solid #575859;
+    margin: 6%;
     padding-top: 100%;
+    padding-left: 5%;
+    height:0px;
+    
+}
+.Tracks-component {
+  margin-left: 30px;
 }

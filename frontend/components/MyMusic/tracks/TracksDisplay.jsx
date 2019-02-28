@@ -35,7 +35,7 @@ class TracksDisplay extends Component {
         };
 
         return (
-            <div >
+            <div className='Tracks-component'>
              {content}
             </div>
         )

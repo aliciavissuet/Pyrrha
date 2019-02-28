@@ -1,5 +1,7 @@
 .my-music-header {
-    padding: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 20px;
     display: flex;
     justify-content: space-between;
     align-content: flex-start;
@@ -22,11 +24,17 @@
 
 .my-music-header-link:visited {
     color: #575859;
+    font-family: 'Didact Gothic', sans-serif;
+ 
 }
 .my-music-header-link {
     margin: 10px;
     text-decoration: none;
-    color: #575859
+    color: #575859;
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 14px;
+    padding: 1%;
+    
 }
 .selected-link {
     text-decoration: underline;
@@ -133,4 +141,20 @@
     text-align: center;
     
 }
+
+.middle-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-bottom: 5px;
+    margin-left: 30px;
+}
+.middle-nav-links {
+    display: flex;
+    border-left: 1px solid lightgray;
+}
+// .middle-nav-links > Link {
+//     padding-bottom: 0px;
+//     margin: 9%;
+// }
 

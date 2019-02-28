@@ -13,7 +13,8 @@ class RecentlyPlayedContainer extends Component {
             </ul>
         )
         return (
-            <div>
+            <div className='my-music-recently-played'>
+                <h1 className='my-music-component-header'>Recently Played</h1>
                 {content}
             </div>
         );

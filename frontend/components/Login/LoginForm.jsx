@@ -54,7 +54,7 @@ class Login extends Component {
             this.loginAsGuestHelper(name, pw, button)
         );
     }
-
+    // some inpsiration from spookify: https://github.com/amanpriya-k/spookify/
     loginAsGuestHelper(name, pw, button) {
         if (name.length > 0) {
             this.setState(
