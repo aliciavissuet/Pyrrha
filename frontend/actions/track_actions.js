@@ -6,6 +6,7 @@ export const RECEIVE_TRACK = 'RECEIVE_TRACK';
 export const RECEIVE_TRACK_ARTIST = 'RECEIVE_TRACK_ARTIST';
 export const RECEIVE_TRACK_ERRORS = 'RECEIVE_TRACK_ERRORS';
 export const RECEIVE_TRACK_ALBUM = 'RECEIVE_TRACK_ALBUM';
+export const LOADING_TRACK = 'LOADING_TRACK';
 
 const receiveTrack = track => ({
     type: RECEIVE_TRACK,
@@ -22,10 +23,15 @@ const receiveTrackAlbum = album => ({
     album
 });
 
-export const fetchTrack = (id) => dispatch => (
+const loadingTrue = () => ({
+    type: LOADING_TRACK
+});
+
+export const fetchTrack = (id) => dispatch => {
+    dispatch(loadingTrue());
     TrackAPIUtil.fetchTrack(id).then(payload => {
         dispatch(receiveTrack(payload.track));
         dispatch(receiveTrackArtist(payload.artist));
         dispatch(receiveTrackAlbum(payload.album));
     })
-);
+};

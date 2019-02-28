@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 
 class TrackItem extends Component {
     render() {
-        const {title, artistName} = this.props;
+        const {track, artist} = this.props;
         return (
             <div className='Track-item'>
-                <span>{title}</span>
-                <span>{artistName}</span>
+                track item here
+                <span>{track.title}</span>
+                <br/>
+                <span>{artist.name}</span>
             </div>
         );
     }
