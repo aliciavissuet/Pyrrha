@@ -5,7 +5,7 @@ json.artist do
     end
 end
 json.albums do 
-  @albums.each do |album|
+  artist.albums.each do |album|
         json.set! album.id do
             json.partial! '/api/albums/album', album: album, tracks: album.tracks 
         end 
