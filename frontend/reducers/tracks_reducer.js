@@ -7,7 +7,7 @@ export default (state={}, action) => {
         case RECEIVE_TRACK:
             return merge({}, state, {[action.track.track.id]: action.track.track});
         case RECEIVE_ALBUM_TRACKS:
-            console.log(action);
+            
             return merge({}, state, action.tracks);
         default:
             return state;
