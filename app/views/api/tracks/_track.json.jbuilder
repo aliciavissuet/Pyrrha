@@ -1,6 +1,6 @@
-json.track do 
-    json.extract! track, :id, :title, :title, :album_id, :artist_id
-end
+
+json.partial! '/api/tracks/track', track: track
+
 json.artist do
     json.partial! '/api/artists/artist', artist: track.artist, albums: []
 end
