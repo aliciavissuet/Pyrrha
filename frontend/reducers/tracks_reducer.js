@@ -1,5 +1,5 @@
-import {RECEIVE_TRACK, LOADING_TRACK} from '../actions/track_actions';
-import { RECEIVE_ALBUM_TRACKS } from '../actions/album_actions';
+import {RECEIVE_TRACK, LOADING_TRACK, RECEIVE_TRACKS} from '../actions/track_actions';
+// import { RECEIVE_ALBUM_TRACKS } from '../actions/album_actions';
 import merge from 'lodash/merge';
 
 const initialState = {
@@ -12,8 +12,7 @@ export default (state=initialState, action) => {
             return merge({}, state, { loading: true });
         case RECEIVE_TRACK:
             return merge({}, state, { byId: { [action.track.id]: action.track}}, {loading: false});
-        case RECEIVE_ALBUM_TRACKS:
-            
+        case RECEIVE_TRACKS:
             return merge({}, state, {byId: action.tracks}, { loading: false });
         default:
             return state;

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_27_225228) do
+ActiveRecord::Schema.define(version: 2019_02_28_215426) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,24 @@ ActiveRecord::Schema.define(version: 2019_02_27_225228) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_artists_on_name"
+  end
+
+  create_table "station_created_froms", force: :cascade do |t|
+    t.integer "station_id", null: false
+    t.string "mediable_type", null: false
+    t.bigint "mediable_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["mediable_type", "mediable_id"], name: "index_station_created_froms_on_mediable_type_and_mediable_id"
+    t.index ["station_id"], name: "index_station_created_froms_on_station_id"
+  end
+
+  create_table "stations", force: :cascade do |t|
+    t.string "title", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_stations_on_user_id"
   end
 
   create_table "tracks", force: :cascade do |t|

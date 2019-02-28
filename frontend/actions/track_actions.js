@@ -7,6 +7,7 @@ export const RECEIVE_TRACK_ARTIST = 'RECEIVE_TRACK_ARTIST';
 export const RECEIVE_TRACK_ERRORS = 'RECEIVE_TRACK_ERRORS';
 export const RECEIVE_TRACK_ALBUM = 'RECEIVE_TRACK_ALBUM';
 export const LOADING_TRACK = 'LOADING_TRACK';
+export const RECEIVE_TRACKS = 'RECEIVE_TRACKS';
 
 const receiveTrack = track => ({
     type: RECEIVE_TRACK,

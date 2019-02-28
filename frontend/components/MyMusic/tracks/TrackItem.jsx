@@ -12,6 +12,7 @@ class TrackItem extends Component {
                 <br/>
                 {artist.name}
                 <button className='add-station'><FontAwesomeIcon icon={["fas", "circle-notch"]} /></button>
+                
             </div>
         );
     }
