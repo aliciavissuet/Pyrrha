@@ -11,7 +11,11 @@ import Login from './Login/loginContainer';
 import Signup from './Signup/Signup';
 import Splash from './Splash/splash';
 import ProtectedApp from '../components/MyMusic/ProtectedApp';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faIgloo } from '@fortawesome/free-solid-svg-icons'
 
+library.add(faIgloo)
 
 const App = () => (
     <div>

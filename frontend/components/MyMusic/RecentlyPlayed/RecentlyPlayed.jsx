@@ -7,9 +7,12 @@ class RecentlyPlayed extends Component {
         return (
             <div className='Track-item'>
                 track item here
+                <br/>
                 <span>title</span>
                 <br />
                 <span>artist</span>
+                <br/>
+                <button><i class="fas fa-circle-notch"></i></button>
             </div>
         );
     }

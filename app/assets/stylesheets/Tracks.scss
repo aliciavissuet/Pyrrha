@@ -15,17 +15,10 @@
   flex-flow: row wrap;
   position:relative;
   width: 100vw;
-
-  
-
 }
-
-// .track-display-container ul:before {
-// //   position:absolute;
-//   top:-2em;
-//   left:2%;
-//   font-weight:700;
-// }
+.track-display-container li {
+  margin-bottom: 20px;
+}
 
 
 @media only screen and (min-width:30em) {
@@ -65,21 +58,28 @@
     width:15%;
     // margin: 2%;
     // 14*6, 6*2
-    // height: auto;
+    height: auto;
     // height: 14%;
   }
 }
 
 .Track-item {
-    // background: yellow;
+    background: url('app/assets/images/damien_rice.jpg') no-repeat;
+    padding: 20%;
+    margin-bottom: 10%;
     box-sizing: border-box;
     border: 5px solid #575859;
     margin: 6%;
-    padding-top: 100%;
+    // padding-top: 100%;
     padding-left: 5%;
     height:0px;
+    height: 100%;
     
 }
 .Tracks-component {
   margin-left: 30px;
 }
+// .track-image {
+//   height: 50px;
+//   width: auto;
+// }

@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import cx from 'classnames';
-import UserLogo from './UserLogo'
+import UserLogo from './UserLogo';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 
 class Header extends React.Component {
     constructor(props){
@@ -34,6 +36,7 @@ class Header extends React.Component {
                         <Link to='/my-music' className={linkClassMM}>My Music</Link>
                     </div>
                     <div onClick={this.handleOtherClick}>
+                        <span><FontAwesomeIcon icon={["fas", "faSearch"]} /></span>
                         <input type="text" placeholder='Search' className='searchbar'/>
                     </div>
                 </div>

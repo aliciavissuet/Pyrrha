@@ -5,8 +5,9 @@ import Root from './components/root';
 import { fetchArtist } from './actions/artist_actions';
 import { fetchTrack} from './actions/track_actions';
 import { fetchAlbum } from './actions/album_actions';
-// import {fetchAlbum} from './utils/album_api_util';
-
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faCircleNotch, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faCircle } from '@fortawesome/free-regular-svg-icons';
 document.addEventListener('DOMContentLoaded', () => {
     let store;
     if (window.currentUser) {
@@ -21,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         store = configureStore();
     }
+    library.add(faCircle, faCircleNotch, faSearch);
     window.getState = store.getState();
     window.dispatch = store.dispatch;
     window.fetchTrack = fetchTrack;
