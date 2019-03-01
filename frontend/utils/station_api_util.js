@@ -4,3 +4,12 @@ export const fetchStation = (id) => (
         url: `/api/stations/${id}`
     })
 );
+
+export const postStation = (station) => (
+    $.ajax({
+        method: 'POST',
+        url: `/api/stations`,
+        dataType: 'json',
+        data: {station}
+    })
+);

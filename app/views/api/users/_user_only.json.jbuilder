@@ -1,4 +1,1 @@
-json.extract! user, :id, :username, :email
-json.station_ids do 
-    json.array! stations, :id
-end
+json.extract! user, :id, :username, :email, :station_ids

@@ -3,6 +3,13 @@ import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 class TrackItem extends Component {
+    constructor(props) {
+        super(props);
+        // this.addStation = this.addStation.bind(this);
+    }
+    postStation (){
+        this.props.postStation({title: this.props.track.title});
+    }
     render() {
         const {track, artist} = this.props;
         return (
@@ -11,7 +18,7 @@ class TrackItem extends Component {
                 {track.title}
                 <br/>
                 {artist.name}
-                <button className='add-station'><FontAwesomeIcon icon={["fas", "circle-notch"]} /></button>
+                <button className='add-station'><FontAwesomeIcon icon={["fas", "circle-notch"]} onClick={this.postStation}/></button>
                 
             </div>
         );

@@ -1,1 +1,1 @@
-json.extract! station, :id, :title, :user_id
+json.extract! station, :id, :title, :track_ids, :album_ids, :artist_ids 
