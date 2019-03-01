@@ -5,7 +5,8 @@ import { fetchAlbum } from '../../../actions/album_actions';
 const mapStateToProps = state => ({
     albums: state.entities.albums,
     tracks: state.entities.tracks,
-    artists: state.entities.artists
+    artists: state.entities.artists,
+    ui: state.ui
 });
 
 const mapDispatchToProps = dispatch => ({

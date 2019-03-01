@@ -4,16 +4,14 @@ import {RECEIVE_ARTIST, LOADING_ARTIST, RECEIVE_ARTISTS} from '../actions/artist
 import merge from 'lodash/merge';
 
 const initialState = {
-    loading: false
+    
 };
 export default (state=initialState, action) => {
     switch(action.type) {
-        case LOADING_ARTIST:
-            return merge({}, state, { loading: true });
         case RECEIVE_ARTIST:
-            return merge({}, state, { byId: {[action.artist.id]: action.artist} }, { loading: false });
+            return merge({}, state, { [action.artist.id]: action.artist} );
         case RECEIVE_ARTISTS:
-            return merge({}, state, {byId: action.artists});
+            return merge({}, state, action.artists);
         default:
             return state;
 

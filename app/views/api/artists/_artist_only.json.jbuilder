@@ -1,5 +1,2 @@
 
-json.extract! artist, :id, :name
-json.album_ids do 
-    json.array! artist.albums, :id          
-end
+json.extract! artist, :id, :name, :album_ids

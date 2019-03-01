@@ -1,16 +1,16 @@
 import merge from 'lodash/merge';
-import { LOADING_STATION, RECEIVE_STATION } from "../actions/station_actions";
+import {  RECEIVE_STATION, RECEIVE_STATIONS } from "../actions/station_actions";
 
 const initialState = {
-    loading: false
+    
 };
 
 export default (state=initialState, action) => {
     switch(action.type) {
-        case LOADING_STATION:
-            return merge({}, state, {loading: true});
         case RECEIVE_STATION:
-            return merge({}, state, {byId: {[action.station.id]: action.station}});
+            return merge({}, state,  { [action.station.id]: action.station });
+        case RECEIVE_STATIONS:
+            return merge({}, state, action.stations);
         default:
             return state;
     }

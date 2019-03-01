@@ -2,6 +2,7 @@ class Station < ApplicationRecord
     validates :title, :user_id, presence: true
     has_many :station_created_froms
     # has_many :medias, through: :mediable
+    belongs_to :user
     has_many :tracks, 
         through: :station_created_froms,
         source: :mediable,

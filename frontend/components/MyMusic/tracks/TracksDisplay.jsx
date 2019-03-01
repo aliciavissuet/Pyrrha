@@ -14,8 +14,8 @@ class TracksDisplay extends Component {
     }
 
     render(){
-        const artists = _.get(this, 'props.artists.byId', {});
-        const newTracks = _.get(this, 'props.tracks.byId', {});
+        const artists = _.get(this, 'props.artists', {});
+        const newTracks = _.get(this, 'props.tracks', {});
 
         const tracks = _.values(newTracks);
         
@@ -28,7 +28,7 @@ class TracksDisplay extends Component {
             </ul>
         )
         let content;
-        if (!tracks || tL.length===0  || this.props.albums.loading){
+        if (!tracks || tL.length===0  || this.props.ui.albums.loading){
             content = <Loading /> 
         } else {
             content =  trackList

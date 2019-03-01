@@ -3,6 +3,7 @@ import {RECEIVE_TRACKS} from './track_actions';
 import { RECEIVE_ALBUMS } from './album_actions';
 import { RECEIVE_ARTISTS } from './artist_actions';
 export const RECEIVE_STATION = 'RECEIVE_STATION';
+export const RECEIVE_STATIONS = 'RECEIVE_STATIONS';
 export const LOADING_STATION = 'LOADING_STATION';
 
 const receiveStation = (station) => ({
