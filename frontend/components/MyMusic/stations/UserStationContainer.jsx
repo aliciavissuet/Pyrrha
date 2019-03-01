@@ -6,8 +6,12 @@ const mapStateToProps = state => {
     const currUserStations = currUser.stationIds.map((id)=> (
         state.entities.stations[id]
     ));
-    return {stations: currUserStations};
+    return {stations: currUserStations, stationLoading: state.ui.stations.loading};
 };
+
+// const mapDispatchToProps = dispatch => ({
+//     fetchStations: () => dispatch()
+// })
 
 // const mapDispatchToProps = dispatch => ({
 //     createStation: () => dispatch()

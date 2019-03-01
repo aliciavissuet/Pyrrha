@@ -12,7 +12,7 @@ class RecentlyPlayed extends Component {
                 <br />
                 <span>artist</span>
                 <br/>
-                <button><i class="fas fa-circle-notch"></i></button>
+                {/* <button><i className="fas fa-circle-notch"></i></button> */}
             </div>
         );
     }

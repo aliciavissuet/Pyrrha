@@ -9,6 +9,7 @@ import {
 import TracksDisplayContainer from './tracks/TracksDisplayContainer';
 // import RecentlyPlayed from './RecentlyPlayed/RecentlyPlayed';
 import RecentlyPlayedContainer from './RecentlyPlayed/RecentlyPlayedContainer';
+import UserStationConttainer from './stations/UserStationContainer'
 import MiddleNavBar from './MiddleNavBar/MiddleNavBar';
 
 class All extends Component {
@@ -19,6 +20,7 @@ class All extends Component {
                 <MiddleNavBar {...this.props}/>
                 <Switch>
                     <Route path="/my-music/tracks" component={TracksDisplayContainer} />
+                    <Route path='/my-music/stations' component={UserStationConttainer}/>
                 </Switch>
             </div>
            

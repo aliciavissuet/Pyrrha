@@ -20,7 +20,7 @@ class TracksDisplay extends Component {
         const tracks = _.values(newTracks);
         
         const tL = tracks.map((track, i) => {
-            return (<li ><TrackItem className='Track-item' key={i} track={track} artist={artists[track.artistId]} postStation={this.props.postStation}/></li>)});
+            return (<li key={i}><TrackItem className='Track-item' track={track} artist={artists[track.artistId]} postStation={this.props.postStation}/></li>)});
 
         const trackList =  (
             <ul className='track-display-container'>

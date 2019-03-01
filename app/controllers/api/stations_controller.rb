@@ -10,16 +10,18 @@ class Api::StationsController < ApplicationController
     def create
         @station = Station.new(title: params[:station][:title])
         @station.user_id = current_user.id 
-        debugger
-        possible_stations = StationCreatedFrom
+        mediable_id = params[:station][:mediable_id].to_i
+        possible_station = StationCreatedFrom
             .where(mediable_id: params[:station][:mediable_id], mediable_type: params[:station][:mediable_type])
-        
-        if possible_stations.length==0
+            .select {|scf| scf.station.first_media == mediable_id && scf.station.user_id == current_user.id}
+        debugger
+        if possible_station.length==0
+            @station.tracks.push(Track.find(mediable_id))
             @station.save
-            @station_created_from = StationCreatedFrom.new(station_created_from_params)
-            @station_created_from.save 
+            # @station_created_from = StationCreatedFrom.new(station_created_from_params)
+            # @station_created_from.save 
         else
-            @station = Station.find(possible_stations[0].station_id)
+            @station = possible_station[0].station
         end
         
         @tracks = (@station.tracks) ? @station.tracks  : {}

@@ -5,10 +5,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 class TrackItem extends Component {
     constructor(props) {
         super(props);
-        // this.addStation = this.addStation.bind(this);
+        this.postStation = this.postStation.bind(this);
     }
     postStation (){
-        this.props.postStation({title: this.props.track.title});
+        
+        const {title, id} = this.props.track;
+        const station_title = title + ' Station';
+        
+        this.props.postStation({title: station_title, mediable_id: id, mediable_type: 'Track'});
     }
     render() {
         const {track, artist} = this.props;
