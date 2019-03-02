@@ -47,17 +47,20 @@ class Header extends React.Component {
                         <Link to='/now-playing' className={linkClassNP}>Now Playing</Link>
                         <Link to='/my-music' className={linkClassMM}>My Music</Link>
                     </div>
-                    <div onClick={this.handleOtherClick}>
-                        
-                        <input type="text" placeholder='Search' className='searchbar' onChange={this.updateSearch}/>
-                    </div>
+                    
+                </div>
+                <div onClick={this.handleOtherClick}>
+                    
+                    <input type="text" placeholder='Search' className='searchbar' onChange={this.updateSearch}/>
                 </div>
                 <div className='header-right'>
-                    <span><UserLogo 
+                    {/* <span> */}
+                        <UserLogo 
                         username={this.props.currentUser.username}
                         logout={this.handleClick} 
                         toggled={this.state.toggled}
-                        toggle={this.toggle}/></span>
+                        toggle={this.toggle}/>
+                        {/* </span> */}
                     
                 </div>
             </div>

@@ -2,8 +2,10 @@ import React from 'react';
 
 const TrackResultItem = (props) => {
     return (
-        <div>
-            <h3>{props.track.title}</h3>
+        <div className='search-result-item'>
+            <span className='search-result-title'>{props.track.title}</span>
+            <br/>
+            <span className='search-result-type'>Song</span>
             {/* <h3>{props.title}</h3>
             <h3>{props.title}</h3> */}
         </div>

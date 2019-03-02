@@ -20,7 +20,7 @@ class SearchNav extends Component {
         const linkClassAl = cx('my-music-header-link', { 'selected-link': searchResultType === 'albums' });
         const linkClasstr = cx('my-music-header-link', { 'selected-link': searchResultType === 'tracks' });
         return (
-            <div>
+            <div className='search-content'>
                 <div className='search-header'>
                     <button className='search-link' onClick={() => this.changeDisplay('all')} className={linkClassall}>All</button>
                     <button className='search-link' onClick={() => this.changeDisplay('artists')}className={linkClassAr}>Artists</button>

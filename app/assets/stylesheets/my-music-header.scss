@@ -8,7 +8,7 @@
     font-family: 'Didact Gothic', sans-serif;
     color: rgba(0,0,0,.6);
     font-size: 17px;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.03em;
 }
 .my-music-pyrrha {
     margin: 0;
@@ -42,9 +42,9 @@
     font-weight: 700;
 }
 .music-header-left {
-    width: 90%;
+    // width: 90%;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
 }
 .pandora-initial {
 	background: linear-gradient(90deg, rgba(63,94,251,1) 0%, rgba(232,8,146,1) 100%);
@@ -130,8 +130,10 @@
 }
 
 .searchbar {
-    position: absolute;
-    left: 45%;
+    // position: absolute;
+    // left: 45%;
+    margin-left: 10px;
+    margin-right: 10px;
     width: 250px;
     height: 30px;
     border-radius: 20px;
@@ -139,6 +141,11 @@
     border: none;
     font-size: 17px;
     text-align: center;
+    outline: none;
+    // width:50%;
+    // position: absolute;
+    // left: 50%;
+    
     
 }
 
