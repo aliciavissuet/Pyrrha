@@ -51,7 +51,7 @@ class Header extends React.Component {
                 </div>
                 <div onClick={this.handleOtherClick}>
                     
-                    <input type="text" placeholder='Search' className='searchbar' onChange={this.updateSearch}/>
+                    <Link to='/my-music/search'><input type="text" placeholder='Search' className='searchbar' onChange={this.updateSearch} /></Link>
                 </div>
                 <div className='header-right'>
                     {/* <span> */}

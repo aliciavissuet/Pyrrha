@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import UserStations from './UserStations';
-import {fetchStations} from '../../../actions/station_actions';
+import {fetchStations, deleteStation} from '../../../actions/station_actions';
 
 const mapStateToProps = state => {
     const currUser = state.entities.users[state.session.currentUser];
@@ -18,7 +18,8 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-    fetchStations: () => dispatch(fetchStations())
+    fetchStations: () => dispatch(fetchStations()),
+    deleteStation: (id) => dispatch(deleteStation(id))
 });
 
 // const mapDispatchToProps = dispatch => ({

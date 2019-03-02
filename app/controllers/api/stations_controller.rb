@@ -16,8 +16,16 @@ class Api::StationsController < ApplicationController
             .select {|scf| scf.station.first_media == mediable_id && scf.station.user_id == current_user.id}
         
         if possible_station.length==0
-            @station.tracks.push(Track.find(mediable_id))
-            @station.save
+            if params[:station][:mediable_type] == 'Track'
+                @station.tracks.push(Track.find(mediable_id))
+                @station.save
+            elsif params[:station][:mediable_type] == 'Album'
+                @station.albums.push(Album.find(mediable_id))
+                @station.save
+            elsif params[:station][:mediable_type] == 'Artist' 
+                @station.artists.push(Artist.find(mediable_id))
+                @station.save
+            end
             # @station_created_from = StationCreatedFrom.new(station_created_from_params)
             # @station_created_from.save 
         else
@@ -42,7 +50,22 @@ class Api::StationsController < ApplicationController
     end
 
     #unfollow station
-    def destroy 
+    def destroy
+        
+        @station = Station.find(params[:id])
+        @station.delete
+        @stations = Station.includes(:tracks, :albums, :artists).where(stations: {user_id: current_user.id})
+        
+        @tracks = []
+        @albums = []
+        @artists = []
+        @stations.each do |station|
+            @tracks.concat(station.tracks)
+            @albums.concat(station.albums)
+            @artists.concat(station.artists)
+        end
+        @user = current_user
+        render '/api/stations/index'
     end
     
     def index 

@@ -83,3 +83,12 @@
 //   height: 50px;
 //   width: auto;
 // }
+.delete-button {
+  outline: none;
+  border: none;
+  color: #575859;
+  cursor: pointer;
+}
+.delete-button:hover{
+  color:red;
+}

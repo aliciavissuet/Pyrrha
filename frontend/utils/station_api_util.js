@@ -21,3 +21,10 @@ export const fetchUserStations = () => (
 
     })
 );
+
+export const deleteStation = (id) => (
+    $.ajax({
+        method: 'DELETE',
+        url: `/api/stations/${id}`,
+    })
+);

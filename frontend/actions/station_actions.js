@@ -63,7 +63,6 @@ export const postStation = station => dispatch => {
 };
 
 export const fetchStations = () => dispatch => {
-    console.log('got to actions')
     dispatch(loadingTrue());
     StationAPIUtil.fetchUserStations().then(payload => {
         dispatch(receiveArtists(payload.artists));
@@ -73,3 +72,15 @@ export const fetchStations = () => dispatch => {
         dispatch(receiveStations(payload.stations));
     });
 };
+
+export const deleteStation = (id) => dispatch => {
+    dispatch(loadingTrue());
+    StationAPIUtil.deleteStation(id).then(payload => {
+        dispatch(receiveArtists(payload.artists));
+        dispatch(receiveAlbums(payload.albums));
+        dispatch(receiveTracks(payload.tracks));
+        dispatch(receiveCurrentUser(payload.user));
+        dispatch(receiveStations(payload.stations));
+    });
+};
+

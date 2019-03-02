@@ -1,5 +1,7 @@
 import {connect} from 'react-redux';
 import MainSearch from './MainSearch';
+import { postStation } from '../../../actions/station_actions';
+
 import _ from 'lodash';
 
 const mapStateToProps = state => ({
@@ -9,4 +11,8 @@ const mapStateToProps = state => ({
     
 });
 
-export default connect(mapStateToProps)(MainSearch);
+const mapDispatchToProps = state => ({
+    postStation: (station) => dispatch(postStation(station))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(MainSearch);
