@@ -11,6 +11,7 @@ import {
 } from 'react-router-dom';
 import All from './All';
 import StationShow from './stations/StationShow';
+import SearchNav from './search/SearchNav';
 class ProtectedApp extends Component {
 
     render() {
@@ -18,6 +19,7 @@ class ProtectedApp extends Component {
             <div>
                 <HeaderContainer {...this.props}/>
                 <Switch>
+                    <Route path='/my-music/search' component={SearchNav} />
                     <Route path="/my-music" component={All}/>
                     {/* <Route exact path='/my-music/tracks' component={TrackDisplayContainer}/> */}
                     <Route exact path='/stations/:id' component={StationShowContainer}/>

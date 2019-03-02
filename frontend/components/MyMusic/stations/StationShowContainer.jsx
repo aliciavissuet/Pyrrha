@@ -3,7 +3,7 @@ import StationShow from './StationShow';
 
 const mapStateToProps = state => {
     const stationId = this.props.match.params.id;
-    const station = this.state.entities.stations[stationId];
+    const station = state.entities.stations[stationId];
 
     return {station};
 };

@@ -9,11 +9,13 @@ class Header extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            toggled: false
+            toggled: false,
+            term: '',
         };
         this.handleClick = this.handleClick.bind(this);
         this.handleOtherClick = this.handleOtherClick.bind(this);
         this.toggle = this.toggle.bind(this);
+        this.updateSearch = this.updateSearch.bind(this);
     }
     handleClick() {
         this.props.logout();
@@ -23,6 +25,16 @@ class Header extends React.Component {
     }
     toggle(){
         this.setState({toggled: !this.state.toggled})
+    }
+    updateSearch(e){
+        if (e.target.value.length===0) {
+            this.props.clearSearch();
+        } else {
+            this.props.search(e.target.value);
+
+        }
+        this.setState({term: e.target.value});
+
     }
     
     render() {
@@ -37,7 +49,7 @@ class Header extends React.Component {
                     </div>
                     <div onClick={this.handleOtherClick}>
                         
-                        <input type="text" placeholder='Search' className='searchbar'/>
+                        <input type="text" placeholder='Search' className='searchbar' onChange={this.updateSearch}/>
                     </div>
                 </div>
                 <div className='header-right'>

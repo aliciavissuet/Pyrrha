@@ -4,13 +4,15 @@ import ArtistsUIReducer from './ArtistsUIReducer';
 import TracksUIReducer from './TracksUIReducer';
 import AlbumsUIReducer from './AlbumsUIReducer';
 import StationsUIReducer from './StationsUIReducer';
+import SearchUIReducer from './SearchUIReducer';
 
 const UIReducer = combineReducers({
     users: UsersUIReducer,
     artists: ArtistsUIReducer,
     tracks: TracksUIReducer,
     albums: AlbumsUIReducer,
-    stations: StationsUIReducer
+    stations: StationsUIReducer,
+    search: SearchUIReducer
 });
 
 export default UIReducer;

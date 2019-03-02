@@ -1,13 +1,13 @@
-import { RECEIVE_SEARCH_ARTISTS, RECEIVE_SEARCH_ALBUMS, RECEIVE_SEARCH_TRACKS} from '../actions/search_actions';
+import { RECEIVE_SEARCH_ARTISTS, RECEIVE_SEARCH_ALBUMS, RECEIVE_SEARCH_TRACKS, CLEAR_SEARCH} from '../actions/search_actions';
 import merge from 'lodash/merge';
 
 const initialState = {
-    artists: [],
-    albums: [],
-    tracks: [],
+    artists: {},
+    albums: {},
+    tracks: {},
 };
 
-export default (state={}, action) => {
+export default (state=initialState, action) => {
     switch(action.type) {
         case RECEIVE_SEARCH_ARTISTS:
             if (!action.artists) {
@@ -29,8 +29,9 @@ export default (state={}, action) => {
             } else {
                 return merge({}, state, { tracks: action.tracks });
             }
-            
+        case CLEAR_SEARCH:
+            return initialState;    
         default:
-            return state;
+            return initialState;
     }
 };

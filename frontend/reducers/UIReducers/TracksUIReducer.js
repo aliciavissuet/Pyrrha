@@ -1,6 +1,7 @@
 import {LOADING_TRACK} from '../../actions/track_actions';
 import merge from 'lodash/merge';
-const initialState = {}
+
+const initialState = {loading: false};
 export default (state = {}, action) => {
     switch (action.type) {
         case LOADING_TRACK:
