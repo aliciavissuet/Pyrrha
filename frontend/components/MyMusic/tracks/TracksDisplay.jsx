@@ -10,6 +10,7 @@ class TracksDisplay extends Component {
     }
 
     componentDidMount(){
+        console.log('track')
         this.props.fetchAlbumTracks(1);
     }
 

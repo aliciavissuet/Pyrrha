@@ -30,6 +30,11 @@ const loadingTrue = () => ({
     type: LOADING_STATION
 });
 
+const receiveStations = (stations) => ({
+    type: RECEIVE_STATIONS,
+    stations
+});
+
 const receiveCurrentUser = user => ({
     type: RECEIVE_CURRENT_USER,
     user
@@ -41,11 +46,12 @@ export const fetchStation = (id) => dispatch => {
         dispatch(receiveArtists(payload.artists));
         dispatch(receiveAlbums(payload.albums));
         dispatch(receiveTracks(payload.tracks));
-        dispatch(receiveStation(payload.station));
+        dispatch(receiveStations(payload.station));
     });
 };
 
 export const postStation = station => dispatch => {
+    
     dispatch(loadingTrue());
     StationAPIUtil.postStation(station).then(payload => {
         dispatch(receiveArtists(payload.artists));
@@ -53,5 +59,17 @@ export const postStation = station => dispatch => {
         dispatch(receiveTracks(payload.tracks));
         dispatch(receiveCurrentUser(payload.user));
         dispatch(receiveStation(payload.station));
+    });
+};
+
+export const fetchStations = () => dispatch => {
+    console.log('got to actions')
+    dispatch(loadingTrue());
+    StationAPIUtil.fetchUserStations().then(payload => {
+        dispatch(receiveArtists(payload.artists));
+        dispatch(receiveAlbums(payload.albums));
+        dispatch(receiveTracks(payload.tracks));
+        dispatch(receiveCurrentUser(payload.user));
+        dispatch(receiveStations(payload.stations));
     });
 };

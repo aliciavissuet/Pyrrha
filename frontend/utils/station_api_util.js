@@ -13,3 +13,11 @@ export const postStation = (station) => (
         data: {station}
     })
 );
+
+export const fetchUserStations = () => (
+    $.ajax({
+        method: 'GET',
+        url: '/api/stations'
+
+    })
+);

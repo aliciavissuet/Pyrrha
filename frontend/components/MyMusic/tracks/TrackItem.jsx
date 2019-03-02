@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 // import trackImage from '../../../../app/assets/images/hippo.jpg'; 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+import _ from 'lodash';
 class TrackItem extends Component {
     constructor(props) {
         super(props);
@@ -19,9 +20,9 @@ class TrackItem extends Component {
         return (
             <div className='Track-item'>
                 
-                {track.title}
+                <h1>{_.get(track, 'title', 'No Title Found')}</h1>
                 <br/>
-                {artist.name}
+                <h1>{_.get(artist, 'name', 'No Name Found')}</h1>
                 <button className='add-station'><FontAwesomeIcon icon={["fas", "circle-notch"]} onClick={this.postStation}/></button>
                 
             </div>

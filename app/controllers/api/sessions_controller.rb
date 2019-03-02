@@ -1,7 +1,7 @@
 class Api::SessionsController < ApplicationController
     def create
-        @user = User.find_by_credentials(params[:user][:email], params[:user][:password])
-        @stations = (@user && @user.stations) ? @user.stations : {};
+        @user = User.includes(:stations).find_by_credentials(params[:user][:email], params[:user][:password])
+        # @stations = (@user && @user.stations) ? @user.stations : {};
         if @user 
             login!(@user)
             render '/api/users/show' 

@@ -1,18 +1,45 @@
 import React, { Component } from 'react';
+import _ from 'lodash';
 import UserStationItem from './UserStationItem';
+import Loading from '../../common/Loading';
 class UserStations extends Component {
+    constructor(props) {
+        super(props);
+    }
+    
+    componentDidMount(){
+        this.props.fetchStations();
+    }
     
     render() {
-        const stations = this.props.stations.map(station => (
-            <li key={station.id}><UserStationItem station={station} /></li>
-        ))
-        const stationsList = <ul className='track-display-container'>{stations}</ul>
-        const content = (this.props.stationLoading) ? <Loading /> : stationsList
-        return (
+        const stations = _.get(this, 'props.stations', {});
+        const stations1 = _.values(stations);
+        
+        if (this.props.stationLoading) {
+            return (
             <div className='Tracks-component'>
-                {content}
-            </div>
-        );
+                 <Loading />
+            </div>)
+        } else {
+            const stationsL = stations1.map((station, i) => {
+                return (<li key={i}><UserStationItem station={station} tracks={this.props.tracks} /></li>)
+            });
+            return (
+            < div className = 'Tracks-component' >
+                <ul className='track-display-container'>{stationsL}</ul>
+            </div >)
+        }
+    
+
+        
+        // const content = (this.props.stationLoading) ? <Loading /> : stationsList
+        // console.log(content)
+        // return (
+        //     <div className='Tracks-component'>
+        //         {content}
+        //         {/* <h1>hello</h1> */}
+        //     </div>
+        // );
     }
 }
 

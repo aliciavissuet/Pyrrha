@@ -21,9 +21,12 @@ class Station < ApplicationRecord
 
     def first_media
         creates = StationCreatedFrom.where(station_id: self.id)
-        debugger
-        return creates.sort_by {|scf| scf.created_at}[0].mediable_id
         
+        return creates.sort_by {|scf| scf.created_at}[0].mediable_id
     end
+
+    # def getAllInfo 
+        
+    # end
 
 end

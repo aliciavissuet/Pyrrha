@@ -14,7 +14,7 @@ class Api::StationsController < ApplicationController
         possible_station = StationCreatedFrom
             .where(mediable_id: params[:station][:mediable_id], mediable_type: params[:station][:mediable_type])
             .select {|scf| scf.station.first_media == mediable_id && scf.station.user_id == current_user.id}
-        debugger
+        
         if possible_station.length==0
             @station.tracks.push(Track.find(mediable_id))
             @station.save
@@ -35,7 +35,7 @@ class Api::StationsController < ApplicationController
         @station = Station.find(params[:id])
         @station_created_from = StationCreatedFrom.new(station_created_from_params)
         @station_created_from.save
-         @tracks = (@station.tracks) ? @station.tracks  : {}
+        @tracks = (@station.tracks) ? @station.tracks  : {}
         @albums = (@station.albums) ? @station.albums  : {}
         @artists = (@station.artists) ? @station.artists  : {}
         render '/api/stations/created'
@@ -44,9 +44,21 @@ class Api::StationsController < ApplicationController
     #unfollow station
     def destroy 
     end
-    # def station_params
-    #     params.require(:station).permit(:title)
-    # end
+    
+    def index 
+        @stations = Station.includes(:tracks, :albums, :artists).where(stations: {user_id: current_user.id})
+        
+        @tracks = []
+        @albums = []
+        @artists = []
+        @stations.each do |station|
+            @tracks.concat(station.tracks)
+            @albums.concat(station.albums)
+            @artists.concat(station.artists)
+        end
+        @user = current_user
+        render '/api/stations/index'
+    end
     private 
     def station_params 
         params.require(:station).permit(:title, :id, :mediable_id, :mediable_type)
