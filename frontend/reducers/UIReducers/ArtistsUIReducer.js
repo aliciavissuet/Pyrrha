@@ -1,5 +1,6 @@
 import {LOADING_ARTIST} from '../../actions/artist_actions';
 import merge from 'lodash/merge';
+// import { RECEIVE_SEARCH_ARTISTS } from '../../actions/search_actions';
 const initialState = {
     loading: false
 };

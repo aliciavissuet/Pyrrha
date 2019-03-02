@@ -9,6 +9,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { faCircleNotch, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faCircle } from '@fortawesome/free-regular-svg-icons';
 import { fetchStation, postStation, fetchStations } from './actions/station_actions';
+import {fetchSearchResults} from './actions/search_actions';
 document.addEventListener('DOMContentLoaded', () => {
     let store;
     if (window.currentUser) {
@@ -32,6 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.fetchStation  = fetchStation;
     window.postStation = postStation;
     window.fetchStations = fetchStations;
+    window.search = fetchSearchResults;
     const root = document.getElementById('root');
     ReactDOM.render(<Root store={store}/>, root);
 });
