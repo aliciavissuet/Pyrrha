@@ -10,6 +10,7 @@ import { faCircleNotch, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faCircle } from '@fortawesome/free-regular-svg-icons';
 import { fetchStation, postStation, fetchStations, deleteStation, updateStation } from './actions/station_actions';
 import {fetchSearchResults} from './actions/search_actions';
+import { updateUserFollows } from './actions/user_actions';
 document.addEventListener('DOMContentLoaded', () => {
     let store;
     if (window.currentUser) {
@@ -36,6 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.search = fetchSearchResults;
     window.deleteStation = deleteStation;
     window.updateStation = updateStation;
+    window.updateUserFollows = updateUserFollows;
     const root = document.getElementById('root');
     ReactDOM.render(<Root store={store}/>, root);
 });

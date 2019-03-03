@@ -1,5 +1,8 @@
 import * as APIUtils from '../utils/session_api_util';
 import {RECEIVE_STATIONS} from './station_actions';
+import { RECEIVE_ALBUMS } from './album_actions';
+import { RECEIVE_ARTISTS } from './artist_actions';
+import { RECEIVE_TRACKS } from './track_actions';
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
 export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
@@ -31,6 +34,21 @@ const loadingTrue = () => ({
     type: LOADING_USER
 });
 
+const receiveAlbums = (albums) => ({
+    type: RECEIVE_ALBUMS,
+    albums
+});
+
+const receiveArtists = (artists) => ({
+    type: RECEIVE_ARTISTS,
+    artists
+});
+
+const receiveTracks = (tracks) => ({
+    type: RECEIVE_TRACKS,
+    tracks
+});
+
 // const receiveSessions = (session) => ({
 //     type: RECEIVE_SESSION,
 //     stations
@@ -55,6 +73,9 @@ export const login = (user) => dispatch => {
     dispatch(loadingTrue());
     APIUtils.postSession(user).then(payload => {
         dispatch(receiveStations(payload.stations));
+        dispatch(receiveArtists(payload.artists));
+        dispatch(receiveAlbums(payload.albums));
+        dispatch(receiveTracks(payload.tracks));
         dispatch(receiveCurrentUser(payload.user));
     });
 };

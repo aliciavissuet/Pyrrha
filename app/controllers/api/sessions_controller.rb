@@ -1,6 +1,6 @@
 class Api::SessionsController < ApplicationController
     def create
-        @user = User.includes(:stations).find_by_credentials(params[:user][:email], params[:user][:password])
+        @user = User.includes(:stations, :tracks, :albums, :artists).find_by_credentials(params[:user][:email], params[:user][:password])
         # @stations = (@user && @user.stations) ? @user.stations : {};
         if @user 
             login!(@user)

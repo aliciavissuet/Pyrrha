@@ -10,16 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_02_053647) do
+ActiveRecord::Schema.define(version: 2019_03_03_102831) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "album_follows", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "album_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id", "album_id"], name: "index_album_follows_on_user_id_and_album_id", unique: true
+  end
 
   create_table "albums", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "title", null: false
     t.integer "year", null: false
+  end
+
+  create_table "artist_follows", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "artist_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id", "artist_id"], name: "index_artist_follows_on_user_id_and_artist_id", unique: true
   end
 
   create_table "artists", force: :cascade do |t|
@@ -45,6 +61,14 @@ ActiveRecord::Schema.define(version: 2019_03_02_053647) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.index ["user_id"], name: "index_stations_on_user_id"
+  end
+
+  create_table "track_follows", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "track_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id", "track_id"], name: "index_track_follows_on_user_id_and_track_id", unique: true
   end
 
   create_table "tracks", force: :cascade do |t|
