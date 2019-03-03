@@ -46,3 +46,14 @@ export const updateUserFollows = (payload) => dispatch => {
         dispatch(receiveCurrentUser(payload.user));
     });
 };
+
+// export const getUserAlbums = (id) => dispatch => {
+//     dispatch(loadingTrue());
+//     UserAPIUtils.saveMedia(payload).then(payload => {
+//         dispatch(receiveStations(payload.stations));
+//         dispatch(receiveArtists(payload.artists));
+//         dispatch(receiveAlbums(payload.albums));
+//         dispatch(receiveTracks(payload.tracks));
+//         dispatch(receiveCurrentUser(payload.user));
+//     });
+// }

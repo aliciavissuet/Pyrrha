@@ -6,4 +6,15 @@ class Api::AlbumsController < ApplicationController
         # @tracks.each {|track| @artists.push(track.artist)}
         render '/api/albums/show'
     end
+    def index 
+        # debugger
+        @albums = Album.joins(:users).includes(:tracks, :artists).where(users: {id: params[:userId]})
+        @tracks = []
+        @artists = []
+        @albums.each do |album|
+            @tracks.concat(album.tracks)
+            @artists.concat(album.artists)
+        end
+        render '/api/albums/index'
+    end
 end

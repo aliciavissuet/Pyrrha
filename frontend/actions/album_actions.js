@@ -29,6 +29,10 @@ const receiveAlbumArtists = artists => ({
     artists
 });
 
+const receiveAlbums = albums => ({
+    type: RECEIVE_ALBUMS,
+    albums
+});
 
 export const fetchAlbum = (id) => dispatch => {
     dispatch(loadingTrue());
@@ -36,5 +40,17 @@ export const fetchAlbum = (id) => dispatch => {
         dispatch(receiveAlbumArtists(payload.artists));
         dispatch(receiveAlbumTracks(payload.tracks));
         dispatch(receiveAlbum(payload.album));
+    });
+};
+
+export const fetchAlbums = (userId) => dispatch => {
+    console.log('userId',userId)
+    dispatch(loadingTrue());
+    AlbumAPIUtil.fetchAlbums(userId).then(payload => {
+        console.log('payload', payload)
+        // debugger
+        dispatch(receiveAlbumArtists(payload.artists));
+        dispatch(receiveAlbumTracks(payload.tracks));
+        dispatch(receiveAlbums(payload.albums));
     });
 };

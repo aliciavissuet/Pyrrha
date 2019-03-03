@@ -5,18 +5,28 @@ import Loading from '../../common/Loading';
 
 class TracksDisplay extends Component {
     constructor(props){
-        super(props)
-        // this.props.fetchAlbumTracks(1);
+        super(props);
+        const { userId, albums, tracks, artists, ui } = this.props;
+        this.state = {
+            albums, artists, tracks, ui, userId
+        };
     }
 
     componentDidMount(){
         console.log('track')
-        this.props.fetchAlbumTracks(1);
+        this.props.fetchTracks(this.state.userId);
+    }
+    componentDidUpdate(prevProps) {
+        if (prevProps !== this.props) {
+            console.log(this.props);
+            const { userId, albums, tracks, artists, ui } = this.props;
+            this.setState({ userId, albums, tracks, artists, ui });
+        }
     }
 
     render(){
-        const artists = _.get(this, 'props.artists', {});
-        const newTracks = _.get(this, 'props.tracks', {});
+        const artists = _.get(this, 'state.artists', {});
+        const newTracks = _.get(this, 'state.tracks', {});
 
         const tracks = _.values(newTracks);
         

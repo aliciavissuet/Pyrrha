@@ -4,3 +4,11 @@ export const fetchTrack = (id) => (
         url: `/api/tracks/${id}`
     })
 );
+
+export const fetchUserTracks = (userId) => (
+    $.ajax ({
+        method: 'GET',
+        url: `/api/tracks`,
+        data: {userId}
+    })
+);

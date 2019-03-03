@@ -11,6 +11,8 @@ import TracksDisplayContainer from './tracks/TracksDisplayContainer';
 import RecentlyPlayedContainer from './RecentlyPlayed/RecentlyPlayedContainer';
 import UserStationContainer from './stations/UserStationContainer';
 import MiddleNavBar from './MiddleNavBar/MiddleNavBar';
+import MySavedAlbumsContainer from './MySavedAlbums/MySavedAlbumsContainer';
+import MySavedArtistsContainer from './MySavedArtists/MySavedArtistsContainer';
 
 class All extends Component {
     render() {
@@ -19,8 +21,9 @@ class All extends Component {
                 <RecentlyPlayedContainer {...this.props}/>
                 <MiddleNavBar {...this.props}/>
                 <Switch>
+                    <Route path="/my-music/artists" component={MySavedArtistsContainer}/>
                     <Route path="/my-music/tracks" component={TracksDisplayContainer} />
-                    
+                    <Route path="/my-music/albums" component={MySavedAlbumsContainer}/>
                     <Route path='/my-music/stations' component={UserStationContainer} />
                 </Switch>
             </div>

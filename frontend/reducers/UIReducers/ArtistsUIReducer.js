@@ -10,6 +10,6 @@ export default (state = initialState, action) => {
         case LOADING_ARTIST:
             return merge({}, state, { loading: true });
         default:
-            return state;
+            return initialState;
     }
 };

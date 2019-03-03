@@ -1,6 +1,6 @@
 import * as TrackAPIUtil from '../utils/track_api_util';
-import { RECEIVE_ARTIST } from "./artist_actions";
-import { RECEIVE_ALBUM } from './album_actions';
+import { RECEIVE_ARTIST, RECEIVE_ARTISTS } from "./artist_actions";
+import { RECEIVE_ALBUM, RECEIVE_ALBUMS } from './album_actions';
 
 export const RECEIVE_TRACK = 'RECEIVE_TRACK';
 export const RECEIVE_TRACK_ARTIST = 'RECEIVE_TRACK_ARTIST';
@@ -28,6 +28,20 @@ const loadingTrue = () => ({
     type: LOADING_TRACK
 });
 
+const receiveTracks = tracks => ({
+    type: RECEIVE_TRACKS,
+    tracks
+});
+const receiveTrackAlbums = albums => ({
+    type: RECEIVE_ALBUMS,
+    albums
+});
+
+const receiveTrackArtists = artists => ({
+    type: RECEIVE_ARTISTS,
+    artists
+});
+
 export const fetchTrack = (id) => dispatch => {
     dispatch(loadingTrue());
     TrackAPIUtil.fetchTrack(id).then(payload => {
@@ -35,4 +49,13 @@ export const fetchTrack = (id) => dispatch => {
         dispatch(receiveTrackArtist(payload.artist));
         dispatch(receiveTrackAlbum(payload.album));
     })
+};
+
+export const fetchTracks = userId => dispatch => {
+    dispatch(loadingTrue());
+    TrackAPIUtil.fetchUserTracks(userId).then(payload => {
+        dispatch(receiveTrackAlbums(payload.albums));
+        dispatch(receiveTrackArtists(payload.artists));
+        dispatch(receiveTracks(payload.tracks));
+    });
 };
