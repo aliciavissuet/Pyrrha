@@ -2,6 +2,7 @@ import {connect} from 'react-redux';
 import _ from 'lodash';
 import StationShow from './StationShow';
 import { fetchStation, updateStation, removeTrackId } from '../../../actions/station_actions';
+import {clearSearch, fetchSearchResults} from '../../../actions/search_actions';
 
 const mapStateToProps = (state, ownProps) => {
     const stationId = ownProps.match.params.id;
@@ -16,7 +17,9 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => ({
     fetchStation: (id) => dispatch(fetchStation(id)),
     updateStation: (info) => dispatch(updateStation(info)),
-    removeTrackId: (info) => dispatch(removeTrackId(info))
+    removeTrackId: (info) => dispatch(removeTrackId(info)),
+    search: (term) => dispatch(fetchSearchResults(term)),
+    clearSearch: () => dispatch(clearSearch())
 });
     
 

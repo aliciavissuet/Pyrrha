@@ -7,6 +7,8 @@ import Loading from '../../common/Loading';
 import { fetchStation } from '../../../actions/station_actions';
 import StationHeader from './StationHeader';
 import cx from 'classnames';
+import SearchModal from './SearchModal';
+import ModalContentsContainer from './ModalContentsContainer';
 
 class StationShow extends React.Component {
     constructor(props) {
@@ -16,13 +18,14 @@ class StationShow extends React.Component {
             artists: null,
             tracks: null,
             albums: null,
-            toggle: false,
+            show: false,
         };
         this.removeTrack = this.removeTrack.bind(this);
         this.removeAlbum = this.removeAlbum.bind(this);
         this.removeArtist = this.removeArtist.bind(this);
-        this.openVariety = this.openVariety.bind(this);
-        this.closeVariety = this.closeVariety.bind(this);
+        this.showModal = this.showModal.bind(this);
+        this.hideModal = this.hideModal.bind(this);
+        this.search = this.search.bind(this);
     }
     componentDidMount(){
         this.props.fetchStation(this.props.match.params.id);
@@ -46,30 +49,38 @@ class StationShow extends React.Component {
         newArtists = delete this.state.artists[id];
         this.setState({artists: newArtists});
     }
-    openVariety(){
-        // const av = document.getElementById('add-variety')
-        this.setState({toggle: true});
+    showModal (){
+        this.setState({ show: true });
+        
+    };
+
+    hideModal () {
+        this.setState({ show: false });
+    };
+    search (e){
+        if (e.target.value.length === 0) {
+            this.props.clearSearch();
+        } else {
+            this.props.search(e.target.value);
+
+        }
     }
-    closeVariety(){
-        this.setState({toggle: false});
-    }
+
+    
    
     render(){
-        const variety = document.getElementById('myModal');
-        window.onclick = function (event) {
-            if (event.target == variety) {
-                variety.style.display = "none";
-            }
-        };
+        
         
         const {station} = this.props;
         console.log(station);
         const {artists, albums, tracks} = this.state;
+        const trIds = _.get(station, 'trackIds', []);
+        const arIds = _.get(station, 'artistIds', []);
+        const alIds = _.get(station, 'albumIds', []);
         
-        
-        const stationArtists = _.values(artists).map((artist, i) => <li key={i}><ArtistStationItem artist={artist} updateStation={this.props.updateStation} removeArtist={this.removeArtist} id={_.get(station, 'id', 'No ID')}/></li>)
-        const stationTracks = _.values(tracks).map((track, i) => <li key={i}><TrackStationItem track={track} updateStation={this.props.updateStation} removeTrack={this.removeTrack}id={_.get(station, 'id', 'No ID')}/></li>)
-        const stationAlbums = _.values(albums).map((album, i) => <li key={i}><AlbumStationItem album={album} updateStation={this.props.updateStation} removeAlbum={this.removeAlbum}id={_.get(station, 'id', 'No ID')}/></li>)
+        const stationArtists = _.values(artists).filter(art => arIds.includes(art.id)).map((artist, i) => <li key={i}><ArtistStationItem artist={artist} updateStation={this.props.updateStation} removeArtist={this.removeArtist} id={_.get(station, 'id', 'No ID')}/></li>)
+        const stationTracks = _.values(tracks).filter(tr =>trIds.includes(tr.id)).map((track, i) => <li key={i}><TrackStationItem track={track} updateStation={this.props.updateStation} removeTrack={this.removeTrack}id={_.get(station, 'id', 'No ID')}/></li>)
+        const stationAlbums = _.values(albums).filter(al => alIds.includes(al.id)).map((album, i) => <li key={i}><AlbumStationItem album={album} updateStation={this.props.updateStation} removeAlbum={this.removeAlbum}id={_.get(station, 'id', 'No ID')}/></li>)
         const stations = (
             <ul >
                 {stationArtists}
@@ -77,26 +88,36 @@ class StationShow extends React.Component {
                 {stationAlbums}
             </ul>
         )
+
         const content = (station) ? stations : <Loading />
-        const av = cx('modal', { 'modal-show': this.state.toggle });
+        // const av = cx('modal', { 'modal-show': this.state.show });
+        const ol = cx('',{'overlay': this.state.show})
+        const olc = ''
         return (
             <div>
+                <div className={ol} id='overlay'>{olc}</div>
                 <StationHeader title={_.get(station, 'title', 'No Title Found')}/>
                 <div className='station-main'>
                 <div className='station-main-top'>
                     <h3 className='station-created-from'>Station Created From: </h3>
-                    <button onClick={this.openVariety} id="add-variety" onBlur={this.closeVariety}>Add Variety</button>
+                        <SearchModal show={this.state.show} handleClose={this.hideModal} id={_.get(station, 'id', 'No id Found')} search={this.search} >
+                            <div className='search-modal-header'>
+                                <p>Add Variety</p>
+                                <br/>
+                                <input type="text" placeholder='add variety' onChange={this.search}/>
+                            </div>
+                            <ModalContentsContainer id={_.get(station, 'id', 'No id Found')}/>
+                            {/* <SearchResults /> */}
+                        </SearchModal>
+                        <button id='btn' className='modal-button' type="button" onClick={this.showModal}>
+                            open
+                        </button>
                 </div>
                     <div className='search-lis'>
                         {content}
                     </div>
                 </div>
-                <div id="add-variety" class={av} onClick={this.openVariety}>
-                    <div class="modal-content" onClick={this.closeVariety} onBlur={this.closeVariety}>
-                        <span class="close">&times;</span>
-                        <p>Some text in the Modal..</p>
-                    </div>
-                </div>
+                <SearchModal />
             </div>        
         );
     }

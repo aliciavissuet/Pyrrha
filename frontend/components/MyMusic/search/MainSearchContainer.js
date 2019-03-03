@@ -1,8 +1,6 @@
 import {connect} from 'react-redux';
-import MainSearch from './MainSearch';
-import { postStation } from '../../../actions/station_actions';
-
 import _ from 'lodash';
+import MainSearch from './MainSearch';
 
 const mapStateToProps = state => ({
     albums: Object.values(state.search.albums),

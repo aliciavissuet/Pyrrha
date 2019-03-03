@@ -1,0 +1,2 @@
+class TrackFollow < ApplicationRecord
+end
