@@ -1,0 +1,133 @@
+/* line 1, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/search.scss */
+.search-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* line 5, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/search.scss */
+.search-content li {
+  box-sizing: border-box;
+  text-align: left;
+  width: 100%;
+  border-bottom: 1px solid #d6d7d8;
+  margin-right: 0px;
+  position: relative;
+}
+
+/* line 17, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/search.scss */
+.search-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0px;
+}
+/* line 25, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/search.scss */
+.search-header button {
+  border: none;
+  outline: none;
+}
+
+/* line 31, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/search.scss */
+.search-link {
+  border: 0px;
+}
+
+/* line 34, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/search.scss */
+.search-result-title {
+  margin: 10px;
+  text-decoration: none;
+  font-weight: 900;
+  color: #575859;
+  font-family: 'Didact Gothic', sans-serif;
+  font-size: 14px;
+  padding: 1%;
+}
+
+/* line 44, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/search.scss */
+.search-result-container {
+  position: relative;
+}
+
+/* line 47, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/search.scss */
+.search-result-type {
+  margin: 10px;
+  text-decoration: none;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.6);
+  font-family: 'Didact Gothic', sans-serif;
+  font-size: 11px;
+  padding: 1%;
+}
+
+/* line 56, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/search.scss */
+.search-result-item {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  margin-right: 0px;
+  z-index: 0;
+}
+/* line 67, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/search.scss */
+.search-result-item button {
+  background: none;
+  border: none;
+  font-size: 30px;
+  outline: none;
+}
+
+/* line 75, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/search.scss */
+.search-result-item:hover {
+  background: #edeeef;
+}
+
+/* line 80, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/search.scss */
+.search-results {
+  width: 60%;
+}
+
+/* line 85, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/search.scss */
+.search-lis {
+  width: 60%;
+}
+
+/* line 88, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/search.scss */
+.hide {
+  display: none;
+  z-index: -1;
+}
+
+/* line 92, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/search.scss */
+.search-result-dropdown {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  box-shadow: 0 0 1px lightgray;
+  position: absolute;
+  right: 190px;
+  top: 10px;
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  font-family: 'Didact Gothic', sans-serif;
+  background: white;
+  right: 5px;
+  top: 60px;
+  z-index: 1;
+}
+/* line 107, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/search.scss */
+.search-result-dropdown button {
+  font-size: 14px;
+  font-family: 'Didact Gothic', sans-serif;
+  text-align: left;
+  padding: 5px;
+  border: none;
+  outline: none;
+}
+/* line 115, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/search.scss */
+.search-result-dropdown button:hover {
+  background: #edeeef;
+}

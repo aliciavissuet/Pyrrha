@@ -1,0 +1,255 @@
+/* line 1, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/new_session.scss */
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+/* line 5, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/new_session.scss */
+.new-session {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-image: linear-gradient(180deg, #00a0ee, #3668ff 50%);
+  background-color: #3668ff;
+  background-repeat: no-repeat;
+  font-family: 'Didact Gothic', sans-serif;
+  letter-spacing: 0.05em;
+}
+
+/* line 15, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/new_session.scss */
+.signup-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* line 20, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/new_session.scss */
+.pyrrha-signup {
+  font-size: 25px;
+  font-weight: 700;
+  color: white;
+  margin: 15px;
+  height: 30px;
+  padding: 0px;
+  font-family: 'Didact Gothic', sans-serif;
+  text-decoration: none;
+}
+
+/* line 30, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/new_session.scss */
+.Log-in-button {
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  color: white;
+  font-size: 15px;
+  margin: 15px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.2);
+  height: 30px;
+  font-family: 'Didact Gothic', sans-serif;
+  border-radius: 3px;
+  text-decoration: none;
+}
+
+/* line 45, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/new_session.scss */
+.Sign-up-button {
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  color: #1b0e91;
+  font-size: 15px;
+  margin: 15px;
+  border: none;
+  background-color: white;
+  height: 30px;
+  font-family: 'Didact Gothic', sans-serif;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+/* line 60, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/new_session.scss */
+.sign-up {
+  position: relative;
+  top: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  justify-content: center;
+  font-family: 'Didact Gothic', sans-serif;
+}
+
+/* line 70, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/new_session.scss */
+.sign-up input {
+  padding-left: 2px;
+  padding-right: 2px;
+  border-radius: 3px;
+  box-sizing: border-box;
+  height: 40px;
+  margin-top: 1px;
+  margin-bottom: 22px;
+  width: inherit;
+  width: 300px;
+  border: none;
+}
+
+/* line 83, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/new_session.scss */
+.intro {
+  width: 32%;
+  color: white;
+  font-family: sans-serif;
+  font-size: 42px;
+  margin: 0px;
+  text-align: center;
+  font-weight: 100;
+}
+
+/* line 92, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/new_session.scss */
+.sign-up button {
+  background: #224099;
+  margin-top: 10px;
+  box-sizing: border-box;
+  margin-top: 5px;
+  width: 300px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  border: none;
+  color: white;
+  height: 50px;
+  font-size: 15px;
+  font-family: 'Didact Gothic', sans-serif;
+}
+
+/* line 106, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/new_session.scss */
+.signup-contents {
+  position: relative;
+  top: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* line 115, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/new_session.scss */
+.signup-error {
+  border: 1px solid #d64040;
+  margin: 0px;
+}
+
+/* line 119, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/new_session.scss */
+.signup-error-box {
+  height: 40px;
+  box-sizing: border-box;
+  padding: 10px;
+  margin-top: -20px;
+  background: #d64040;
+  text-align: center;
+  justify-content: center;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+/* line 131, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/new_session.scss */
+.signup-contents > section, form {
+  margin: 20px;
+  padding: 20px;
+}
+
+/* line 136, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/new_session.scss */
+.signup-contents > span {
+  padding: 10px;
+  font-weight: 100;
+}
+
+/* line 140, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/new_session.scss */
+.signup-label {
+  font-size: 12px;
+  color: white;
+  margin-left: 1px;
+}
+
+/* line 145, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/new_session.scss */
+.signup-and-error {
+  background: #d64040;
+  padding-left: 1px;
+  margin-left: 0px;
+  margin-right: 1px;
+  padding-right: 1px;
+  border-radius: 5px;
+}
+
+/* line 154, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/new_session.scss */
+.smaller-text {
+  color: white;
+  font-size: 20px;
+  font-weight: 300;
+}
+
+/* line 159, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/new_session.scss */
+::-webkit-input-placeholder {
+  /* WebKit browsers */
+  padding: 20px;
+}
+
+/* line 162, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/new_session.scss */
+.log-in {
+  color: white;
+  font-size: 12px;
+  position: relative;
+  top: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  justify-content: center;
+  font-family: 'Didact Gothic', sans-serif;
+}
+
+/* line 175, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/new_session.scss */
+.log-in button {
+  background: #224099;
+  border-radius: 5px;
+  margin-top: 10px;
+  box-sizing: border-box;
+  margin-top: 2px;
+  width: 300px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  border: none;
+  color: white;
+  height: 50px;
+  font-size: 15px;
+  font-family: 'Didact Gothic', sans-serif;
+}
+
+/* line 190, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/new_session.scss */
+.log-in input {
+  border-radius: 3px;
+  box-sizing: border-box;
+  height: 40px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  width: inherit;
+  width: 300px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  border: none;
+}
+
+/* line 202, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/new_session.scss */
+.login-error-box {
+  height: 40px;
+  box-sizing: border-box;
+  padding: 10px;
+  margin-top: 0px;
+  background: #d64040;
+  text-align: center;
+  justify-content: center;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+/* line 213, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/new_session.scss */
+.login-label {
+  margin-top: -15px;
+}

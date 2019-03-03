@@ -1,0 +1,139 @@
+.station-created-from {
+    color: #575859;
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 24px;
+    padding: 1%;
+    text-align: center;
+    width: 100%;
+}
+.station-header {
+    
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    background: url('https://i.ytimg.com/vi/XWTmxDIBHYs/maxresdefault.jpg') no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    z-index: -1;
+    width: 170%;
+    padding: 180px;
+    box-sizing: border-box;
+    background-position: center;
+    align-items: center;
+    h1 {
+    font-family: 'Didact Gothic', sans-serif;
+    color: white;
+    font-size: 50px;
+    text-align: center;
+    top: 150px;
+    font-family: 'Didact Gothic', sans-serif;
+    color: white;
+    font-size: 50px;
+    width: 140%;
+    position: absolute;
+    }
+}
+
+.background {
+  position: absolute;
+  background-image: url('../../images/fake_empire.jpg') no-repeat;
+  background-position: center;
+}
+.station-main {
+    
+   position: absolute;
+    top: 270px;
+    left: -3%;
+    width: 173%;
+    z-index: 1;
+    box-sizing: border-box;
+    padding: 90px;
+    border-top-right-radius: 50%;
+    border-top-left-radius: 50%;
+    border-top: 8px solid black;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    ul {
+        width:100%;
+    }
+    // flex-direction: column;
+}
+.search-lis {
+    width: 60%;
+    margin: 0px;
+    li {
+        width:100%;
+        box-sizing: border-box;
+        // margin: 30px;
+        text-align: left;
+        width: 100%;
+        // width: 50%;
+        // padding-bottom: 3%;
+        border-bottom: 1px solid #d6d7d8;
+        margin-right: 0px;
+        position: relative;
+    }
+    li:hover {
+        background: #edeeef;
+    }
+}
+.hide {
+    display: none;
+    z-index: -1;
+}
+.station-content {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+
+}
+.add-variety {
+
+}
+
+.modal {
+  display: none;
+   
+}
+.modal-show {
+    display: flex;
+    flex-direction: column;
+position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.station-main-top {
+    display: flex;
+    flex-direction: column;
+}

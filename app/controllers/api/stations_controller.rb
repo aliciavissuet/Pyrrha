@@ -40,9 +40,38 @@ class Api::StationsController < ApplicationController
     end
 
     def update 
+        func = params[:station][:func]
+        mediable_id = params[:station][:mediable_id]
+        station = Station.find(params[:id])
+        if func == 'Delete' 
+            if params[:station][:mediable_type] == 'Track'
+                @track = Track.find(mediable_id)
+                station.tracks.delete(@track)
+            elsif params[:station][:mediable_type] == 'Album'
+                @album = Track.find(mediable_id)
+                station.albums.delete(@album)
+            elsif params[:station][:mediable_type] == 'Artist' 
+                @artist = Track.find(mediable_id)
+                station.tracks.delete(@artist)
+            end
+            # scf = StationCreatedFrom.where(mediable_id: params[:station][:mediable_id], mediable_type: params[:station][:mediable_type], station_id: station.id)
+            # scf[0].delete 
+            
+        elsif func == 'Add'
+            if params[:station][:mediable_type] == 'Track'
+                station.tracks.push(Track.find(mediable_id))
+                station.save
+            elsif params[:station][:mediable_type] == 'Album'
+                station.albums.push(Album.find(mediable_id))
+                station.save
+            elsif params[:station][:mediable_type] == 'Artist' 
+                station.artists.push(Artist.find(mediable_id))
+                station.save
+            end
+        end
         @station = Station.find(params[:id])
-        @station_created_from = StationCreatedFrom.new(station_created_from_params)
-        @station_created_from.save
+        # @station_created_from = StationCreatedFrom.new(station_created_from_params)
+        # @station_created_from.save
         @tracks = (@station.tracks) ? @station.tracks  : {}
         @albums = (@station.albums) ? @station.albums  : {}
         @artists = (@station.artists) ? @station.artists  : {}

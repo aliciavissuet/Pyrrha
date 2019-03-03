@@ -1,0 +1,98 @@
+/* line 1, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/api/station_show.scss */
+.station-created-from {
+  color: #575859;
+  font-family: 'Didact Gothic', sans-serif;
+  font-size: 24px;
+  padding: 1%;
+  text-align: center;
+}
+
+/* line 8, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/api/station_show.scss */
+.station-header {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  background: url("https://i.ytimg.com/vi/XWTmxDIBHYs/maxresdefault.jpg") no-repeat;
+  background-size: cover;
+  overflow: hidden;
+  z-index: -1;
+  width: 100%;
+  padding: 150px;
+  box-sizing: border-box;
+  background-position: center;
+  align-items: center;
+}
+/* line 21, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/api/station_show.scss */
+.station-header h1 {
+  font-family: 'Didact Gothic', sans-serif;
+  color: white;
+  font-size: 50px;
+  top: 150px;
+  font-family: 'Didact Gothic', sans-serif;
+  color: white;
+  font-size: 50px;
+  width: 140%;
+  position: absolute;
+}
+
+/* line 35, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/api/station_show.scss */
+.background {
+  position: absolute;
+  background-image: url("../../images/fake_empire.jpg") no-repeat;
+  background-position: center;
+}
+
+/* line 40, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/api/station_show.scss */
+.station-main {
+  position: absolute;
+  top: 270px;
+  left: -3%;
+  width: 140%;
+  z-index: 1;
+  box-sizing: border-box;
+  padding: 40px;
+  border-top-right-radius: 50%;
+  border-top-left-radius: 50%;
+  border-top: 8px solid black;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* line 57, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/api/station_show.scss */
+.station-main ul {
+  width: 100%;
+}
+
+/* line 62, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/api/station_show.scss */
+.search-lis {
+  width: 60%;
+  margin: 0px;
+}
+/* line 65, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/api/station_show.scss */
+.search-lis li {
+  width: 100%;
+  box-sizing: border-box;
+  text-align: left;
+  width: 100%;
+  border-bottom: 1px solid #d6d7d8;
+  margin-right: 0px;
+  position: relative;
+}
+/* line 77, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/api/station_show.scss */
+.search-lis li:hover {
+  background: #edeeef;
+}
+
+/* line 81, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/api/station_show.scss */
+.hide {
+  display: none;
+  z-index: -1;
+}
+
+/* line 85, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/api/station_show.scss */
+.station-content {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+}

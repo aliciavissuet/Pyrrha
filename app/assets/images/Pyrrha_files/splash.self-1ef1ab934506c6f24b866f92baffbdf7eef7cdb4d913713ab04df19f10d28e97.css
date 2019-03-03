@@ -1,0 +1,85 @@
+/* line 1, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/splash.scss */
+.pyrrha-big {
+  color: white;
+  font-family: 'Didact Gothic', sans-serif;
+  font-weight: bolder;
+  font-size: 6.0rem;
+  line-height: 8.0rem;
+  size: 50%;
+  text-align: center;
+  position: absolute;
+  left: 39%;
+  top: 20%;
+}
+
+/* line 13, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/splash.scss */
+.splash-nav {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  margin: 0px;
+  padding: 0px;
+}
+
+/* line 20, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/splash.scss */
+.splash-nav button {
+  padding-top: 10px;
+  margin: 10px;
+}
+
+/* line 24, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/splash.scss */
+.start-listening {
+  color: white;
+  font-family: 'Didact Gothic', sans-serif;
+  font-weight: lighter;
+  font-size: 3.0rem;
+  line-height: 4.0rem;
+  text-align: center;
+  position: absolute;
+  left: 35%;
+  top: 40%;
+}
+
+/* line 36, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/splash.scss */
+.right-nav-comp {
+  justify-content: flex-end;
+  margin: 20px;
+}
+
+/* line 41, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/splash.scss */
+.splash-Log-in-button {
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  color: white;
+  font-size: 15px;
+  margin: 15px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.2);
+  height: 30px;
+  font-family: 'Didact Gothic', sans-serif;
+  border-radius: 2px;
+  text-decoration: none;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+/* line 58, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/splash.scss */
+.splash-Sign-up-button {
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  color: #1b0e91;
+  font-size: 15px;
+  margin: 15px;
+  border: none;
+  background-color: white;
+  height: 30px;
+  font-family: 'Didact Gothic', sans-serif;
+  border-radius: 2px;
+  text-decoration: none;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}

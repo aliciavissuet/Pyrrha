@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import HeaderContainer from './header_container';
 import TrackDisplayContainer from '../MyMusic/tracks/TracksDisplayContainer';
-import StationShowContainer from '../MyMusic/stations/StationShowContainer'
+import StationShowContainer from '../MyMusic/stations/StationShowContainer';
 import {
     Route,
     Redirect,
@@ -20,9 +20,9 @@ class ProtectedApp extends Component {
                 <HeaderContainer {...this.props}/>
                 <Switch>
                     <Route path='/my-music/search' component={SearchNav} />
-                    <Route path="/my-music" component={All}/>
                     {/* <Route exact path='/my-music/tracks' component={TrackDisplayContainer}/> */}
-                    <Route exact path='/stations/:id' component={StationShowContainer}/>
+                    <Route path='/my-music/stations/:id' component={StationShowContainer} />
+                    <Route path="/my-music" component={All}/>
                 </Switch>
             </div>
         );

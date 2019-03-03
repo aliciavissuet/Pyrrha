@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import cx from 'classNames';
+import cx from 'classnames';
 class TrackResultItem extends React.Component {
     constructor(props) {
         super(props);

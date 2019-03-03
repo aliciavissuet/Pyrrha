@@ -9,8 +9,9 @@ const MainSearch = (props) => {
     
         const {tracks, albums, artists, searchResultType, postStation} = props;
         const trackResults = tracks.map((result, i) => <li key={i}><TrackResultItem track={result} postStation={postStation}/></li>)
-    const albumResults = albums.map((result, i) => <li key={i}><AlbumResultItem album={result} postStation={postStation}/></li>)
-    const artistResults = artists.map((result, i) => <li key={i}><ArtistResultItem artist={result} postStation={postStation}/></li>)
+        const albumResults = albums.map((result, i) => <li key={i}><AlbumResultItem album={result} postStation={postStation}/></li>)
+        const artistResults = artists.map((result, i) => <li key={i}><ArtistResultItem artist={result} postStation={postStation}/></li>)
+        
         return (
             <div className='search-lis'>
                 {( searchResultType === 'tracks' || searchResultType === 'all' ) && trackResults }

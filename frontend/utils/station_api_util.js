@@ -28,3 +28,11 @@ export const deleteStation = (id) => (
         url: `/api/stations/${id}`,
     })
 );
+
+export const updateStation = (station) => (
+    $.ajax({
+        method: 'PATCH',
+        url: `/api/stations/${station.id}`,
+        data: {station}
+    })
+);

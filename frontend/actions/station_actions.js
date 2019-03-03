@@ -6,6 +6,7 @@ import {RECEIVE_CURRENT_USER} from './session_actions';
 export const RECEIVE_STATION = 'RECEIVE_STATION';
 export const RECEIVE_STATIONS = 'RECEIVE_STATIONS';
 export const LOADING_STATION = 'LOADING_STATION';
+export const REMOVE_TRACK_ID = 'REMOVE_MEDIA_ID';
 
 const receiveStation = (station) => ({
     type: RECEIVE_STATION,
@@ -38,7 +39,12 @@ const receiveStations = (stations) => ({
 const receiveCurrentUser = user => ({
     type: RECEIVE_CURRENT_USER,
     user
-})
+});
+
+export const removeTrackId = (info) => ({
+    type: REMOVE_TRACK_ID,
+    info
+});
 
 export const fetchStation = (id) => dispatch => {
     dispatch(loadingTrue());
@@ -46,7 +52,7 @@ export const fetchStation = (id) => dispatch => {
         dispatch(receiveArtists(payload.artists));
         dispatch(receiveAlbums(payload.albums));
         dispatch(receiveTracks(payload.tracks));
-        dispatch(receiveStations(payload.station));
+        dispatch(receiveStation(payload.station));
     });
 };
 
@@ -83,4 +89,17 @@ export const deleteStation = (id) => dispatch => {
         dispatch(receiveStations(payload.stations));
     });
 };
+ 
+export const updateStation = (station) => dispatch => {
+    dispatch(loadingTrue());
+    StationAPIUtil.updateStation(station).then(payload => {
+        console.log(payload)
+        dispatch(receiveArtists(payload.artists));
+        dispatch(receiveAlbums(payload.albums));
+        dispatch(receiveTracks(payload.tracks));
+        dispatch(receiveCurrentUser(payload.user));
+        dispatch(fetchStation(station.id));
+    });
+};
+
 

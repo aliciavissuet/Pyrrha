@@ -20,6 +20,7 @@ class All extends Component {
                 <MiddleNavBar {...this.props}/>
                 <Switch>
                     <Route path="/my-music/tracks" component={TracksDisplayContainer} />
+                    
                     <Route path='/my-music/stations' component={UserStationContainer} />
                 </Switch>
             </div>

@@ -1,0 +1,27 @@
+/* line 2, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/MyMusicMainPage/common.scss */
+.my-music-component-header {
+  font-size: 20px;
+  font-family: 'Didact Gothic', sans-serif;
+  color: #575859;
+  padding: 1%;
+  margin-right: 2%;
+}
+
+/* line 10, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/MyMusicMainPage/common.scss */
+.my-music-recently-played {
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-bottom: 60px;
+}
+/* line 18, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/MyMusicMainPage/common.scss */
+.my-music-recently-played ul {
+  box-sizing: border-box;
+}
+
+/* line 22, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/MyMusicMainPage/common.scss */
+.add-station {
+  background: transparent;
+  color: purple;
+  border: 0px;
+  cursor: pointer;
+}

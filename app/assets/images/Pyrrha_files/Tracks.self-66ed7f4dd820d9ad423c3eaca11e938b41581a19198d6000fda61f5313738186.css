@@ -1,0 +1,85 @@
+/* line 3, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/Tracks.scss */
+.track-display-container {
+  list-style: none;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: flex;
+  /* flex-flow is shorthand for flex-direction and flex-wrap */
+  -webkit-flex-flow: row wrap;
+  -moz-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  position: relative;
+  width: 100vw;
+}
+
+/* line 19, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/Tracks.scss */
+.track-display-container li {
+  margin-bottom: 20px;
+}
+
+@media only screen and (min-width: 30em) {
+  /* line 25, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/Tracks.scss */
+  li {
+    width: 48%;
+    margin: 2%;
+    /* Two columns : 48+48=96 + 4 margins of 1%= 4%  */
+  }
+}
+@media only screen and (min-width: 40em) {
+  /* line 33, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/Tracks.scss */
+  li {
+    width: 31%;
+  }
+}
+@media only screen and (min-width: 50em) {
+  /* line 41, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/Tracks.scss */
+  li {
+    width: 19%;
+  }
+}
+@media only screen and (min-width: 65em) {
+  /* line 49, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/Tracks.scss */
+  li {
+    width: 14%;
+  }
+}
+@media only screen and (min-width: 80em) {
+  /* line 57, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/Tracks.scss */
+  li {
+    width: 15%;
+    height: auto;
+  }
+}
+/* line 66, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/Tracks.scss */
+.Track-item {
+  background: url("app/assets/images/damien_rice.jpg") no-repeat;
+  padding: 20%;
+  margin-bottom: 10%;
+  box-sizing: border-box;
+  border: 5px solid #575859;
+  margin: 6%;
+  padding-left: 5%;
+  height: 0px;
+  height: 100%;
+}
+
+/* line 79, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/Tracks.scss */
+.Tracks-component {
+  margin-left: 30px;
+}
+
+/* line 86, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/Tracks.scss */
+.delete-button {
+  outline: none;
+  border: none;
+  color: #575859;
+  cursor: pointer;
+}
+
+/* line 92, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/Tracks.scss */
+.delete-button:hover {
+  color: red;
+}

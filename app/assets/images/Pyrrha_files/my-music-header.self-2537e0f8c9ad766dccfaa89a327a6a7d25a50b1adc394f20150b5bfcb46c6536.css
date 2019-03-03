@@ -1,0 +1,160 @@
+/* line 1, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/my-music-header.scss */
+.my-music-header {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-content: flex-start;
+  font-family: 'Didact Gothic', sans-serif;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 17px;
+  letter-spacing: 0.03em;
+}
+
+/* line 13, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/my-music-header.scss */
+.my-music-pyrrha {
+  margin: 0;
+  font-size: 25px;
+  font-weight: 700;
+  color: black;
+  height: 30px;
+  padding-right: 10px;
+  font-family: 'Didact Gothic', sans-serif;
+  text-decoration: none;
+}
+
+/* line 25, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/my-music-header.scss */
+.my-music-header-link:visited {
+  color: #575859;
+  font-family: 'Didact Gothic', sans-serif;
+}
+
+/* line 30, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/my-music-header.scss */
+.my-music-header-link {
+  margin: 10px;
+  text-decoration: none;
+  color: #575859;
+  font-family: 'Didact Gothic', sans-serif;
+  font-size: 14px;
+  padding: 1%;
+}
+
+/* line 39, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/my-music-header.scss */
+.selected-link {
+  text-decoration: underline;
+  color: black;
+  font-weight: 700;
+}
+
+/* line 44, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/my-music-header.scss */
+.music-header-left {
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* line 49, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/my-music-header.scss */
+.pandora-initial {
+  background: linear-gradient(90deg, #3f5efb 0%, #e80892 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 30px;
+  font-family: 'Didact Gothic', sans-serif;
+  font-weight: 900;
+}
+
+/* line 60, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/my-music-header.scss */
+.username-initial {
+  background: linear-gradient(90deg, #3f5efb 0%, #e80892 100%);
+  font-weight: bolder;
+  display: block;
+  height: 40px;
+  width: 40px;
+  line-height: 40px;
+  border-radius: 50%;
+  color: white;
+  text-align: right;
+  font-size: 1.5em;
+  text-align: center;
+  margin: 0px;
+  z-index: 1;
+}
+
+/* line 87, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/my-music-header.scss */
+.header-right {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 5%;
+}
+
+/* line 93, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/my-music-header.scss */
+.username-initial:hover {
+  cursor: pointer;
+}
+
+/* line 96, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/my-music-header.scss */
+.user-actions {
+  display: none;
+}
+
+/* line 99, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/my-music-header.scss */
+.actions-show {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 18px;
+  top: 0px;
+  background: transparent;
+  outline: none;
+  border-color: #9ecaed;
+  box-shadow: 0 0 10px gray;
+  width: 130px;
+}
+
+/* line 114, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/my-music-header.scss */
+.user-actions > li {
+  margin: 0px;
+  text-align: left;
+  padding-right: 40px;
+  list-style: none;
+}
+
+/* line 121, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/my-music-header.scss */
+.user-actions > li:hover {
+  color: darkmagenta;
+  opacity: .5;
+}
+
+/* line 128, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/my-music-header.scss */
+.user-actions {
+  padding: 5px;
+}
+
+/* line 132, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/my-music-header.scss */
+.searchbar {
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 250px;
+  height: 30px;
+  border-radius: 20px;
+  background: #edeeef;
+  border: none;
+  font-size: 17px;
+  text-align: center;
+  outline: none;
+}
+
+/* line 152, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/my-music-header.scss */
+.middle-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding-bottom: 5px;
+  margin-left: 30px;
+}
+
+/* line 159, /Users/aliciavissuet/workspace/Pyrrha/app/assets/stylesheets/my-music-header.scss */
+.middle-nav-links {
+  display: flex;
+  border-left: 1px solid lightgray;
+}

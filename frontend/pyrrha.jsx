@@ -8,7 +8,7 @@ import { fetchAlbum } from './actions/album_actions';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faCircleNotch, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faCircle } from '@fortawesome/free-regular-svg-icons';
-import { fetchStation, postStation, fetchStations, deleteStation } from './actions/station_actions';
+import { fetchStation, postStation, fetchStations, deleteStation, updateStation } from './actions/station_actions';
 import {fetchSearchResults} from './actions/search_actions';
 document.addEventListener('DOMContentLoaded', () => {
     let store;
@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.fetchStations = fetchStations;
     window.search = fetchSearchResults;
     window.deleteStation = deleteStation;
+    window.updateStation = updateStation;
     const root = document.getElementById('root');
     ReactDOM.render(<Root store={store}/>, root);
 });

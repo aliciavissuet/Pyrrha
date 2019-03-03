@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
+import {Link} from 'react-router-dom';
 import UserStationItem from './UserStationItem';
 import Loading from '../../common/Loading';
 class UserStations extends Component {
@@ -21,8 +22,9 @@ class UserStations extends Component {
                  <Loading />
             </div>)
         } else {
+            
             const stationsL = stations1.map((station, i) => {
-                return (<li key={i}><UserStationItem station={station} tracks={this.props.tracks} deleteStation={this.props.deleteStation}/></li>)
+                return (<li key={i}><Link to={`/my-music/stations/${(station ? station.id : '')}`}><UserStationItem station={station} tracks={this.props.tracks} deleteStation={this.props.deleteStation} /></Link></li>)
             });
             return (
             < div className = 'Tracks-component' >
