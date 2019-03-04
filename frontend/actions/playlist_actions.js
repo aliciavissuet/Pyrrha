@@ -85,3 +85,12 @@ export const removePlaylistSong = (pt) => dispatch => {
         dispatch(receivePlaylist(payload.playlist));
     });
 }
+export const deletePlaylist = (id) => dispatch => {
+    dispatch(loadingTrue());
+    PlaylistAPIUtil.removePlaylist(id).then(payload => {
+        dispatch(receivePlaylistTracks(payload.tracks));
+        dispatch(receivePlaylistAlbums(payload.albums));
+        dispatch(receivePlaylistArtists(payload.artists));
+        dispatch(receivePlaylists(payload.playlists));
+    });
+}

@@ -11,7 +11,7 @@ import { faCircle } from '@fortawesome/free-regular-svg-icons';
 import { fetchStation, postStation, fetchStations, deleteStation, updateStation } from './actions/station_actions';
 import {fetchSearchResults} from './actions/search_actions';
 import { updateUserFollows } from './actions/user_actions';
-import { createPlaylist, addPlaylistSong, removePlaylistSong} from './actions/playlist_actions';
+import { createPlaylist, addPlaylistSong, removePlaylistSong, deletePlaylist} from './actions/playlist_actions';
 document.addEventListener('DOMContentLoaded', () => {
     let store;
     if (window.currentUser) {
@@ -47,6 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.createPlaylist = createPlaylist;
     window.addPlaylistSong = addPlaylistSong;
     window.removePlaylistSong = removePlaylistSong;
+    window.deletePlaylist = deletePlaylist;
     const root = document.getElementById('root');
     ReactDOM.render(<Root store={store}/>, root);
 });

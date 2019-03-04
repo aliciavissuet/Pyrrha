@@ -47,7 +47,8 @@ class TrackResultItem extends React.Component {
 
     }
     createPlaylist(){
-        this.props.createPlaylist
+        let pl = {title: 'New Playlist', trackId: this.props.track.id}
+        this.props.createPlaylist(pl);
     }
     render() {
         const {track, playlists} = this.props;

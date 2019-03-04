@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import {fetchPlaylists} from '../../../actions/playlist_actions';
+import {fetchPlaylists, deletePlaylist} from '../../../actions/playlist_actions';
 import PlaylistDisplay from './PlaylistDisplay';
 import { clearEntities } from '../../../actions/album_actions';
 
@@ -13,6 +13,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     fetchPlaylists: () => dispatch(fetchPlaylists()),
+    removePlaylist: (id) => dispatch(deletePlaylist(id)),
     clear: () => dispatch(clearEntities())
 });
 

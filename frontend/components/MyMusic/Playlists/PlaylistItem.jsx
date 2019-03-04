@@ -4,11 +4,12 @@ import _ from 'lodash';
 
 class PlaylistItem extends Component {
     render() {
-        const {playlist} = this.props
+        const {playlist, deletePlaylist} = this.props
         return (
             <div className='Track-item'>
 
                 <h1>{_.get(playlist, 'title', 'No Title Found')}</h1>
+                <button onClick={deletePlaylist}>X</button>
                 <br />
                 
                 {/* <button className='add-station'><FontAwesomeIcon icon={["fas", "circle-notch"]} onClick={this.postStation} /></button>

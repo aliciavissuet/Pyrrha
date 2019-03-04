@@ -17,12 +17,7 @@ class PlaylistShow extends React.Component {
             show: false,
         };
         this.removeSong = this.removeSong.bind(this);
-        // this.removeTrack = this.removeTrack.bind(this);
-        // this.removeAlbum = this.removeAlbum.bind(this);
-        // this.removeArtist = this.removeArtist.bind(this);
-        // this.showModal = this.showModal.bind(this);
-        // this.hideModal = this.hideModal.bind(this);
-        // this.search = this.search.bind(this);
+       
     }
     componentDidMount() {
         console.log('hit playlist show');
@@ -44,35 +39,7 @@ class PlaylistShow extends React.Component {
         this.setState({ tracks: newTracks });
         this.props.removeSong(payload);
     }
-    // removeTrack(id) {
-    //     newTracks = delete this.state.tracks[id];
-    //     this.setState({ tracks: newTracks });
-    // }
-    // removeAlbum(id) {
-    //     newAlbums = delete this.state.albums[id];
-    //     this.setState({ albums: newAlbums });
-    // }
-    // removeArtist(id) {
-    //     newArtists = delete this.state.artists[id];
-    //     this.setState({ artists: newArtists });
-    // }
-    // showModal() {
-    //     this.setState({ show: true });
-
-    // };
-
-    // hideModal() {
-    //     this.setState({ show: false });
-    // };
-    // search(e) {
-    //     if (e.target.value.length === 0) {
-    //         this.props.clearSearch();
-    //     } else {
-    //         this.props.search(e.target.value);
-
-    //     }
-    // }
-
+    
 
 
     render() {
