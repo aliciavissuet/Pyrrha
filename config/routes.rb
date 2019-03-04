@@ -9,5 +9,6 @@ Rails.application.routes.draw do
     resources :albums, only: [:show, :index]
     resources :stations, only: [:index, :show, :create, :update, :destroy]
     resources :searches, only: [:index]
+    resources :album_follows, only: [:destroy]
   end
 end

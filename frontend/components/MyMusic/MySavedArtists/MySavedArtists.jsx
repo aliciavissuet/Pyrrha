@@ -6,9 +6,9 @@ import Loading from '../../common/Loading';
 class MySavedArtists extends React.Component {
     constructor(props) {
         super(props);
-        const { userId, albums, tracks, artists, ui } = this.props;
+        const { userId, albums, tracks, artists, ui, user } = this.props;
         this.state = {
-            albums, artists, tracks, ui, userId
+            albums, artists, tracks, ui, userId, user
         };
     }
     componentDidMount() {
@@ -26,10 +26,12 @@ class MySavedArtists extends React.Component {
     render() {
 
 
-        const { userId, albums, tracks, artists, ui } = this.state;
+        const { userId, albums, tracks, artists, ui, user } = this.state;
         const ars = _.values(artists);
+        const userAr = _.get(this, 'state.user.artistIds', {});
+        const userArtists = ars.filter(ar => userAr.includes(ar.id));
 
-        const artList = ars.map((artist, i) => {
+        const artList = userArtists.map((artist, i) => {
             return (<li key={i}><ArtistItem className='Track-item' artist={artist}  /></li>)
         });
 

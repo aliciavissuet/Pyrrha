@@ -6,6 +6,7 @@ import { receiveCurrentUser } from '../../../actions/user_actions';
 
 const mapStateToProps = state => ({
     userId: state.session.currentUser,
+    user: state.entities.users[state.session.currentUser],
     albums: state.entities.albums,
     tracks: state.entities.tracks,
     artists: state.entities.artists,
@@ -14,6 +15,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     fetchUserArtists: (userId) => dispatch(fetchArtists(userId)),
+    
     postStation: (station) => dispatch(postStation(station))
 });
 

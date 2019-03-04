@@ -34,6 +34,7 @@ const receiveAlbums = albums => ({
     albums
 });
 
+
 export const fetchAlbum = (id) => dispatch => {
     dispatch(loadingTrue());
     AlbumAPIUtil.fetchAlbum(id).then(payload => {
@@ -49,6 +50,15 @@ export const fetchAlbums = (userId) => dispatch => {
     AlbumAPIUtil.fetchAlbums(userId).then(payload => {
         console.log('payload', payload)
         // debugger
+        dispatch(receiveAlbumArtists(payload.artists));
+        dispatch(receiveAlbumTracks(payload.tracks));
+        dispatch(receiveAlbums(payload.albums));
+    });
+};
+
+export const removeAlbumFollow = af => dispatch => {
+    dispatch(loadingTrue());
+    AlbumAPIUtil.removeAlbumFollow(af).then(payload => {
         dispatch(receiveAlbumArtists(payload.artists));
         dispatch(receiveAlbumTracks(payload.tracks));
         dispatch(receiveAlbums(payload.albums));

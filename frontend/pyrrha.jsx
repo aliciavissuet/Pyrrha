@@ -4,7 +4,7 @@ import configureStore from './store/store';
 import Root from './components/root';
 import { fetchArtist, fetchArtists } from './actions/artist_actions';
 import { fetchTrack, fetchTracks} from './actions/track_actions';
-import { fetchAlbum, fetchAlbums } from './actions/album_actions';
+import { fetchAlbum, fetchAlbums, removeAlbumFollow } from './actions/album_actions';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faCircleNotch, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faCircle } from '@fortawesome/free-regular-svg-icons';
@@ -41,6 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.fetchAlbums = fetchAlbums;
     window.fetchArtists = fetchArtists;
     window.fetchTracks = fetchTracks;
+    window.removeAlbumFollow = removeAlbumFollow;
     const root = document.getElementById('root');
     ReactDOM.render(<Root store={store}/>, root);
 });
