@@ -35,7 +35,9 @@ class PlaylistShow extends React.Component {
             this.setState({ artists, tracks, albums, playlist });
         }
     }
-
+    componentWillUnmount(){
+        this.props.clear();
+    }
     removeSong(payload){
         const newTracks = this.state.tracks;
         delete newTracks[payload.trackId];
@@ -78,9 +80,9 @@ class PlaylistShow extends React.Component {
 
         const { playlist, userId, addFollow, postStation } = this.props;
         const { artists, albums, tracks } = this.state;
-        const trIds = _.get(playlist, 'trackIds', []);
+        // const trIds = _.get(playlist, 'trackIds', []);
 
-        const playlistTracks = _.values(tracks).filter(tr => trIds.includes(tr.id)).map((track, i) => <li key={i}><PlaylistTrackItem track={track} id={_.get(playlist, 'id', 'No ID')} addFollow={addFollow} userId={userId} removeSong={this.removeSong} postStation={postStation}/></li>)
+        const playlistTracks = _.values(tracks).map((track, i) => <li key={i}><PlaylistTrackItem track={track} id={_.get(playlist, 'id', 'No ID')} addFollow={addFollow} userId={userId} removeSong={this.removeSong} postStation={postStation}/></li>)
          
         const pl = (
             <ul>

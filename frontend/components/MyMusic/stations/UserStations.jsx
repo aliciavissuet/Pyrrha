@@ -6,14 +6,20 @@ import Loading from '../../common/Loading';
 class UserStations extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            stations: this.props.stations
+        };
     }
     
     componentDidMount(){
         this.props.fetchStations();
     }
+    componentWillUnmount (){
+        this.props.clear();
+    }
     
     render() {
-        const stations = _.get(this, 'props.stations', {});
+        const stations = _.get(this, 'state.stations', {});
         const stations1 = _.values(stations);
         
         if (this.props.stationLoading) {

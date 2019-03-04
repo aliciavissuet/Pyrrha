@@ -2,12 +2,14 @@ import * as AlbumAPIUtil from '../utils/album_api_util';
 import { LOADING_TRACK } from './track_actions';
 import { RECEIVE_ARTISTS } from './artist_actions';
 import {RECEIVE_TRACKS} from './track_actions';
+import { CLEAR_SEARCH } from './search_actions';
 
 
 export const RECEIVE_ALBUM = 'RECEIVE_ALBUM';
 export const RECEIVE_ALBUM_TRACKS = 'RECEIVE_ALBUM_TRACKS';
 export const RECEIVE_ALBUM_ERRORS = 'RECEIVE_ALBUM_ERRORS';
 export const LOADING_ALBUM = 'LOADING_ALBUM';
+export const CLEAR = 'CLEAR';
 // export const RECEIVE_ALBUM_ARTISTS = 'RECEIVE_ALBUM_ARTISTS';
 export const RECEIVE_ALBUMS = 'RECEIVE_ALBUMS';
 const receiveAlbum = album => ({
@@ -34,6 +36,9 @@ const receiveAlbums = albums => ({
     albums
 });
 
+export const clearEntities = () => ({
+    type: CLEAR
+});
 
 export const fetchAlbum = (id) => dispatch => {
     dispatch(loadingTrue());

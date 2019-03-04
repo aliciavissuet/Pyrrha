@@ -4,6 +4,7 @@ import PlaylistShow from './PlaylistShow';
 // import { fetchStation, updateStation, removeTrackId } from '../../../actions/station_actions';
 import { fetchPlaylist, removePlaylistSong} from '../../../../actions/playlist_actions';
 import {updateUserFollows} from '../../../../actions/user_actions';
+import {clearEntities} from '../../../../actions/album_actions';
 
 const mapStateToProps = (state, ownProps) => {
     const playlistId = ownProps.match.params.id;
@@ -21,6 +22,7 @@ const mapDispatchToProps = dispatch => ({
     addFollow: (payload) => dispatch(updateUserFollows(payload)),
     removeSong: (payload) => dispatch(removePlaylistSong(payload)),
     postStation: (station) => dispatch(postStation(station)),
+    clear: () => dispatch(clearEntities())
     // updateStation: (info) => dispatch(updateStation(info)),
     // removeTrackId: (info) => dispatch(removeTrackId(info)),
     // search: (term) => dispatch(fetchSearchResults(term)),

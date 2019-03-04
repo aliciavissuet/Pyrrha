@@ -1,6 +1,6 @@
 import merge from 'lodash/merge';
 import {  RECEIVE_STATION, RECEIVE_STATIONS, LOADING_STATION, REMOVE_TRACK_ID } from "../actions/station_actions";
-
+import { CLEAR } from '../actions/album_actions';
 const initialState = {
     
 };
@@ -14,9 +14,11 @@ export default (state=initialState, action) => {
         case REMOVE_TRACK_ID:
             console.log('here')
             let station = state[action.stationId];
-            debugger
+            
             trackIds = station.trackIds.filter(id => id!== action.trackId);
             return merge({}, state, {}, { [action.station.id]: { trackIds: trackIds } });
+        case CLEAR:
+            return {};
         default:
             return state;
     }

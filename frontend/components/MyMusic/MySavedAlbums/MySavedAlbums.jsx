@@ -24,6 +24,9 @@ class MySavedAlbums extends React.Component {
             this.setState({ userId, albums, tracks, artists, ui, user } );
         }
     }
+    componentWillUnmount(){
+        this.props.clear();
+    }
     removeSave(id) {
         const af = {userId: this.state.userId, albumId: id};
         this.props.removeAlbumFollow(af);
@@ -35,9 +38,9 @@ class MySavedAlbums extends React.Component {
     
         const {userId, albums, tracks, artists, ui, user} = this.state;
         const als = _.values(albums);
-        const userAl = _.get(this, 'state.user.albumIds', {});
-        const userAlbums = als.filter(al => userAl.includes(al.id));
-        const alList = userAlbums.map((album, i) => {
+        // const userAl = _.get(this, 'state.user.albumIds', {});
+        // const userAlbums = als.filter(al => userAl.includes(al.id));
+        const alList = als.map((album, i) => {
             return (<li key={i}><AlbumItem className='Track-item' userId={userId} album={album} artist={artists[album.artistIds[0]]} removeSave={this.removeSave}/></li>)
         });
 

@@ -1,6 +1,7 @@
 import {connect} from 'react-redux';
 import {fetchPlaylists} from '../../../actions/playlist_actions';
 import PlaylistDisplay from './PlaylistDisplay';
+import { clearEntities } from '../../../actions/album_actions';
 
 const mapStateToProps = state => ({
     user: state.entities.users[state.session.currentUser],
@@ -11,7 +12,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    fetchPlaylists: () => dispatch(fetchPlaylists())
+    fetchPlaylists: () => dispatch(fetchPlaylists()),
+    clear: () => dispatch(clearEntities())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PlaylistDisplay);

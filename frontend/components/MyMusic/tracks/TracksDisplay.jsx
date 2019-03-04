@@ -24,6 +24,9 @@ class TracksDisplay extends Component {
             this.setState({ userId, albums, tracks, artists, ui });
         }
     }
+    componentWillUnmount(){
+        this.props.clear();
+    }
     removeSave(id) {
         const tf = { userId: this.state.userId, trackId: id };
         this.props.removeTrackFollow(tf);
@@ -34,10 +37,10 @@ class TracksDisplay extends Component {
     render(){
         const artists = _.get(this, 'state.artists', {});
         const newTracks = _.get(this, 'state.tracks', {});
-        const userTI = _.get(this, 'state.user.trackIds', {});
+        // const userTI = _.get(this, 'state.user.trackIds', {});
         const tracks = _.values(newTracks);
-        const userTracks = tracks.filter(tr => userTI.includes(tr.id));
-        const tL = userTracks.map((track, i) => {
+        // const userTracks = tracks.filter(tr => userTI.includes(tr.id));
+        const tL = tracks.map((track, i) => {
             return (<li key={i}><TrackItem className='Track-item' track={track} artist={artists[track.artistId]} removeSave={this.removeSave} postStation={this.props.postStation}/></li>)});
 
         const trackList =  (
@@ -46,7 +49,7 @@ class TracksDisplay extends Component {
             </ul>
         )
         let content;
-        if (!tracks || userTracks.length===0  || this.props.ui.albums.loading){
+        if (!tracks || tracks.length===0  || this.props.ui.albums.loading){
             content = <Loading /> 
         } else {
             content =  trackList

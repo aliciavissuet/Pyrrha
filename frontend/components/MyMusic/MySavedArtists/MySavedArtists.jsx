@@ -24,6 +24,9 @@ class MySavedArtists extends React.Component {
             this.setState({ userId, albums, tracks, artists, ui });
         }
     }
+    componentWillUnmount(){
+        this.props.clear();
+    }
     removeSave(id) {
         const af = { userId: this.state.userId, artistId: id };
         this.props.removeArtistFollow(af);
@@ -35,10 +38,10 @@ class MySavedArtists extends React.Component {
 
         const { userId, albums, tracks, artists, ui, user } = this.state;
         const ars = _.values(artists);
-        const userAr = _.get(this, 'state.user.artistIds', {});
-        const userArtists = ars.filter(ar => userAr.includes(ar.id));
+        // const userAr = _.get(this, 'state.user.artistIds', {});
+        // const userArtists = ars.filter(ar => userAr.includes(ar.id));
 
-        const artList = userArtists.map((artist, i) => {
+        const artList = ars.map((artist, i) => {
             return (<li key={i}><ArtistItem className='Track-item' userId={userId} artist={artist} removeSave={this.removeSave}  /></li>)
         });
 

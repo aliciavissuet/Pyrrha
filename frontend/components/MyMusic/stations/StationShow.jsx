@@ -37,6 +37,9 @@ class StationShow extends React.Component {
             this.setState({artists, tracks, albums });
         }
     }
+    componentWillUnmount(){
+        this.props.clear();
+    }
     removeTrack(id){
         newTracks = delete this.state.tracks[id];
         this.setState({tracks: newTracks});
@@ -74,13 +77,11 @@ class StationShow extends React.Component {
         const {station} = this.props;
         console.log(station);
         const {artists, albums, tracks} = this.state;
-        const trIds = _.get(station, 'trackIds', []);
-        const arIds = _.get(station, 'artistIds', []);
-        const alIds = _.get(station, 'albumIds', []);
         
-        const stationArtists = _.values(artists).filter(art => arIds.includes(art.id)).map((artist, i) => <li key={i}><ArtistStationItem artist={artist} updateStation={this.props.updateStation} removeArtist={this.removeArtist} id={_.get(station, 'id', 'No ID')}/></li>)
-        const stationTracks = _.values(tracks).filter(tr =>trIds.includes(tr.id)).map((track, i) => <li key={i}><TrackStationItem track={track} updateStation={this.props.updateStation} removeTrack={this.removeTrack}id={_.get(station, 'id', 'No ID')}/></li>)
-        const stationAlbums = _.values(albums).filter(al => alIds.includes(al.id)).map((album, i) => <li key={i}><AlbumStationItem album={album} updateStation={this.props.updateStation} removeAlbum={this.removeAlbum}id={_.get(station, 'id', 'No ID')}/></li>)
+        
+        const stationArtists = _.values(artists).map((artist, i) => <li key={i}><ArtistStationItem artist={artist} updateStation={this.props.updateStation} removeArtist={this.removeArtist} id={_.get(station, 'id', 'No ID')}/></li>)
+        const stationTracks = _.values(tracks).map((track, i) => <li key={i}><TrackStationItem track={track} updateStation={this.props.updateStation} removeTrack={this.removeTrack}id={_.get(station, 'id', 'No ID')}/></li>)
+        const stationAlbums = _.values(albums).map((album, i) => <li key={i}><AlbumStationItem album={album} updateStation={this.props.updateStation} removeAlbum={this.removeAlbum}id={_.get(station, 'id', 'No ID')}/></li>)
         const stations = (
             <ul >
                 {stationArtists}

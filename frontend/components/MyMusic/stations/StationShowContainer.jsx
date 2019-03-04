@@ -3,6 +3,7 @@ import _ from 'lodash';
 import StationShow from './StationShow';
 import { fetchStation, updateStation, removeTrackId } from '../../../actions/station_actions';
 import {clearSearch, fetchSearchResults} from '../../../actions/search_actions';
+import {clearEntities} from '../../../actions/album_actions';
 
 const mapStateToProps = (state, ownProps) => {
     const stationId = ownProps.match.params.id;
@@ -19,7 +20,8 @@ const mapDispatchToProps = dispatch => ({
     updateStation: (info) => dispatch(updateStation(info)),
     removeTrackId: (info) => dispatch(removeTrackId(info)),
     search: (term) => dispatch(fetchSearchResults(term)),
-    clearSearch: () => dispatch(clearSearch())
+    clearSearch: () => dispatch(clearSearch()),
+    clear: () => dispatch(clearEntities())
 });
     
 

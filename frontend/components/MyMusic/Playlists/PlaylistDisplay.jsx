@@ -26,6 +26,9 @@ class PlaylistDisplay extends Component {
             this.setState({ artists, tracks, playlists, user, ui});
         }
     }
+    componentWillUnmount(){
+        this.props.clear();
+    }
     render() {
         const artists = _.get(this, 'state.artists', {});
         const tracks1 = _.get(this, 'state.tracks', {});

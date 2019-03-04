@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import MySavedAlbums from './MySavedAlbums'
-import { fetchAlbum, fetchAlbums, removeAlbumFollow } from '../../../actions/album_actions';
+import { fetchAlbum, fetchAlbums, removeAlbumFollow, clearEntities } from '../../../actions/album_actions';
 import { receiveCurrentUser } from '../../../actions/user_actions';
 // import { postStation } from '../../../actions/station_actions';
 
@@ -17,7 +17,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
     removeAlbumFollow: (af) => dispatch(removeAlbumFollow(af)),
     fetchUserAlbums: (userId) => dispatch(fetchAlbums(userId)),
-    postStation: (station) => dispatch(postStation(station))
+    postStation: (station) => dispatch(postStation(station)),
+    clear: () => dispatch(clearEntities())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MySavedAlbums);
