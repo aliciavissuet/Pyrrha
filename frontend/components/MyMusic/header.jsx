@@ -17,6 +17,10 @@ class Header extends React.Component {
         this.toggle = this.toggle.bind(this);
         this.updateSearch = this.updateSearch.bind(this);
     }
+    componentDidMount(){
+        console.log('mounted')
+        this.props.fetchPlaylists();
+    }
     handleClick() {
         this.props.logout();
     }

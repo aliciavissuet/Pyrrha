@@ -13,6 +13,7 @@ import UserStationContainer from './stations/UserStationContainer';
 import MiddleNavBar from './MiddleNavBar/MiddleNavBar';
 import MySavedAlbumsContainer from './MySavedAlbums/MySavedAlbumsContainer';
 import MySavedArtistsContainer from './MySavedArtists/MySavedArtistsContainer';
+import PlaylistDisplayContainer from './Playlists/PlaylistDisplayContainer';
 
 class All extends Component {
     render() {
@@ -25,6 +26,7 @@ class All extends Component {
                     <Route path="/my-music/tracks" component={TracksDisplayContainer} />
                     <Route path="/my-music/albums" component={MySavedAlbumsContainer}/>
                     <Route path='/my-music/stations' component={UserStationContainer} />
+                    <Route path='/my-music/playlists' component={PlaylistDisplayContainer}/>
                 </Switch>
             </div>
            

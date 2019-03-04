@@ -116,3 +116,19 @@
         background: #edeeef;
     }
 }
+.playlist-button {
+    position: relative;
+}
+.hidePlDD {
+    display: none;
+} 
+.showPlDD {
+    display: flex;
+    flex-direction: column;
+    background: pink;
+    position: absolute;
+    top: 5px;
+    left: -150px;
+    width: 150px;
+
+}

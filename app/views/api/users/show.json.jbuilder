@@ -29,3 +29,10 @@ json.artists do
         end
     end
 end
+json.playlists do 
+    @user.playlists.each do |playlist|
+        json.set! playlist.id do 
+            json.partial! 'api/playlists/playlist_only', playlist: playlist
+        end
+    end
+end

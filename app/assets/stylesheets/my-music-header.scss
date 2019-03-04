@@ -9,6 +9,7 @@
     color: rgba(0,0,0,.6);
     font-size: 17px;
     letter-spacing: 0.03em;
+    text-underline-position: below;
 }
 .my-music-pyrrha {
     margin: 0;
@@ -37,9 +38,10 @@
     
 }
 .selected-link {
-    text-decoration: underline;
+    // text-decoration: underline;
     color: black;
     font-weight: 700;
+    border-bottom: 1px solid black;
 }
 .music-header-left {
     // width: 90%;

@@ -15,7 +15,7 @@
     background-size: cover;
     overflow: hidden;
     z-index: -1;
-    width: 170%;
+    width: 100%;
     padding: 180px;
     box-sizing: border-box;
     background-position: center;
@@ -29,7 +29,7 @@
     font-family: 'Didact Gothic', sans-serif;
     color: white;
     font-size: 50px;
-    width: 140%;
+    width: 100%;
     position: absolute;
     }
 }
@@ -41,20 +41,15 @@
 }
 .station-main {
     
-   position: absolute;
-    top: 270px;
-    left: -3%;
-    width: 173%;
-    // z-index: 1;
-    box-sizing: border-box;
-    padding: 90px;
-    border-top-right-radius: 50%;
-    border-top-left-radius: 50%;
-    border-top: 8px solid black;
-    background: white;
+   background: white;
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 90px;
+    position: absolute;
+    top: 270px;
     ul {
         width:100%;
     }

@@ -59,3 +59,12 @@ export const fetchTracks = userId => dispatch => {
         dispatch(receiveTracks(payload.tracks));
     });
 };
+
+export const removeTrackFollow = tf => dispatch => {
+    dispatch(loadingTrue());
+    TrackAPIUtil.removeTrackFollow(tf).then(payload => {
+        dispatch(receiveTrackArtists(payload.artists));
+        dispatch(receiveTrackAlbums(payload.albums));
+        dispatch(receiveTracks(payload.tracks));
+    });
+};

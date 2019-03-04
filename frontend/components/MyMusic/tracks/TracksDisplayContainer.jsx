@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import TracksDisplay from './TracksDisplay';
 import { postStation } from '../../../actions/station_actions';
-import {fetchTracks} from '../../../actions/track_actions'
+import {fetchTracks, removeTrackFollow} from '../../../actions/track_actions'
 const mapStateToProps = state => ({
     
     userId: state.session.currentUser,
@@ -13,6 +13,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
+    removeTrackFollow: (tf) => dispatch(removeTrackFollow(tf)),
     fetchTracks: (userId) => dispatch(fetchTracks(userId)),
     postStation: (station) => dispatch(postStation(station))
 });

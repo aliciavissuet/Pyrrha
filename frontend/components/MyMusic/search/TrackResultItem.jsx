@@ -1,15 +1,23 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import cx from 'classnames';
+import {Link} from 'react-router-dom';
+
 class TrackResultItem extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            displayDropdown: false
+            displayDropdown: false,
+            displayPlaylistDropDown: false,
+        
         };
         this.toggle = this.toggle.bind(this);
         this.postStation = this.postStation.bind(this);
         this.followTrack = this.followTrack.bind(this);
+        this.addTrackToPlaylist = this.addTrackToPlaylist.bind(this);
+        this.createPlaylist = this.createPlaylist.bind(this);
+        this.showPlDD = this.showPlDD.bind(this);
+        this.hidePlDD = this.hidePlDD.bind(this);
     }
     toggle() {
         this.setState({displayDropdown: !this.state.displayDropdown});
@@ -26,9 +34,31 @@ class TrackResultItem extends React.Component {
         const info = {userId: userId, type: 'Track', mediaId: track.id}
         this.props.addFollow(info);
     }
+    showPlDD() {
+        console.log('show')
+        this.setState({ displayPlaylistDropDown: true})
+    }
+    hidePlDD() {
+        this.setState({ displayPlaylistDropDown: false })
+    }
+    addTrackToPlaylist(id){
+        const pl = {playlistId: id, trackId: this.props.track.id};
+        this.props.addSongToPlaylist(pl);
+
+    }
+    createPlaylist(){
+        this.props.createPlaylist
+    }
     render() {
-        const {track} = this.props;
+        const {track, playlists} = this.props;
         const dropdownClass = cx('hide', { 'search-result-dropdown': this.state.displayDropdown });
+        const playlistDDClass = cx('hidePlDD', {'showPlDD': this.state.displayPlaylistDropDown});
+        const playlists1 = _.values(playlists);
+        
+        const pL = playlists1.map((playlist, i) => {
+            return (<button key={i} onClick={()=>this.addTrackToPlaylist(playlist.id)}>{playlist.title}</button>)
+        });  
+        
         return (
             <div>
                 <div className='search-result-item'>
@@ -44,8 +74,15 @@ class TrackResultItem extends React.Component {
                 </div>
                 <div className={dropdownClass}>
                     <button onClick={this.postStation} className='start-station'><FontAwesomeIcon icon={["fas", "circle-notch"]} />   Start station from song</button>
-                    <button className='start-station'><FontAwesomeIcon icon={["fas", "circle-notch"]} />   Add song to playlist</button>
+                    <div className='playlist-button' onMouseOver={this.showPlDD} onMouseLeave={this.hidePlDD}>
+                        <button className='start-station'><FontAwesomeIcon icon={["fas", "circle-notch"]} />   Add song to playlist > </button>
+                        <div className={playlistDDClass}>
+                            <button onClick={this.createPlaylist}>Add Song to new playlist</button>
+                            {pL}
+                        </div>
+                    </div>
                     <button onClick={this.followTrack}className='start-station'><FontAwesomeIcon icon={["fas", "circle-notch"]} />   Add song to My Music</button>
+                    
                 </div>
             </div>
         );

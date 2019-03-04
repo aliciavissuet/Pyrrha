@@ -11,9 +11,10 @@ class Api::StationsController < ApplicationController
         @station = Station.new(title: params[:station][:title])
         @station.user_id = current_user.id 
         mediable_id = params[:station][:mediable_id].to_i
+        
         possible_station = StationCreatedFrom
-            .where(mediable_id: params[:station][:mediable_id], mediable_type: params[:station][:mediable_type])
-            .select {|scf| scf.station.first_media == mediable_id && scf.station.user_id == current_user.id}
+            .where(mediable_id: mediable_id, mediable_type: params[:station][:mediable_type])
+            .select {|scf| scf.station && scf.station.first_media == mediable_id && scf.station.user_id == current_user.id}
         
         if possible_station.length==0
             if params[:station][:mediable_type] == 'Track'

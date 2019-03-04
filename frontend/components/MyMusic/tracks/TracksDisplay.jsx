@@ -10,6 +10,7 @@ class TracksDisplay extends Component {
         this.state = {
             albums, artists, tracks, ui, userId, user
         };
+        this.removeSave = this.removeSave.bind(this);
     }
 
     componentDidMount(){
@@ -23,6 +24,12 @@ class TracksDisplay extends Component {
             this.setState({ userId, albums, tracks, artists, ui });
         }
     }
+    removeSave(id) {
+        const tf = { userId: this.state.userId, trackId: id };
+        this.props.removeTrackFollow(tf);
+        const newTracks = delete this.state.tracks[id];
+        this.setState({ tracks: newTracks });
+    }
 
     render(){
         const artists = _.get(this, 'state.artists', {});
@@ -31,7 +38,7 @@ class TracksDisplay extends Component {
         const tracks = _.values(newTracks);
         const userTracks = tracks.filter(tr => userTI.includes(tr.id));
         const tL = userTracks.map((track, i) => {
-            return (<li key={i}><TrackItem className='Track-item' track={track} artist={artists[track.artistId]} postStation={this.props.postStation}/></li>)});
+            return (<li key={i}><TrackItem className='Track-item' track={track} artist={artists[track.artistId]} removeSave={this.removeSave} postStation={this.props.postStation}/></li>)});
 
         const trackList =  (
             <ul className='track-display-container'>

@@ -1,0 +1,35 @@
+.playlist-show-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.playlist-show-left {
+    margin-left: 10%;
+    margin-top: 5%;
+    width: 60%;
+    height: 50vh;
+    background: #575859;
+    flex: left;
+}
+
+.playlist-show-right {
+    width: 100%;
+    margin: 2%;
+    display: flex;
+    flex-direction: column;
+    flex: right;
+    align-items: center;
+}
+.playlist-header {
+    h1 {
+        color: #575859;
+        font-family: 'Didact Gothic', sans-serif;
+        font-size: 24px;
+    }
+    h3 {
+        color: #575859;
+        font-family: 'Didact Gothic', sans-serif;
+        font-size: 14px;
+    }
+}

@@ -2,6 +2,7 @@ import {logout} from '../../actions/session_actions';
 import {fetchSearchResults, clearSearch} from '../../actions/search_actions';
 import Header from './header';
 import { connect } from 'react-redux';
+import { fetchPlaylists } from '../../actions/playlist_actions';
 
 
 const mapStateToProps = state => ({
@@ -11,7 +12,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
     logout: () => dispatch(logout()),
     search: (term) => dispatch(fetchSearchResults(term)),
-    clearSearch: () => dispatch(clearSearch())
+    clearSearch: () => dispatch(clearSearch()),
+    fetchPlaylists: () => dispatch(fetchPlaylists())
 
 });
 

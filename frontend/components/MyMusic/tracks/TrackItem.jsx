@@ -7,6 +7,7 @@ class TrackItem extends Component {
     constructor(props) {
         super(props);
         this.postStation = this.postStation.bind(this);
+        
     }
     postStation (){
         
@@ -16,7 +17,7 @@ class TrackItem extends Component {
         this.props.postStation({title: station_title, mediable_id: id, mediable_type: 'Track'});
     }
     render() {
-        const {track, artist} = this.props;
+        const {track, artist, removeSave} = this.props;
         return (
             <div className='Track-item'>
                 
@@ -24,6 +25,7 @@ class TrackItem extends Component {
                 <br/>
                 <h1>{_.get(artist, 'name', 'No Name Found')}</h1>
                 <button className='add-station'><FontAwesomeIcon icon={["fas", "circle-notch"]} onClick={this.postStation}/></button>
+                <button className='add-station'><FontAwesomeIcon icon={["fas", "circle-notch"]} onClick={()=>removeSave(track.id)}/></button>
                 
             </div>
         );

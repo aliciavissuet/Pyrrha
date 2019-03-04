@@ -10,6 +10,7 @@ class User < ApplicationRecord
     has_many :albums, through: :album_follows
     has_many :artist_follows
     has_many :artists, through: :artist_follows
+    has_many :playlists
 
     attr_reader :password
     after_initialize :ensure_session_token 

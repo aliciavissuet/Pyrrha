@@ -12,3 +12,11 @@ export const fetchUserTracks = (userId) => (
         data: {userId}
     })
 );
+
+export const removeTrackFollow = (tf) => (
+    $.ajax({
+        method: 'DELETE',
+        url: `/api/track_follows/${tf.userId}`,
+        data: { tf }
+    })
+);
