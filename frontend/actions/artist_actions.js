@@ -53,3 +53,12 @@ export const fetchArtists = (userId) => dispatch => {
         dispatch(receiveArtists(payload.artists));
     });
 };
+
+export const removeArtistFollow = af => dispatch => {
+    dispatch(loadingTrue());
+    ArtistAPIUtil.removeArtistFollow(af).then(payload => {
+        dispatch(receiveArtistAlbums(payload.albums));
+        dispatch(receiveArtistTracks(payload.tracks));
+        dispatch(receiveArtists(payload.artists));
+    });
+};

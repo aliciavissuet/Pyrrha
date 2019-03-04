@@ -10,5 +10,6 @@ Rails.application.routes.draw do
     resources :stations, only: [:index, :show, :create, :update, :destroy]
     resources :searches, only: [:index]
     resources :album_follows, only: [:destroy]
+    resources :artist_follows, only: [:destroy]
   end
 end

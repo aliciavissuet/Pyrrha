@@ -12,3 +12,10 @@ export const fetchArtists = (userId) => (
         data: { userId }
     })
 );
+export const removeArtistFollow = (af) => (
+    $.ajax({
+        method: 'DELETE',
+        url: `/api/artist_follows/${af.userId}`,
+        data: { af }
+    })
+);

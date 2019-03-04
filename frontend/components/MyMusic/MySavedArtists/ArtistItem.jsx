@@ -7,13 +7,13 @@ class ArtistItem extends Component {
     }
 
     render() {
-        const { artist } = this.props;
+        const { artist, removeSave } = this.props;
         return (
             <div className='Track-item'>
 
                 <h1>{_.get(artist, 'name', 'No Title Found')}</h1>
                 <br />
-                <button className='add-station'><FontAwesomeIcon icon={["fas", "circle-notch"]} onClick={this.postStation} /></button>
+                <button className='add-station'><FontAwesomeIcon icon={["fas", "circle-notch"]} onClick={() => removeSave(artist.id)} /></button>
 
             </div>
         );
