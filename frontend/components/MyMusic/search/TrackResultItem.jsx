@@ -55,7 +55,6 @@ class TrackResultItem extends React.Component {
         const dropdownClass = cx('hide', { 'search-result-dropdown': this.state.displayDropdown });
         const playlistDDClass = cx('hidePlDD', {'showPlDD': this.state.displayPlaylistDropDown});
         const playlists1 = _.values(playlists);
-        
         const pL = playlists1.map((playlist, i) => {
             return (<button key={i} onClick={()=>this.addTrackToPlaylist(playlist.id)}>{playlist.title}</button>)
         });  
@@ -64,6 +63,7 @@ class TrackResultItem extends React.Component {
             <div>
                 <div className='search-result-item'>
                     <div>
+
                         <span className='search-result-title'>{track && track.title }</span>
                         <br />
                         <span className='search-result-type'>Song</span>

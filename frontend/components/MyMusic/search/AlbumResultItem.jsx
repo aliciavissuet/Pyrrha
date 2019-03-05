@@ -28,11 +28,13 @@ class AlbumResultItem extends React.Component {
     }
     render() {
         const { album } = this.props;
+        const imgSrc = album.photoUrl ? album.photoUrl : '';
         const dropdownClass = cx('hide', { 'search-result-dropdown': this.state.displayDropdown });
         return (
             <div>
                 <div className='search-result-item'>
                     <div>
+                        <img className='artist-tiny' src={imgSrc} alt="" />
                         <span className='search-result-title'>{album && album.title}</span>
                         <br />
                         <span className='search-result-type'>Album</span>

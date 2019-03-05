@@ -7,4 +7,5 @@ class Artist < ApplicationRecord
     has_many :users, through: :artist_follows
     has_one_attached :photo
     
+    
 end

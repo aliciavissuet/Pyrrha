@@ -5,4 +5,5 @@ class Track < ApplicationRecord
     has_many :station_created_froms, :as => :mediable
     has_many :track_follows
     has_many :users, through: :track_follows
+    has_one_attached :song
 end

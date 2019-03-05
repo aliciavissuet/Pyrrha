@@ -36,6 +36,15 @@ const receivePlaylists = playlists => ({
     playlists
 });
 
+// export const playPlaylist = id => dispatch => {
+//     dispatch(loadingTrue());
+//     PlaylistAPIUtil.fetchPlaylist(id).then(payload => {
+//         //set current song
+//         //set current play queue
+//         //set current artist
+//     }
+// };
+
 export const createPlaylist = (playlist) => dispatch => {
     dispatch(loadingTrue());
     PlaylistAPIUtil.postPlaylist(playlist).then(payload => {
