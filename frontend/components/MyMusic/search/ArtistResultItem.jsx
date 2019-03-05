@@ -30,13 +30,17 @@ class ArtistResultItem extends React.Component {
     render() {
         const { artist } = this.props;
         const dropdownClass = cx('hide', { 'search-result-dropdown': this.state.displayDropdown });
+        const imgSrc = artist.photoUrl ? artist.photoUrl : '';
         return (
             <div>
                 <div className='search-result-item'>
-                    <div>
-                        <span className='search-result-title'>{artist && artist.name}</span>
-                        <br />
-                        <span className='search-result-type'>Artist</span>
+                    <div className='search-result-left'> 
+                        <img className='artist-tiny' src={imgSrc} alt="" />
+                        <div>
+                            <span className='search-result-title'>{artist && artist.name}</span>
+                            <br />
+                            <span className='search-result-type'>Artist</span>
+                        </div>
                     </div>
                     <div>
                         <button className='more-options' onClick={this.toggle}>...</button>

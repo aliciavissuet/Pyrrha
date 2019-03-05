@@ -42,3 +42,11 @@ export const removeSongFromPlaylist = (pt) => (
         data: {pt}
     })
 );
+
+export const updatePlaylist = (playlist) => (
+    $.ajax({
+        method: 'PATCH',
+        url: `/api/playlists/${playlist.id}`,
+        data: {playlist}
+    })
+)

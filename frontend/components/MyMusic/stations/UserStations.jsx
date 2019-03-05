@@ -17,6 +17,11 @@ class UserStations extends Component {
     componentWillUnmount (){
         this.props.clear();
     }
+    componentDidUpdate(prevProps){
+        if(this.props!==prevProps) {
+            this.setState({stations: this.props.stations});
+        }
+    }
     
     render() {
         const stations = _.get(this, 'state.stations', {});

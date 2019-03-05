@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     resources :album_follows, only: [:destroy]
     resources :artist_follows, only: [:destroy]
     resources :track_follows, only: [:destroy]
-    resources :playlists, only: [:create, :show, :destroy, :index]
+    resources :playlists, only: [:create, :show, :destroy, :index, :update]
     resources :playlist_tracks, only: [:create, :destroy]
   end
 end

@@ -45,7 +45,7 @@ class PlaylistShow extends React.Component {
     render() {
 
 
-        const { playlist, userId, addFollow, postStation } = this.props;
+        const { playlist, userId, addFollow, postStation, updatePlaylist } = this.props;
         const { artists, albums, tracks } = this.state;
         // const trIds = _.get(playlist, 'trackIds', []);
 
@@ -65,7 +65,7 @@ class PlaylistShow extends React.Component {
                     <p>Picture goes here</p>
                 </div>
                 <div className='playlist-show-right'>
-                    <PlaylistHeader playlist={playlist}/>
+                    <PlaylistHeader playlist={playlist} updatePlaylist={updatePlaylist}/>
                     <div className='search-lis'>
                         {content}
                     </div>

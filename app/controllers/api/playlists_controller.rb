@@ -3,7 +3,7 @@ class Api::PlaylistsController < ApplicationController
         @playlist = Playlist.new 
         @playlist.user_id = current_user.id 
         @playlist.title = params[:playlist][:title]
-        debugger
+        
         @playlist.save
         @track = Track.find(params[:playlist][:trackId])
         @playlist.tracks.push(@track)
@@ -48,5 +48,11 @@ class Api::PlaylistsController < ApplicationController
         @artists = @artists.uniq
         @tracks = @tracks.uniq
         render '/api/playlists/index'
+    end
+    def update 
+        @playlist = Playlist.find(params[:id])
+        @playlist.title = params[:playlist][:title]
+        @playlist.save 
+        render '/api/playlists/show'
     end
 end

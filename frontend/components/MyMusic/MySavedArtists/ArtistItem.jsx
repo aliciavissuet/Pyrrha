@@ -8,9 +8,15 @@ class ArtistItem extends Component {
 
     render() {
         const { artist, removeSave } = this.props;
+        const imgSrc = artist.photoUrl ? artist.photoUrl : '';
+        const styles = {
+            artistImg: {
+                backgroundImage: `url(${imgSrc})` 
+            }
+        };
         return (
-            <div className='Track-item'>
-
+            <div className='Track-item' style={styles.artistImg}>
+                {/* <img src={imgSrc} alt=""/> */}
                 <h1>{_.get(artist, 'name', 'No Title Found')}</h1>
                 <br />
                 <button className='add-station'><FontAwesomeIcon icon={["fas", "circle-notch"]} onClick={() => removeSave(artist.id)} /></button>

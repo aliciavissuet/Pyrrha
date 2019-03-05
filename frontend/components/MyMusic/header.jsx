@@ -28,7 +28,7 @@ class Header extends React.Component {
         this.setState({toggled: false});
     }
     toggle(){
-        this.setState({toggled: !this.state.toggled})
+        this.setState({toggled: !this.state.toggled});
     }
     updateSearch(e){
         if (e.target.value.length===0) {

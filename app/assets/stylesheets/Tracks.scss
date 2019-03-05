@@ -64,7 +64,6 @@
 }
 
 .Track-item {
-    background: url('app/assets/images/damien_rice.jpg') no-repeat;
     padding: 20%;
     margin-bottom: 10%;
     box-sizing: border-box;
@@ -74,6 +73,8 @@
     padding-left: 5%;
     height:0px;
     height: 100%;
+    background-size: cover;
+    
     
 }
 .Tracks-component {
@@ -92,3 +93,4 @@
 .delete-button:hover{
   color:red;
 }
+
