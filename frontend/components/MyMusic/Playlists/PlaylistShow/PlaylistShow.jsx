@@ -22,6 +22,8 @@ class PlaylistShow extends React.Component {
     componentDidMount() {
         console.log('hit playlist show');
         this.props.fetchPlaylist(this.props.match.params.id);
+        const { playlist, artists, tracks, albums, playlistLoading, userId } = this.props;
+        this.setState({ playlist, artists, tracks, albums, playlistLoading, userId});
     }
     componentDidUpdate(prevProps) {
 

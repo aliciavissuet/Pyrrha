@@ -43,9 +43,9 @@ class AlbumResultItem extends React.Component {
                     </div>
                 </div>
                 <div className={dropdownClass}>
-                    <button onClick={this.postStation} className='start-station'><FontAwesomeIcon icon={["fas", "circle-notch"]} />   Start station from album</button>
-                    <button className='start-station'><FontAwesomeIcon icon={["fas", "circle-notch"]} />   Add album to playlist</button>
-                    <button onClick={this.followTrack} className='start-station'><FontAwesomeIcon icon={["fas", "circle-notch"]} />   Add album to My Music</button>
+                    <button onClick={this.postStation} className='start-station'><FontAwesomeIcon className='icon' icon={["fas", "circle-notch"]} />   Start station from album</button>
+                    <button className='start-station'><FontAwesomeIcon icon={["fas", "circle-notch"]} className='icon'/>   Add album to playlist</button>
+                    <button onClick={this.followTrack} className='start-station'><FontAwesomeIcon className='icon' icon={["fas", "circle-notch"]} />   Add album to My Music</button>
                 </div>
             </div>
         );

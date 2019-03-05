@@ -25,3 +25,90 @@
     border: 0px;
     cursor: pointer;
 }
+
+.more {
+     font-family: 'Didact Gothic', sans-serif;
+     color: #575859;
+     padding: 1%;
+}
+.hidden {
+    display: none;
+};
+
+.square-dropdown {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 79%;
+    left: 39%;
+    box-shadow: 0 0 1px lightgrey;
+    z-index: 2;
+    li {
+        font-size: 20px;
+        list-style: none;
+        width: 160px;
+        background: white;
+        padding: 5px;
+        color: black;    
+        font-size: 15px;
+        color: black;
+        margin: 0px;
+        font-family: 'Didact Gothic', sans-serif;
+
+        button {
+            font-family: 'Didact Gothic', sans-serif;
+            font-weight: 200;
+            margin: 0px;
+            color: black;
+            font-size: 16px;
+        }
+    }
+    li:hover {
+         background: #edeeef;
+    }
+}
+.square-dropdown:hover {
+    background: white;
+}
+
+.more {
+    position: absolute;
+    color: white;
+    outline: none;
+    font-size: 40px;
+    border: none;
+    background: transparent;
+    
+}
+#dd {
+    margin: 0px;
+}
+.track-item-top-level {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    Link {
+        text-decoration: none;
+    }
+    h1 {
+        font-family: 'Didact Gothic', sans-serif;
+        font-weight: 900;
+        margin: 0px;
+        color: black;
+        font-size: 15px;
+    }
+    h2 {
+        font-family: 'Didact Gothic', sans-serif;
+        font-size: 11px;
+        color: #575859;
+    }
+}
+.track-item-text {
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+}
+.white-icon {
+    padding: 20px;
+    color:white;
+}

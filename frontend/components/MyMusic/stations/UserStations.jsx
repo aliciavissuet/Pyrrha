@@ -43,16 +43,6 @@ class UserStations extends Component {
             </div >)
         }
     
-
-        
-        // const content = (this.props.stationLoading) ? <Loading /> : stationsList
-        // console.log(content)
-        // return (
-        //     <div className='Tracks-component'>
-        //         {content}
-        //         {/* <h1>hello</h1> */}
-        //     </div>
-        // );
     }
 }
 

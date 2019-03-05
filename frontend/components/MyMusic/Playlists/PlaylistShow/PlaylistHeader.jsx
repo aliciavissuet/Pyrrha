@@ -1,19 +1,9 @@
 // import React from 'react';
 import _ from 'lodash';
 import cx from 'classnames';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+ 
 
-// const PlaylistHeader = (props) => {
-//     const {playlist} = props;
-//     const titleCN = cx('playlist - title', {})
-//     return (
-//         <div className='playlist-header'>
-//             <input className='' value={_.get(playlist, 'title', 'No Title Found')}/>
-//             <h3>{_.get(playlist, 'trackIds.length', '0')} songs</h3>
-//         </div>
-//     );
-// };
-
-// export default PlaylistHeader;
 
 import React, { Component } from 'react';
 
@@ -52,14 +42,17 @@ class PlaylistHeader extends Component {
         }
     }
     render() {
-        const { playlist } = this.props;
-        // const titleCN = cx('playlist - title', {});
+        const titleCN = cx('hide', {'playlist-title':this.state.hover});
+        const icon = cx('white-icon', {'icon ':this.state.hover});
         return (
             <div>
                 <div className='playlist-header'>
-             <input className='' onMouseOver={this.hoverTitle} onMouseOut={this.hoverTitle} value={this.state.title} onChange={this.changeTitle} onBlur={this.updateTitle}/>
-             <h3>{_.get(this, 'props.playlist.trackIds.length', '0')} songs</h3>
-         </div>
+                    <div className='header-hover'>
+                        <input className='' onMouseOver={this.hoverTitle} onMouseOut={this.hoverTitle} value={this.state.title} onChange={this.changeTitle} onBlur={this.updateTitle} />
+                        <FontAwesomeIcon className='white-icon' icon={["fas", "pen"]} onClick={() => removeSave(artist.id)} />
+                    </div>
+                    <h3>{_.get(this, 'state.playlist.trackIds.length', '0')} songs</h3>
+                </div>
             </div>
         );
     }

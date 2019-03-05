@@ -74,15 +74,15 @@ class TrackResultItem extends React.Component {
                     </div>
                 </div>
                 <div className={dropdownClass}>
-                    <button onClick={this.postStation} className='start-station'><FontAwesomeIcon icon={["fas", "circle-notch"]} />   Start station from song</button>
+                    <button onClick={this.postStation} className='start-station'><FontAwesomeIcon icon={["fas", "circle-notch"]} className='icon'/>   Start station from song</button>
                     <div className='playlist-button' onMouseOver={this.showPlDD} onMouseLeave={this.hidePlDD}>
-                        <button className='start-station'><FontAwesomeIcon icon={["fas", "circle-notch"]} />   Add song to playlist > </button>
+                        <button className='start-station'><FontAwesomeIcon icon={["fas", "circle-notch"]} className='icon'/>   Add song to playlist > </button>
                         <div className={playlistDDClass}>
                             <button onClick={this.createPlaylist}>Add Song to new playlist</button>
                             {pL}
                         </div>
                     </div>
-                    <button onClick={this.followTrack}className='start-station'><FontAwesomeIcon icon={["fas", "circle-notch"]} />   Add song to My Music</button>
+                    <button onClick={this.followTrack} className='start-station'><FontAwesomeIcon className='icon' icon={["fas", "circle-notch"]} />   Add song to My Music</button>
                     
                 </div>
             </div>

@@ -33,9 +33,32 @@
         font-size: 14px;
     }
     input {
+        padding: 3px;
+        font-size: 30px;
         height: 60px;
         width: 200px;
+        font-family: 'Didact Gothic', sans-serif;
+
         outline: none;
         border: none;
+    }
+    input:hover {
+        background: #edeeef;
+    }
+    
+    
+}
+.white-icon {
+    padding-left:10px;
+    color: white;
+}
+.white-icon:hover {
+    color: black;
+}
+.header-hover:hover {
+    background: #edeeef;
+    color: black;
+    .white-icon {
+        color: black;
     }
 }
