@@ -9,9 +9,16 @@ class ArtistItem extends Component {
             dropdown: false
         };
         this.toggle = this.toggle.bind(this);
+        this.postStation = this.postStation.bind(this);
     }
     toggle() {
         this.setState({ dropdown: !this.state.dropdown });
+    }
+    postStation(){
+        const { name, id } = this.props.artist;
+        const station_title = name + ' Station';
+        console.log('here');
+        this.props.postStation({ title: station_title, mediable_id: id, mediable_type: 'Artist' });
     }
     render() {
         const { artist, removeSave } = this.props;
@@ -36,7 +43,7 @@ class ArtistItem extends Component {
 
                 <ul className={squareDD}>
                     {/* faHeadphonesAlt className='icon' icon={["fal", "faHeadphonesAlt"]} */}
-                    {/* <li id='dd'><button className='add-station'><FontAwesomeIcon icon={["fas", "headphones-alt"]} onClick={this.postStation} /> Start Station</button></li> */}
+                    <li id='dd'><button className='add-station' onClick={this.postStation}><FontAwesomeIcon icon={["fas", "headphones-alt"]}/> Start Station</button></li>
                     <li id='dd'><button className='add-station'><FontAwesomeIcon className='icon' icon={["fas", "trash-alt"]} onClick={() => removeSave(artist.id)} />Unsave Artist</button></li>
                 </ul>
             </div>

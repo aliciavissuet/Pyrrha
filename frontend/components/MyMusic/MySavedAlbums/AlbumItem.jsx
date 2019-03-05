@@ -10,9 +10,17 @@ class AlbumItem extends Component {
             dropdown: false
         };
         this.toggle = this.toggle.bind(this);
+        this.postStation = this.postStation.bind(this);
     }
     toggle() {
         this.setState({ dropdown: !this.state.dropdown });
+    }
+    postStation() {
+        console.log('here');
+        const { title, id } = this.props.album;
+        const station_title = title + ' Station';
+
+        this.props.postStation({ title: station_title, mediable_id: id, mediable_type: 'Album' });
     }
     render() {
         const { album, artist, removeSave, userId } = this.props;
@@ -21,6 +29,7 @@ class AlbumItem extends Component {
             <div className='track-item-top-level'>
                 <div className='Track-item'>
                     <button className='more' onClick={this.toggle}>...</button>
+                    
                 </div>
                 <div className='track-item-text'>
                     <h1>{_.get(album, 'title', 'No Title Found')}</h1>
@@ -29,7 +38,7 @@ class AlbumItem extends Component {
                 </div>
 
                 <ul className={squareDD}>
-                    <li id='dd'><button onClick={() => removeSave(album.id)} className='add-station'><FontAwesomeIcon className='icon' icon={["fas", "headphones-alt"]} onClick={this.postStation} /> Start Station</button></li>
+                    <li id='dd'><button onClick={this.postStation} className='add-station'><FontAwesomeIcon className='icon' icon={["fas", "headphones-alt"]}  /> Start Station</button></li>
                     {/* faHeadphonesAlt className='icon' icon={["fal", "faHeadphonesAlt"]} */}
                     <li id='dd'><button className='add-station'> <FontAwesomeIcon className='icon' icon={["fas", "trash-alt"]} onClick={() => removeSave(album.id)} /> Unsave Album</button></li>
                 </ul>

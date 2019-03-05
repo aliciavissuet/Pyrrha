@@ -35,7 +35,7 @@ class UserStations extends Component {
         } else {
             
             const stationsL = stations1.map((station, i) => {
-                return (<li key={i}><Link to={`/my-music/stations/${(station ? station.id : '')}`}><UserStationItem station={station} tracks={this.props.tracks} deleteStation={this.props.deleteStation} /></Link></li>)
+                return (<li key={i}><UserStationItem station={station} tracks={this.props.tracks} deleteStation={this.props.deleteStation} /></li>)
             });
             return (
             < div className = 'Tracks-component' >

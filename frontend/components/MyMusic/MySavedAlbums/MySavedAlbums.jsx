@@ -2,6 +2,7 @@ import React from 'react';
 import _ from 'lodash';
 import AlbumItem from './AlbumItem';
 import Loading from '../../common/Loading';
+import {Link} from 'react-router-dom';
 
 class MySavedAlbums extends React.Component {
     constructor(props) {
@@ -41,7 +42,7 @@ class MySavedAlbums extends React.Component {
         // const userAl = _.get(this, 'state.user.albumIds', {});
         // const userAlbums = als.filter(al => userAl.includes(al.id));
         const alList = als.map((album, i) => {
-            return (<li key={i}><AlbumItem className='Track-item' userId={userId} album={album} artist={artists[album.artistIds[0]]} removeSave={this.removeSave}/></li>)
+            return (<li key={i}><AlbumItem className='Track-item' userId={userId} album={album} artist={artists[album.artistIds[0]]} removeSave={this.removeSave} postStation={this.props.postStation}/></li>)
         });
 
         const albumList = (

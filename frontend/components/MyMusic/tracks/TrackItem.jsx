@@ -42,7 +42,7 @@ class TrackItem extends Component {
                 <ul className={squareDD}>
                     {/* faHeadphonesAlt className='icon' icon={["fal", "faHeadphonesAlt"]} */}
                     <li id='dd'><button className='add-station'><FontAwesomeIcon icon={["fas", "headphones-alt"]}onClick={this.postStation} /> Start Station</button></li>
-                    <li id='dd'><button className='add-station'><FontAwesomeIcon className='icon' icon={["fas", "trash-alt"]} onClick={() => removeSave(track.id)} />Remove Station</button></li>
+                    <li id='dd'><button className='add-station'><FontAwesomeIcon className='icon' icon={["fas", "trash-alt"]} onClick={() => removeSave(track.id)} /> Remove Station</button></li>
                 </ul>
             </div>
         );

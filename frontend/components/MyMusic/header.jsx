@@ -19,7 +19,7 @@ class Header extends React.Component {
     }
     componentDidMount(){
         console.log('mounted')
-        this.props.fetchPlaylists();
+        // this.props.fetchPlaylists();
     }
     handleClick() {
         this.props.logout();

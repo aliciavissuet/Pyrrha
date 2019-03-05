@@ -21,6 +21,7 @@ class UserStationItem extends React.Component {
         const stationId = _.get(this.props.station, 'id', 'No ID Found');
         this.props.deleteStation(stationId);
     }
+    
     render(){
         console.log(this.props);
         const {station, deleteStation} = this.props;
@@ -36,16 +37,18 @@ class UserStationItem extends React.Component {
                 <div className='Track-item'>
                     <button className='more' onClick={this.toggle}>...</button>
                 </div>
-                <div className='track-item-text'>
+                <Link to={`/my-music/stations/${(this.props.station.id)}`}>
+                    <div className='track-item-text'>
                     <h1>{_.get(station, 'title', 'No Title Found')}</h1>
                     <h2>Station</h2>
-                </div>
+                    </div>
+                </Link>
 
                 <ul className={squareDD}>
-                    <button className='delete-button' onClick={this.deleteStation}><FontAwesomeIcon className='icon' icon={["fas", "trash-alt"]} />Remove Station</button>
+                    {/* <li id='dd'><button className='add-station' onClick={this.postStation}><FontAwesomeIcon className='icon' icon={["fas", "headphones-alt"]}  /> Start Station</button></li> */}
+                    <li id='dd'><button className='delete-button' onClick={this.deleteStation}><FontAwesomeIcon className='icon' icon={["fas", "trash-alt"]} />Remove Station</button></li>
 
                     {/* faHeadphonesAlt className='icon' icon={["fal", "faHeadphonesAlt"]} */}
-                    <li id='dd'><button className='add-station'><FontAwesomeIcon icon={["fas", "headphones-alt"]} onClick={this.postStation} /> Start Station</button></li>
                     {/* <li id='dd'><button className='add-station'><FontAwesomeIcon className='icon' icon={["fas", "trash-alt"]} onClick={() => removeSave(track.id)} />Remove Station</button></li> */}
                 </ul>
             </div>

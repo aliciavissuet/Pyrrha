@@ -3,6 +3,7 @@ import HeaderContainer from './header_container';
 import TrackDisplayContainer from '../MyMusic/tracks/TracksDisplayContainer';
 import StationShowContainer from '../MyMusic/stations/StationShowContainer';
 import PlaylistShowContainer from './Playlists/PlaylistShow/PlaylistShowContainer';
+import AlbumShowContainer from './MySavedAlbums/AlbumShow/AlbumShowContainer';
 import {
     Route,
     Redirect,
@@ -24,6 +25,7 @@ class ProtectedApp extends Component {
                     {/* <Route exact path='/my-music/tracks' component={TrackDisplayContainer}/> */}
                     <Route path='/my-music/stations/:id' component={StationShowContainer} />
                     <Route path='/my-music/playlists/:id' component={PlaylistShowContainer} />
+                    <Route path='/my-music/albums/:id' component={AlbumShowContainer}/>
                     <Route path="/my-music" component={All}/>
                 </Switch>
             </div>
