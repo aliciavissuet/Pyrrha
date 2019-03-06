@@ -14,6 +14,8 @@ const mapStateToProps = state => {
         stations: state.entities.stations, 
         stationLoading: state.ui.stations.loading, 
         tracks: state.entities.tracks,
+        artists: state.entities.artists,
+        albums: state.entities.albums,
         
     };
 };

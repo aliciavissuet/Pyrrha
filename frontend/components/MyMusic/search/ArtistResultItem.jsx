@@ -48,9 +48,9 @@ class ArtistResultItem extends React.Component {
                     </div>
                 </div>
                 <div className={dropdownClass}>
-                    <button onClick={this.postStation} className='start-station'><FontAwesomeIcon className='icon' icon={["fas", "circle-notch"]} />   Start station from artist</button>
-                    <button className='start-station'><FontAwesomeIcon className='icon' icon={["fas", "circle-notch"]} />   Add artist to playlist</button>
-                    <button onClick={this.followTrack} className='start-station'><FontAwesomeIcon className='icon' icon={["fas", "circle-notch"]} />   Add artist to My Music</button>
+                    <button onClick={this.postStation} className='start-station'><FontAwesomeIcon icon={["fas", "headphones-alt"]} className='icon' />   Start station from artist</button>
+                    <button className='start-station'><FontAwesomeIcon className='icon' icon={["fas", "bars"]} />   Add artist to playlist</button>
+                    <button onClick={this.followTrack} className='start-station'><FontAwesomeIcon className='icon' icon={["fas", "heart"]} />   Add artist to My Music</button>
                 </div>
             </div>
         );

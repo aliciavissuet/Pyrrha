@@ -7,8 +7,11 @@ class UserStations extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            stations: this.props.stations
+            stations: this.props.stations,
+            artists: this.props.artists,
+            albums: this.props.albums
         };
+        this.deleteStation = this.deleteStation.bind(this);
     }
     
     componentDidMount(){
@@ -19,12 +22,19 @@ class UserStations extends Component {
     }
     componentDidUpdate(prevProps){
         if(this.props!==prevProps) {
-            this.setState({stations: this.props.stations});
+            this.setState({stations: this.props.stations, artists: this.props.artists, albums: this.props.albums});
         }
+    }
+    deleteStation(id){
+        this.props.deleteStation(id);
+        let newState = this.state.stations;
+        delete newState[id];
+        this.setState({stations: newState});
     }
     
     render() {
         const stations = _.get(this, 'state.stations', {});
+        const artists = _.get(this, 'state.artists', {});
         const stations1 = _.values(stations);
         
         if (this.props.stationLoading) {
@@ -35,7 +45,7 @@ class UserStations extends Component {
         } else {
             
             const stationsL = stations1.map((station, i) => {
-                return (<li key={i}><UserStationItem station={station} tracks={this.props.tracks} deleteStation={this.props.deleteStation} /></li>)
+                return (<li key={i}><UserStationItem station={station} albums={this.props.albums} tracks={this.props.tracks} deleteStation={this.deleteStation} artists={artists}/></li>)
             });
             return (
             < div className = 'Tracks-component' >

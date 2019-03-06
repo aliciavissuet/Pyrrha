@@ -35,6 +35,7 @@ class StationShow extends React.Component {
         if (prevProps !== this.props) {
             const {artists, tracks, albums} = this.props;
             this.setState({artists, tracks, albums });
+            
         }
     }
     componentWillUnmount(){
@@ -49,7 +50,8 @@ class StationShow extends React.Component {
         this.setState({ albums: newAlbums });
     }
     removeArtist(id) {
-        newArtists = delete this.state.artists[id];
+        
+        let newArtists = delete this.state.artists[id];
         this.setState({artists: newArtists});
     }
     showModal (){
@@ -74,14 +76,14 @@ class StationShow extends React.Component {
     render(){
         
         
-        const {station} = this.props;
+        const {station, addFollow, postStation} = this.props;
         console.log(station);
-        const {artists, albums, tracks} = this.state;
+        const {artists, albums, tracks} = this.props;
         
         
-        const stationArtists = _.values(artists).map((artist, i) => <li key={i}><ArtistStationItem artist={artist} updateStation={this.props.updateStation} removeArtist={this.removeArtist} id={_.get(station, 'id', 'No ID')}/></li>)
-        const stationTracks = _.values(tracks).map((track, i) => <li key={i}><TrackStationItem track={track} updateStation={this.props.updateStation} removeTrack={this.removeTrack}id={_.get(station, 'id', 'No ID')}/></li>)
-        const stationAlbums = _.values(albums).map((album, i) => <li key={i}><AlbumStationItem album={album} updateStation={this.props.updateStation} removeAlbum={this.removeAlbum}id={_.get(station, 'id', 'No ID')}/></li>)
+        const stationArtists = _.values(artists).filter(artist => _.get(station, 'artistIds', []).includes(artist.id)).map((artist, i) => <li key={i}><ArtistStationItem artist={artist} postStation={postStation} updateStation={this.props.updateStation} userId={this.props.userId} addFollow={addFollow}removeArtist={this.removeArtist} id={_.get(station, 'id', 'No ID')}/></li>)
+        const stationTracks = _.values(tracks).filter(track => _.get(station, 'trackIds', []).includes(track.id)).map((track, i) => <li key={i}><TrackStationItem track={track} updateStation={this.props.updateStation} userId={this.props.userId} addFollow={addFollow}removeTrack={this.removeTrack}id={_.get(station, 'id', 'No ID')}/></li>)
+        const stationAlbums = _.values(albums).filter(album => _.get(album, 'albumIds', []).includes(album.id)).map((album, i) => <li key={i}><AlbumStationItem album={album} updateStation={this.props.updateStation} userId={this.props.userId} addFollow={addFollow} removeAlbum={this.removeAlbum}id={_.get(station, 'id', 'No ID')}/></li>)
         const stations = (
             <ul >
                 {stationArtists}
@@ -103,7 +105,9 @@ class StationShow extends React.Component {
                     <h3 className='station-created-from'>Station Created From: </h3>
                         <SearchModal show={this.state.show} handleClose={this.hideModal} id={_.get(station, 'id', 'No id Found')} search={this.search} >
                             <div className='search-modal-header'>
-                                <p>Add Variety</p>
+                                <h1>Add Variety</h1>
+                                <br/>
+                                <h4>Add Artists, Songs, or Albums to this station </h4>
                                 <br/>
                                 <input type="text" placeholder='add variety' onChange={this.search}/>
                             </div>
@@ -111,7 +115,7 @@ class StationShow extends React.Component {
                             {/* <SearchResults /> */}
                         </SearchModal>
                         <button id='btn' className='modal-button' type="button" onClick={this.showModal}>
-                            open
+                            + Add Variety
                         </button>
                 </div>
                     <div className='search-lis'>

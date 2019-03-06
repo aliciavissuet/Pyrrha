@@ -17,7 +17,6 @@ class AlbumItem extends Component {
         this.setState({ dropdown: !this.state.dropdown });
     }
     postStation() {
-        console.log('here');
         const { title, id } = this.props.album;
         const station_title = title + ' Station';
 
@@ -48,7 +47,7 @@ class AlbumItem extends Component {
                 <ul className={squareDD}>
                     <li id='dd'><button onClick={this.postStation} className='add-station'><FontAwesomeIcon className='icon' icon={["fas", "headphones-alt"]}  /> Start Station</button></li>
                     {/* faHeadphonesAlt className='icon' icon={["fal", "faHeadphonesAlt"]} */}
-                    <li id='dd'><button className='add-station'> <FontAwesomeIcon className='icon' icon={["fas", "trash-alt"]} onClick={() => removeSave(album.id)} /> Unsave Album</button></li>
+                    <li id='dd'><button onClick={() => removeSave(album.id)} className='add-station'> <FontAwesomeIcon className='icon' icon={["fas", "trash-alt"]}  /> Unsave Album</button></li>
                 </ul>
             </div>
         );

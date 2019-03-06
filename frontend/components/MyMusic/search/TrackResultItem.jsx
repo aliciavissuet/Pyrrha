@@ -55,7 +55,7 @@ class TrackResultItem extends React.Component {
         const dropdownClass = cx('hide', { 'search-result-dropdown': this.state.displayDropdown });
         const playlistDDClass = cx('hidePlDD', {'showPlDD': this.state.displayPlaylistDropDown});
         const playlists1 = _.values(playlists);
-        const imgSrc = album ? album.photoUrl : '';
+        const imgSrc = track.photoUrl ? track.photoUrl : '';
         const pL = playlists1.map((playlist, i) => {
             return (<button key={i} onClick={()=>this.addTrackToPlaylist(playlist.id)}>{playlist.title}</button>)
         });  
@@ -63,7 +63,7 @@ class TrackResultItem extends React.Component {
         return (
             <div>
                 <div className='search-result-item'>
-                    <div>
+                    <div className='search-result-left'>
                         <img className='artist-tiny' src={imgSrc} alt="" />                        
                         <div className='span'>
                             <span className='search-result-title'>{track && track.title }</span>
@@ -77,15 +77,15 @@ class TrackResultItem extends React.Component {
                     </div>
                 </div>
                 <div className={dropdownClass}>
-                    <button onClick={this.postStation} className='start-station'><FontAwesomeIcon icon={["fas", "circle-notch"]} className='icon'/>   Start station from song</button>
+                    <button onClick={this.postStation} className='start-station'><FontAwesomeIcon className='icon' icon={["fas", "headphones-alt"]} className='icon'/>   Start station from song</button>
                     <div className='playlist-button' onMouseOver={this.showPlDD} onMouseLeave={this.hidePlDD}>
-                        <button className='start-station'><FontAwesomeIcon icon={["fas", "circle-notch"]} className='icon'/>   Add song to playlist > </button>
+                        <button className='start-station'><FontAwesomeIcon icon={["fas", "bars"]} className='icon'/>   Add song to playlist > </button>
                         <div className={playlistDDClass}>
-                            <button onClick={this.createPlaylist}>Add Song to new playlist</button>
+                            <button onClick={this.createPlaylist}><FontAwesomeIcon icon={["fas", "star-of-life"]} className='icon'/>Add Song to new playlist</button>
                             {pL}
                         </div>
                     </div>
-                    <button onClick={this.followTrack} className='start-station'><FontAwesomeIcon className='icon' icon={["fas", "circle-notch"]} />   Add song to My Music</button>
+                    <button onClick={this.followTrack} className='start-station'><FontAwesomeIcon className='icon' icon={["fas", "heart"]} />   Add song to My Music</button>
                     
                 </div>
             </div>

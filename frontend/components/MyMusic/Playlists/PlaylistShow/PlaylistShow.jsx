@@ -59,12 +59,11 @@ class PlaylistShow extends React.Component {
             </ul>
         )
 
-        const images = _.values(artists).map((artist) => `url(${_.get(artist, 'photoUrl', 'none')})`).join(',');
+        const images = _.values(tracks).map((track) => `url(${_.get(track, 'photoUrl', 'none')})`).join(',');
         const styles = {
             artistImg: {
                 backgroundImage: images,
-                backgroundSize: '200px',
-                // backgroundRepeat: 'no repeat'
+                backgroundSize: 'cover'
             }
         };
         const content = (playlist) ? pl : <Loading />

@@ -49,11 +49,11 @@ class Api::StationsController < ApplicationController
                 @track = Track.find(mediable_id)
                 station.tracks.delete(@track)
             elsif params[:station][:mediable_type] == 'Album'
-                @album = Track.find(mediable_id)
+                @album = Album.find(mediable_id)
                 station.albums.delete(@album)
             elsif params[:station][:mediable_type] == 'Artist' 
-                @artist = Track.find(mediable_id)
-                station.tracks.delete(@artist)
+                @artist = Artist.find(mediable_id)
+                station.artists.delete(@artist)
             end
             # scf = StationCreatedFrom.where(mediable_id: params[:station][:mediable_id], mediable_type: params[:station][:mediable_type], station_id: station.id)
             # scf[0].delete 

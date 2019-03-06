@@ -27,6 +27,7 @@ class PlaylistTrackItem extends React.Component {
         }
     }
     toggle() {
+        console.log('.')
         this.setState({ displayDropdown: !this.state.displayDropdown });
     }
     followTrack() {
@@ -72,9 +73,9 @@ class PlaylistTrackItem extends React.Component {
                     </div>
                 </div>
                 <div className={dropdownClass}>
-                    <button onClick={this.followTrack} className='start-station'><FontAwesomeIcon icon={["fas", "circle-notch"]} />   Add to My Music </button>
-                    <button onClick={this.removeSong}className='start-station'><FontAwesomeIcon icon={["fas", "circle-notch"]} />   Remove song from playlist</button>
-                    <button onClick={this.postStation} className='start-station'><FontAwesomeIcon icon={["fas", "circle-notch"]} />   Start station from song</button>
+                    <button onClick={this.followTrack} className='start-station'><FontAwesomeIcon className='icon' icon={["fas", "heart"]} />   Add to My Music </button>
+                    <button onClick={this.removeSong} className='start-station'><FontAwesomeIcon className='icon' icon={["fas", "trash-alt"]} />   Remove song from playlist</button>
+                    <button onClick={this.postStation} className='start-station'><FontAwesomeIcon className='icon' icon={["fas", "headphones-alt"]} />   Start station from song</button>
                 </div>
             </div>
         );

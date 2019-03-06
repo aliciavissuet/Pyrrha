@@ -86,10 +86,7 @@
 .search-lis {
     width: 60%;
 }
-.hide {
-    display: none;
-    z-index: -1;
-}
+
 .search-result-dropdown {
     padding-top: 10px;
     padding-bottom: 10px;
@@ -132,6 +129,9 @@
     left: -150px;
     width: 150px;
 
+}
+.showPlDD:first-child {
+    color: blue;
 }
 .artist-tiny {
     width: 50px;

@@ -30,18 +30,24 @@ album2.photo.attach(io: album2_photo, filename: 'mumford_babel.jpg')
 track1 = Track.create(title: 'Colour Me In', album_id: album1.id, artist_id: artist1.id)
 track1_song = open('https://s3-us-west-1.amazonaws.com/pyrrha-dev/mp3/untitled+folder/05+-+Colour+Me+In.mp3')
 track1.song.attach(io: track1_song, filename: 'mp3/untitled folder/05 - Colour Me In.mp3')
+track1_photo = open('https://s3-us-west-1.amazonaws.com/pyrrha-dev/colour_me_in_damien.jpg')
+track1.photo.attach(io: track1_photo, filename: 'colour_me_in_damien.jpg')
 
 track2 = Track.create(title: 'Trusty and True', album_id: album1.id, artist_id: artist1.id)
 track2_song = open('https://s3-us-west-1.amazonaws.com/pyrrha-dev/mp3/untitled+folder/07+-+Trusty+and+True.mp3')
 track2.song.attach(io: track2_song, filename: 'mp3/untitled folder/07 - Trusty and True.mp3')
+track2_photo = open('https://s3-us-west-1.amazonaws.com/pyrrha-dev/colour_me_in_damien.jpg')
+track2.photo.attach(io: track2_photo, filename: 'colour_me_in_damien.jpg')
 
 track3 = Track.create(title: 'Long Long Way', album_id: album1.id, artist_id: artist1.id)
 track3_song = open('https://s3-us-west-1.amazonaws.com/pyrrha-dev/mp3/untitled+folder/08+-+Long+Long+Way.mp3')
 track3.song.attach(io: track3_song, filename: 'mp3/untitled folder/08 - Long Long Way.mp3')
+track3_photo = open('https://s3-us-west-1.amazonaws.com/pyrrha-dev/colour_me_in_damien.jpg')
+track3.photo.attach(io: track3_photo, filename: 'colour_me_in_damien.jpg')
 
 track4 = Track.create(title: 'I Will Wait', album_id: album2.id, artist_id: artist2.id)
 track4_song = open('https://s3-us-west-1.amazonaws.com/pyrrha-dev/mp3/untitled+folder/03+-+I+Will+Wait.mp3')
 track4.song.attach(io: track4_song, filename: 'mp3/untitled folder/03 - I Will Wait.mp3')
-
-
+track4_photo = open('https://s3-us-west-1.amazonaws.com/pyrrha-dev/mumford_and_sons.jpg')
+track4.photo.attach(io: track4_photo, filename: 'mumford_and_sons.jpg')
 

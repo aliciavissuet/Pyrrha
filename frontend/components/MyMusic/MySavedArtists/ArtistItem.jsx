@@ -45,7 +45,7 @@ class ArtistItem extends Component {
                 <ul className={squareDD}>
                     {/* faHeadphonesAlt className='icon' icon={["fal", "faHeadphonesAlt"]} */}
                     <li id='dd'><button className='add-station' onClick={this.postStation}><FontAwesomeIcon icon={["fas", "headphones-alt"]}/> Start Station</button></li>
-                    <li id='dd'><button className='add-station'><FontAwesomeIcon className='icon' icon={["fas", "trash-alt"]} onClick={() => removeSave(artist.id)} />Unsave Artist</button></li>
+                    <li id='dd'><button className='add-station' onClick={() => removeSave(artist.id)}><FontAwesomeIcon className='icon' icon={["fas", "trash-alt"]}  />Unsave Artist</button></li>
                 </ul>
             </div>
         );

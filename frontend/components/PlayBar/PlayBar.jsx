@@ -12,7 +12,7 @@ class PlayBar extends Component {
                 
                 // background: `#5d85c6`,
             },
-            url: 'https://s3-us-west-1.amazonaws.com/pyrrha-dev/mp3/untitled+folder/02+-+It+Takes+a+Lot+to+Know+a+Man.mp3',
+            url: null,
             currentSong: null,
             currentArtist: null,
             playlistIndex: 0,

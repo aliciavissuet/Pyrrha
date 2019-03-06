@@ -13,12 +13,12 @@ const ModalContents = (props) => {
     const artistResults = artists.map((result, i) => <li key={i}><ArtistModalResultItem artist={result} addToStation={addToStation} id={id}/></li>)
 
     return (
-        <div className='search-lis'>
-            <li>Songs</li>
+        <div className='search-lis-st'>
+            
             {trackResults}
-            <li>Artists</li>
+         
             {artistResults}
-            <li>Albums</li>
+           
             {albumResults}
 
         </div>

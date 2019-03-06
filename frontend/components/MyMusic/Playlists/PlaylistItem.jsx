@@ -47,8 +47,8 @@ class PlaylistItem extends Component {
                 </div></Link>
 
                 <ul className={squareDD}>
-                    <button className='delete-button' onClick={this.deleteStation}><FontAwesomeIcon className='icon' icon={["fas", "trash-alt"]} />Remove Station</button>
-                    <button className='delete-button' onClick={() => play(playlist.id)}><FontAwesomeIcon className='icon' icon={["fas", "play"]} />Play</button>
+                    <li id='dd'><button className='delete-button' onClick={this.deleteStation}><FontAwesomeIcon className='icon' icon={["fas", "trash-alt"]} />Remove Station</button></li>
+                    <li id='dd'><button className='delete-button' onClick={() => play(playlist.id)}><FontAwesomeIcon className='icon' icon={["fas", "play"]} />Play</button></li>
                     {/* faHeadphonesAlt className='icon' icon={["fal", "faHeadphonesAlt"]} */}
                     {/* <li id='dd'><button className='add-station' onClick={this.postStation}><FontAwesomeIcon icon={["fas", "headphones-alt"]} /> Start Station</button></li> */}
                     {/* <li id='dd'><button className='add-station'><FontAwesomeIcon className='icon' icon={["fas", "trash-alt"]} onClick={() => removeSave(artist.id)} />Unsave Artist</button></li> */}

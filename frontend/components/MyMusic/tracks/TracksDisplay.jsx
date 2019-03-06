@@ -59,6 +59,7 @@ class TracksDisplay extends Component {
         return (
             <div className='Tracks-component'>
              {content}
+
             </div>
         )
         

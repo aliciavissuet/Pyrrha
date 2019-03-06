@@ -6,4 +6,5 @@ class Track < ApplicationRecord
     has_many :track_follows
     has_many :users, through: :track_follows
     has_one_attached :song
+    has_one_attached :photo
 end
