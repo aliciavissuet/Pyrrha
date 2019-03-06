@@ -22,7 +22,7 @@ class PlayBar extends Component {
             progress: null,
             background: `#5d85c6`,
             hover: false,
-            volume: null
+            volume: 0.7
 
         };
         this.playPause = this.playPause.bind(this);
@@ -32,6 +32,7 @@ class PlayBar extends Component {
         this.onProgress= this.onProgress.bind(this);
         this.setVolume = this.setVolume.bind(this);
         this.hover=this.hover.bind(this);
+        this.hoverOff = this.hoverOff.bind(this);
     }
     componentDidUpdate(prevProps){
         // console.log('updating playbar');
@@ -91,7 +92,10 @@ class PlayBar extends Component {
     }
         
     hover(){
-        this.setState({hover: !this.state.hover});
+        this.setState({hover: true});
+    }
+    hoverOff(){
+        this.setState({hover: false})
     }
     render() {
             
@@ -107,7 +111,7 @@ class PlayBar extends Component {
 
         
         return (
-            <div className='PlayBar' style={styles} onMouseLeave={this.hover}>
+            <div className='PlayBar' style={styles} onMouseLeave={this.hoverOff}>
                 <div className='playbar-left'>
                     <img className='playbar-image' src={this.state.currentArtist ? this.state.currentArtist.photoUrl : ''} alt=""/>
                     <div className='playbar-left-info'>

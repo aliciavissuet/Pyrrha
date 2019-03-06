@@ -12,7 +12,7 @@ import { fetchStation, postStation, fetchStations, deleteStation, updateStation 
 import {fetchSearchResults} from './actions/search_actions';
 import { updateUserFollows } from './actions/user_actions';
 import { createPlaylist, addPlaylistSong, removePlaylistSong, deletePlaylist} from './actions/playlist_actions';
-import {fetchPlaybarPlaylist} from './actions/PlayBarActions';
+import {fetchPlaybarPlaylist, fetchStationList} from './actions/PlayBarActions';
 document.addEventListener('DOMContentLoaded', () => {
     let store;
     if (window.currentUser) {
@@ -50,6 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.removePlaylistSong = removePlaylistSong;
     window.deletePlaylist = deletePlaylist;
     window.fetchPlaybarPlaylist = fetchPlaybarPlaylist;
+    window.fetchStationList = fetchStationList;
     const root = document.getElementById('root');
     ReactDOM.render(<Root store={store}/>, root);
 });

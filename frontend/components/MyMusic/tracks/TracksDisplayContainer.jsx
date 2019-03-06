@@ -3,6 +3,7 @@ import TracksDisplay from './TracksDisplay';
 import { postStation } from '../../../actions/station_actions';
 import {fetchTracks, removeTrackFollow} from '../../../actions/track_actions';
 import {clearEntities} from '../../../actions/album_actions';
+import { fetchSingleTrack } from '../../../actions/PlayBarActions';
 const mapStateToProps = state => ({
     
     userId: state.session.currentUser,
@@ -17,7 +18,8 @@ const mapDispatchToProps = dispatch => ({
     removeTrackFollow: (tf) => dispatch(removeTrackFollow(tf)),
     fetchTracks: (userId) => dispatch(fetchTracks(userId)),
     postStation: (station) => dispatch(postStation(station)),
-    clear: () => dispatch(clearEntities())
+    clear: () => dispatch(clearEntities()),
+    fetchSingleTrack: (id) => dispatch(fetchSingleTrack(id))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TracksDisplay);

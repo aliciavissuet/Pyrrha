@@ -9,9 +9,11 @@ class PlaylistItem extends Component {
         super(props);
         this.state = {
             dropdown: false,
-            artist: this.props.artist
+            artist: this.props.artist,
+            hover: false
         };
         this.toggle = this.toggle.bind(this);
+        this.hover= this.hover.bind(this);
     }
     toggle() {
         this.setState({ dropdown: !this.state.dropdown });
@@ -21,6 +23,9 @@ class PlaylistItem extends Component {
         if (this.props!== prevProps) {
             this.setState({artist: this.props.artist});
         }
+    }
+    hover(){
+
     }
     render() {
         const {playlist, deletePlaylist, play} = this.props;
@@ -38,8 +43,9 @@ class PlaylistItem extends Component {
         return (
             <div className='track-item-top-level'>
                 <div style={styles.artistImg} className='Track-item'>
-                    <button className='more' onClick={this.toggle}>...</button>
                 </div>
+                <button className='more' onClick={this.toggle}>...</button>
+                <FontAwesomeIcon onClick={() => play(playlist.id)} className='play icon' icon={["fas", "play"]}/>
                 <Link to={`/my-music/playlists/${playlist.id}`}><div className='track-item-text'>
                     <h1>{_.get(playlist, 'title', 'No Title Found')}</h1>
                     <h2>Playlist</h2>
@@ -48,7 +54,7 @@ class PlaylistItem extends Component {
 
                 <ul className={squareDD}>
                     <li id='dd'><button className='delete-button' onClick={this.deleteStation}><FontAwesomeIcon className='icon' icon={["fas", "trash-alt"]} />Remove Station</button></li>
-                    <li id='dd'><button className='delete-button' onClick={() => play(playlist.id)}><FontAwesomeIcon className='icon' icon={["fas", "play"]} />Play</button></li>
+                    {/* <li id='dd'><button className='delete-button' onClick={() => play(playlist.id)}><FontAwesomeIcon className='icon' icon={["fas", "play"]} />Play</button></li> */}
                     {/* faHeadphonesAlt className='icon' icon={["fal", "faHeadphonesAlt"]} */}
                     {/* <li id='dd'><button className='add-station' onClick={this.postStation}><FontAwesomeIcon icon={["fas", "headphones-alt"]} /> Start Station</button></li> */}
                     {/* <li id='dd'><button className='add-station'><FontAwesomeIcon className='icon' icon={["fas", "trash-alt"]} onClick={() => removeSave(artist.id)} />Unsave Artist</button></li> */}

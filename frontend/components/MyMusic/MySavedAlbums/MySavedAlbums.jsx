@@ -42,7 +42,7 @@ class MySavedAlbums extends React.Component {
         // const userAl = _.get(this, 'state.user.albumIds', {});
         // const userAlbums = als.filter(al => userAl.includes(al.id));
         const alList = als.map((album, i) => {
-            return (<li key={i}><AlbumItem className='Track-item' userId={userId} album={album} artist={artists[album.artistIds[0]]} removeSave={this.removeSave} postStation={this.props.postStation}/></li>)
+            return (<li key={i}><AlbumItem className='Track-item' playAlbum={this.props.playAlbum} userId={userId} album={album} artist={artists[album.artistIds[0]]} removeSave={this.removeSave} postStation={this.props.postStation}/></li>)
         });
 
         const albumList = (

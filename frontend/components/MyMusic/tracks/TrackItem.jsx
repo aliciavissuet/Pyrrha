@@ -28,7 +28,8 @@ class TrackItem extends Component {
         this.setState({ dropdown: !this.state.dropdown });
     }
     render() {
-        const {track, artist, removeSave, album} = this.props;
+        const {track, artist, removeSave, album, playTrack} = this.props;
+        const id = _.get(track, 'id', '');
         const squareDD = cx('hidden', {'square-dropdown': this.state.dropdown})
         const imgSrc = album ? album.photoUrl : '';
         const styles = {
@@ -41,12 +42,9 @@ class TrackItem extends Component {
         return (
             <div className='track-item-top-level' >
                 <div style={styles} className='Track-item'>
-                    <br/>
                 </div>
                 <button  className='more' onClick={this.toggle}>...</button>
-                
-
-               
+                <FontAwesomeIcon onClick={() => playTrack(id)} className='play icon' icon={["fas", "play"]} />
                 <div className='track-item-text'>
                     <h1>{_.get(track, 'title', 'No Title Found')}</h1>
                     <h2>Song</h2>

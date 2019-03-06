@@ -42,7 +42,7 @@ class TracksDisplay extends Component {
         const tracks = _.values(newTracks);
         // const userTracks = tracks.filter(tr => userTI.includes(tr.id));
         const tL = tracks.map((track, i) => {
-            return (<li key={i}><TrackItem className='Track-item' track={track} artist={artists[track.artistId]} album={albums[track.albumId]}removeSave={this.removeSave} postStation={this.props.postStation}/></li>)});
+            return (<li key={i}><TrackItem className='Track-item' playTrack={this.props.fetchSingleTrack} track={track} artist={artists[track.artistId]} album={albums[track.albumId]}removeSave={this.removeSave} postStation={this.props.postStation}/></li>)});
 
         const trackList =  (
             <ul className='track-display-container'>

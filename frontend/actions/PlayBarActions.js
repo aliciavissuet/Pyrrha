@@ -19,11 +19,30 @@ const loadingTrue = ()=> ({
 
 });
 
+export const fetchSingleTrack = id => dispatch => {
+    dispatch(loadingTrue());
+    PBAPIUtil.fetchPlaybarSong(id).then(payload => {
+        dispatch(receivePlaybarSong(payload));
+        dispatch(receivePlaybarPlaylist([id]));
+    });
+};
+
 export const fetchPlaybarSong = id => dispatch => {
     dispatch(loadingTrue());
     PBAPIUtil.fetchPlaybarSong(id).then(payload => {
         // console.log(payload);
         dispatch(receivePlaybarSong(payload));
+    });
+};
+
+export const fetchAlbumList = id=> dispatch => {
+    dispatch(loadingTrue());
+    PBAPIUtil.fetchAlbum(id).then(payload => {
+        console.log(payload)
+        const track = payload.tracks[payload.album.trackIds[0]];
+        const artist  = payload.artists[track.artistId];
+        dispatch(receivePlaybarSong({ track, artist }));
+        dispatch(receivePlaybarPlaylist(payload.album.trackIds));
     });
 };
 
@@ -36,3 +55,13 @@ export const fetchPlaybarPlaylist = id => dispatch => {
         dispatch(receivePlaybarPlaylist(payload.playlist.trackIds));
     });
 };
+
+export const fetchStationList = id => dispatch => {
+    dispatch(loadingTrue());
+    PBAPIUtil.fetchStation(id).then(payload => {
+        const track = payload.tracks[payload.trackIds[0]];
+        const artist = payload.artists[track.artistId];
+        dispatch(receivePlaybarSong({ track, artist }));
+        dispatch(receivePlaybarPlaylist(payload.trackIds));
+    });
+}

@@ -111,6 +111,32 @@
         color: #575859;
     }
 }
+.track-item-top-level:hover {
+    .Track-item {
+    filter: brightness(100%);
+    -webkit-filter: brightness(50%);
+    -webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    -o-transition: all .5s ease;
+    -ms-transition: all .5s ease;
+    transition: all .5s ease;
+    z-index: 0;
+    }
+    .play {
+        font-size: 40px;
+        color: white;
+      filter: brightness(100%);
+      -webkit-filter: brightness(100%);
+      opacity: 1;
+      position: absolute;
+      border: none;
+      background: transparent;
+      bottom: 50%;
+      left: 40%;
+      margin: 0;
+      padding: 0;
+ }
+}
 .track-item-text {
     display: flex;
     flex-direction: column;

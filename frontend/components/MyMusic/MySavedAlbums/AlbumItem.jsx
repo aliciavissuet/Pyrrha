@@ -24,6 +24,8 @@ class AlbumItem extends Component {
     }
     render() {
         const { album, artist, removeSave, userId } = this.props;
+        const id = _.get(album, 'id', '');
+
         const squareDD = cx('hidden', { 'square-dropdown': this.state.dropdown })
         const imgSrc = album ? album.photoUrl : '';
         const styles = {
@@ -36,8 +38,9 @@ class AlbumItem extends Component {
         return (
             <div className='track-item-top-level'>
                 <div style={styles.artistImg} className='Track-item'>
-                    <button className='more' onClick={this.toggle}>...</button>
                 </div>
+                <button className='more' onClick={this.toggle}>...</button>
+                <FontAwesomeIcon onClick={() => this.props.playAlbum(id)} className='play icon' icon={["fas", "play"]} />
                 <Link to={`/my-music/albums/${_.get(album, 'id', 'No Title Found')}`}><div className='track-item-text'>
                     <h1>{_.get(album, 'title', 'No Title Found')}</h1>
                     <h2>{_.get(artist, 'name', 'No Name Found')}</h2>
