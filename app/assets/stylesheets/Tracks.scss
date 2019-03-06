@@ -91,6 +91,9 @@
     -o-transition: all .5s ease;
     -ms-transition: all .5s ease;
     transition: all .5s ease;
+    button {
+      color: brightness(100%);
+    }
 }
 
 .Tracks-component {

@@ -8,6 +8,7 @@ const receivePlaybarSong = track => ({
     track
 });
 
+
 const receivePlaybarPlaylist = list => ({
     type: RECEIVE_PLAYBAR_LIST,
     list
@@ -29,8 +30,9 @@ export const fetchPlaybarSong = id => dispatch => {
 export const fetchPlaybarPlaylist = id => dispatch => {
     dispatch(loadingTrue());
     PBAPIUtil.fetchPlaylist(id).then(payload => {
-        // const track = payload.tracks[payload.playlist.trackIds[0]];
-        dispatch(receivePlaybarSong(payload));
+        const track = payload.tracks[payload.playlist.trackIds[0]];
+        const artist = payload.artists[track.artistId];
+        dispatch(receivePlaybarSong({track, artist}));
         dispatch(receivePlaybarPlaylist(payload.playlist.trackIds));
     });
 };
