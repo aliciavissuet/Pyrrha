@@ -13,8 +13,8 @@ const rootReducer = combineReducers({
     ui: UIReducer,
     search: SearchReducer,
     currentlyPlaying: PlayBarReducer,
-    recentlyPlayed: RecentlyPlayedReducer,
-    
+    // recentlyPlayed: RecentlyPlayedReducer,
+
 });
 
 export default rootReducer;

@@ -30,14 +30,15 @@ class PlaylistDisplay extends Component {
         this.props.clear();
     }
     render() {
+        const { fetchPlaybarPlaylist} = this.props;
         const artists = _.get(this, 'state.artists', {});
         const tracks1 = _.get(this, 'state.tracks', {});
         const albums = _.get(this, 'state.albums', {});
         const playlists1 = _.get(this, 'state.playlists', {});
-
+        
         const playlistVals = _.values(playlists1);
         const pL = playlistVals.map((playlist, i) => {
-            return (<li key={i}><Link to={`/my-music/playlists/${playlist.id}`}><PlaylistItem className='Track-item' deletePlaylist={this.props.deletePlaylist} playlist={playlist} /></Link></li>)
+            return (<li key={i}><PlaylistItem className='Track-item' deletePlaylist={this.props.deletePlaylist} playlist={playlist} artist={artists[playlist.artistIds[0]]} play={fetchPlaybarPlaylist}/></li>)
         });
         const playList = (
             <ul className='track-display-container'>

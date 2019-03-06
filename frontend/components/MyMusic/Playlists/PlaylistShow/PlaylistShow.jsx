@@ -49,22 +49,31 @@ class PlaylistShow extends React.Component {
 
         const { playlist, userId, addFollow, postStation, updatePlaylist } = this.props;
         const { artists, albums, tracks } = this.state;
-        // const trIds = _.get(playlist, 'trackIds', []);
+        
 
-        const playlistTracks = _.values(tracks).map((track, i) => <li key={i}><PlaylistTrackItem track={track} id={_.get(playlist, 'id', 'No ID')} addFollow={addFollow} userId={userId} removeSong={this.removeSong} postStation={postStation}/></li>)
+        const playlistTracks = _.values(tracks).map((track, i) => <li key={i}><PlaylistTrackItem track={track} id={_.get(playlist, 'id', 'No ID')} addFollow={addFollow} userId={userId} removeSong={this.removeSong} postStation={postStation} album={albums[_.get(track, 'albumId', 'No ID')]}/></li>)
          
         const pl = (
             <ul>
                 {playlistTracks}
             </ul>
         )
+
+        const images = _.values(artists).map((artist) => `url(${_.get(artist, 'photoUrl', 'none')})`).join(',');
+        const styles = {
+            artistImg: {
+                backgroundImage: images,
+                backgroundSize: '200px',
+                // backgroundRepeat: 'no repeat'
+            }
+        };
         const content = (playlist) ? pl : <Loading />
         
         return (
             <div className='playlist-show-container'>
                 
-                <div className='playlist-show-left'>
-                    <p>Picture goes here</p>
+                <div style={styles.artistImg} className='playlist-show-left'>
+                    
                 </div>
                 <div className='playlist-show-right'>
                     <PlaylistHeader playlist={playlist} updatePlaylist={updatePlaylist}/>

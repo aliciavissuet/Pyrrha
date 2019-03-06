@@ -6,6 +6,7 @@ import AlbumsUIReducer from './AlbumsUIReducer';
 import StationsUIReducer from './StationsUIReducer';
 import SearchUIReducer from './SearchUIReducer';
 import PlaylistUIReducer from './PlaylistUIReducer';
+import PlaybarUIReducer from './PlaybarUIReducer';
 
 const UIReducer = combineReducers({
     users: UsersUIReducer,
@@ -15,6 +16,7 @@ const UIReducer = combineReducers({
     stations: StationsUIReducer,
     search: SearchUIReducer,
     playlists: PlaylistUIReducer,
+    playbar: PlaybarUIReducer,
 });
 
 export default UIReducer;

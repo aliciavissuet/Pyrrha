@@ -26,12 +26,20 @@ class TrackItem extends Component {
         this.setState({ dropdown: !this.state.dropdown });
     }
     render() {
-        const {track, artist, removeSave} = this.props;
+        const {track, artist, removeSave, album} = this.props;
         const squareDD = cx('hidden', {'square-dropdown': this.state.dropdown})
+        const imgSrc = album ? album.photoUrl : '';
+        const styles = {
+            artistImg: {
+                backgroundImage: `url(${imgSrc})`,
+                backgroundSize: 'cover',
+
+            }
+        };
         return (
             <div className='track-item-top-level'>
-                <div className='Track-item'>
-                    <button className='more' onClick={this.toggle}>...</button>
+                <div style={styles.artistImg} className='Track-item'>
+                    <button  className='more' onClick={this.toggle}>...</button>
                 </div>
                 <div className='track-item-text'>
                     <h1>{_.get(track, 'title', 'No Title Found')}</h1>

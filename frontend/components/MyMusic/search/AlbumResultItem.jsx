@@ -33,11 +33,13 @@ class AlbumResultItem extends React.Component {
         return (
             <div>
                 <div className='search-result-item'>
-                    <div>
+                    <div className='search-result-left'>
                         <img className='artist-tiny' src={imgSrc} alt="" />
-                        <span className='search-result-title'>{album && album.title}</span>
-                        <br />
-                        <span className='search-result-type'>Album</span>
+                        <div className='span'>
+                            <span className='search-result-title'>{album && album.title}</span>
+                            <br />
+                            <span className='search-result-type'>Album</span>
+                        </div>
                     </div>
                     <div>
                         <button className='more-options' onClick={this.toggle}>...</button>

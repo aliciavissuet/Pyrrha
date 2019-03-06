@@ -44,10 +44,13 @@ class MainSearch extends Component {
             this.setState({ tracks, albums, artists, playlists, userId, searchResultType});
         }
     }
+    componentWillUnmount(){
+        this.props.clear();
+    }
     render() {
         const {postStation, addFollow, createPlaylist} = this.props;
         const { tracks, albums, artists, playlists, userId, searchResultType} = this.state;
-        const trackResults = tracks.map((result, i) => <li key={i}><TrackResultItem track={result} postStation={postStation} addFollow={addFollow} userId={userId} playlists={playlists} addSongToPlaylist={this.props.addSongToPlaylist} createPlaylist={createPlaylist}/></li>)
+        const trackResults = tracks.map((result, i) => <li key={i}><TrackResultItem albums={albums} track={result} postStation={postStation} addFollow={addFollow} userId={userId} playlists={playlists} addSongToPlaylist={this.props.addSongToPlaylist} createPlaylist={createPlaylist}/></li>)
         const albumResults = albums.map((result, i) => <li key={i}><AlbumResultItem album={result} postStation={postStation} addFollow={addFollow} userId={userId}/></li>)
         const artistResults = artists.map((result, i) => <li key={i}><ArtistResultItem artist={result} postStation={postStation} addFollow={addFollow} userId={userId}/></li>)
         return (

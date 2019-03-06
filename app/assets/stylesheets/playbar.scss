@@ -12,6 +12,10 @@
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    img {
+        width: 30px;
+        height: 30px;
+    }
 }
 .playbar-left-info {
     padding-left: 10px;

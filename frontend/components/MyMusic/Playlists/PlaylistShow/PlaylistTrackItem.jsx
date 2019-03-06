@@ -54,12 +54,14 @@ class PlaylistTrackItem extends React.Component {
 
     // }
     render() {
-        const { track } = this.props;
+        const { track, album } = this.props;
         const dropdownClass = cx('hide', { 'search-result-dropdown': this.state.displayDropdown });
+        const imgSrc =  album ? album.photoUrl : '';
         return (
             <div>
                 <div className='search-result-item'>
-                    <div>
+                    <img className='artist-tiny' src={imgSrc} alt="" />
+                    <div className='spans'>
                         <span className='search-result-title'>{track && track.title}</span>
                         <br />
                         <span className='search-result-type'>Song</span>

@@ -51,10 +51,11 @@ class TrackResultItem extends React.Component {
         this.props.createPlaylist(pl);
     }
     render() {
-        const {track, playlists} = this.props;
+        const {track, playlists, album} = this.props;
         const dropdownClass = cx('hide', { 'search-result-dropdown': this.state.displayDropdown });
         const playlistDDClass = cx('hidePlDD', {'showPlDD': this.state.displayPlaylistDropDown});
         const playlists1 = _.values(playlists);
+        const imgSrc = album ? album.photoUrl : '';
         const pL = playlists1.map((playlist, i) => {
             return (<button key={i} onClick={()=>this.addTrackToPlaylist(playlist.id)}>{playlist.title}</button>)
         });  
@@ -63,10 +64,12 @@ class TrackResultItem extends React.Component {
             <div>
                 <div className='search-result-item'>
                     <div>
-
-                        <span className='search-result-title'>{track && track.title }</span>
-                        <br />
-                        <span className='search-result-type'>Song</span>
+                        <img className='artist-tiny' src={imgSrc} alt="" />                        
+                        <div className='span'>
+                            <span className='search-result-title'>{track && track.title }</span>
+                            <br />
+                            <span className='search-result-type'>Song</span>
+                        </div>
                     </div>
                     <div>
                         <button className='more-options' onClick={this.toggle}>...</button>

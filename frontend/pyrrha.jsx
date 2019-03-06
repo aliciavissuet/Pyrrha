@@ -6,12 +6,13 @@ import { fetchArtist, fetchArtists } from './actions/artist_actions';
 import { fetchTrack, fetchTracks, removeTrackFollow} from './actions/track_actions';
 import { fetchAlbum, fetchAlbums, removeAlbumFollow } from './actions/album_actions';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faCircleNotch, faSearch, faBullseye, faCompactDisc, faHeadphonesAlt, faTrashAlt, faAsterisk, faPen, faPlay, faFastForward, faFastBackward, faVolumeDown } from '@fortawesome/free-solid-svg-icons';
+import { faCircleNotch, faSearch, faBullseye, faCompactDisc, faHeadphonesAlt, faTrashAlt, faAsterisk, faPen, faPlay, faFastForward, faFastBackward, faVolumeDown, faPause } from '@fortawesome/free-solid-svg-icons';
 import { faCircle } from '@fortawesome/free-regular-svg-icons';
 import { fetchStation, postStation, fetchStations, deleteStation, updateStation } from './actions/station_actions';
 import {fetchSearchResults} from './actions/search_actions';
 import { updateUserFollows } from './actions/user_actions';
 import { createPlaylist, addPlaylistSong, removePlaylistSong, deletePlaylist} from './actions/playlist_actions';
+import {fetchPlaybarPlaylist} from './actions/PlayBarActions';
 document.addEventListener('DOMContentLoaded', () => {
     let store;
     if (window.currentUser) {
@@ -26,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         store = configureStore();
     }
-    library.add(faCircle, faCircleNotch, faSearch, faBullseye, faCompactDisc, faHeadphonesAlt, faTrashAlt, faAsterisk, faPen, faPlay, faFastForward, faFastBackward, faVolumeDown);
+    library.add(faCircle, faCircleNotch, faSearch, faBullseye, faCompactDisc, faHeadphonesAlt, faTrashAlt, faAsterisk, faPen, faPlay, faFastForward, faFastBackward, faVolumeDown, faPause);
     window.getState = store.getState;
     window.dispatch = store.dispatch;
     window.fetchTrack = fetchTrack;
@@ -48,6 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addPlaylistSong = addPlaylistSong;
     window.removePlaylistSong = removePlaylistSong;
     window.deletePlaylist = deletePlaylist;
+    window.fetchPlaybarPlaylist = fetchPlaybarPlaylist;
     const root = document.getElementById('root');
     ReactDOM.render(<Root store={store}/>, root);
 });

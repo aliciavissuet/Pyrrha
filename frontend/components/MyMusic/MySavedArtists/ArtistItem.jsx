@@ -17,7 +17,7 @@ class ArtistItem extends Component {
     postStation(){
         const { name, id } = this.props.artist;
         const station_title = name + ' Station';
-        console.log('here');
+        // console.log('here');
         this.props.postStation({ title: station_title, mediable_id: id, mediable_type: 'Artist' });
     }
     render() {
@@ -27,7 +27,8 @@ class ArtistItem extends Component {
         const imgSrc = artist.photoUrl ? artist.photoUrl : '';
         const styles = {
             artistImg: {
-                backgroundImage: `url(${imgSrc})` 
+                backgroundImage: `url(${imgSrc})`,
+                backgroundSize: 'cover', 
             }
         };
         return (

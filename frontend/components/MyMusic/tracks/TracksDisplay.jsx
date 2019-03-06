@@ -36,12 +36,13 @@ class TracksDisplay extends Component {
 
     render(){
         const artists = _.get(this, 'state.artists', {});
+        const albums = _.get(this, 'state.albums', {});
         const newTracks = _.get(this, 'state.tracks', {});
         // const userTI = _.get(this, 'state.user.trackIds', {});
         const tracks = _.values(newTracks);
         // const userTracks = tracks.filter(tr => userTI.includes(tr.id));
         const tL = tracks.map((track, i) => {
-            return (<li key={i}><TrackItem className='Track-item' track={track} artist={artists[track.artistId]} removeSave={this.removeSave} postStation={this.props.postStation}/></li>)});
+            return (<li key={i}><TrackItem className='Track-item' track={track} artist={artists[track.artistId]} album={albums[track.albumId]}removeSave={this.removeSave} postStation={this.props.postStation}/></li>)});
 
         const trackList =  (
             <ul className='track-display-container'>

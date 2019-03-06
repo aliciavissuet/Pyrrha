@@ -36,7 +36,7 @@ class ArtistResultItem extends React.Component {
                 <div className='search-result-item'>
                     <div className='search-result-left'> 
                         <img className='artist-tiny' src={imgSrc} alt="" />
-                        <div>
+                        <div className='span'>
                             <span className='search-result-title'>{artist && artist.name}</span>
                             <br />
                             <span className='search-result-type'>Artist</span>
