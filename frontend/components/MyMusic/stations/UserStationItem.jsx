@@ -31,6 +31,7 @@ class UserStationItem extends React.Component {
         const trs = _.get(station, 'trackIds', []).map(tr => tracks[tr].photoUrl);
         const als = _.get(station, 'albumIds', []).map(al => albums[al].photoUrl);
         const ars = _.get(station, 'artistIds', []).map(ar => artists[ar].photoUrl);
+        const id = _.get(station, 'id', '');
         const imgSrc = trs.concat(als, ars)[0] ? trs.concat(als, ars)[0] : '';
         const styles = {
             artistImg: {
@@ -39,7 +40,7 @@ class UserStationItem extends React.Component {
 
             }
         };
-        console.log(trs, als, ars)
+        // console.log(trs, als, ars)
         return (
             // <div className='Track-item'>
             //     <h1>{_.get(station, 'title', 'No Title Found')}</h1>
@@ -48,8 +49,9 @@ class UserStationItem extends React.Component {
 
             <div className='track-item-top-level'>
                 <div style={styles.artistImg} className='Track-item'>
-                    <button className='more' onClick={this.toggle}>...</button>
                 </div>
+                <button className='more' onClick={this.toggle}>...</button>
+                <FontAwesomeIcon onClick={() => this.props.playStation(id)} className='play icon' icon={["fas", "play"]} />
                 <Link to={`/my-music/stations/${(this.props.station.id)}`}>
                     <div className='track-item-text'>
                     <h1>{this.props.station.title}</h1>

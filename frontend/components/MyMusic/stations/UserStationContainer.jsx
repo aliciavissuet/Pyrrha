@@ -2,6 +2,7 @@ import {connect} from 'react-redux';
 import UserStations from './UserStations';
 import {fetchStations, deleteStation} from '../../../actions/station_actions';
 import { clearEntities } from '../../../actions/album_actions';
+import { fetchStationList } from '../../../actions/PlayBarActions';
 
 const mapStateToProps = state => {
     const currUser = state.entities.users[state.session.currentUser];
@@ -23,7 +24,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => ({
     fetchStations: () => dispatch(fetchStations()),
     deleteStation: (id) => dispatch(deleteStation(id)),
-    clear: () => dispatch(clearEntities())
+    clear: () => dispatch(clearEntities()),
+    playStation: (id) => dispatch(fetchStationList(id))
 });
 
 // const mapDispatchToProps = dispatch => ({

@@ -64,7 +64,9 @@ class TrackResultItem extends React.Component {
             <div>
                 <div className='search-result-item'>
                     <div className='search-result-left'>
-                        <img className='artist-tiny' src={imgSrc} alt="" />                        
+                        <img className='artist-tiny' src={imgSrc} alt="" />
+                        <FontAwesomeIcon onClick={() => playTrack(id)} className='play-small icon' icon={["fas", "play"]} />
+                       
                         <div className='span'>
                             <span className='search-result-title'>{track && track.title }</span>
                             <br />

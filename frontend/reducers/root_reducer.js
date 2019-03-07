@@ -5,6 +5,7 @@ import errorsReducer from './errors_reducer';
 import UIReducer from './UIReducers/UI_reducer';
 import SearchReducer from './SearchReducer';
 import PlayBarReducer from './PlayBarReducer';
+import RecentlyPlayedReducer from './RecentlyPlayedReducer';
 
 const rootReducer = combineReducers({
     entities: entitiesReducer,
@@ -13,7 +14,7 @@ const rootReducer = combineReducers({
     ui: UIReducer,
     search: SearchReducer,
     currentlyPlaying: PlayBarReducer,
-    // recentlyPlayed: RecentlyPlayedReducer,
+    recentlyPlayed: RecentlyPlayedReducer,
 
 });
 

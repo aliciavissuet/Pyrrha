@@ -45,7 +45,7 @@ class UserStations extends Component {
         } else {
             
             const stationsL = stations1.map((station, i) => {
-                return (<li key={i}><UserStationItem station={station} albums={this.props.albums} tracks={this.props.tracks} deleteStation={this.deleteStation} artists={artists}/></li>)
+                return (<li key={i}><UserStationItem station={station} playStation={this.props.playStation} albums={this.props.albums} tracks={this.props.tracks} deleteStation={this.deleteStation} artists={artists}/></li>)
             });
             return (
             < div className = 'Tracks-component' >

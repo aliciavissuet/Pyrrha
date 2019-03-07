@@ -7,6 +7,7 @@ import StationsUIReducer from './StationsUIReducer';
 import SearchUIReducer from './SearchUIReducer';
 import PlaylistUIReducer from './PlaylistUIReducer';
 import PlaybarUIReducer from './PlaybarUIReducer';
+import RecentlyPlayedUIReducer from './RecentlyPlayedUIReducer';
 
 const UIReducer = combineReducers({
     users: UsersUIReducer,
@@ -17,6 +18,7 @@ const UIReducer = combineReducers({
     search: SearchUIReducer,
     playlists: PlaylistUIReducer,
     playbar: PlaybarUIReducer,
+    recentlyPlayed: RecentlyPlayedUIReducer
 });
 
 export default UIReducer;
