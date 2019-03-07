@@ -17,9 +17,9 @@ const receivePlaybarSong = track => ({
 });
 
 
-const receivePlaybarPlaylist = list => ({
+const receivePlaybarPlaylist = (list, title) => ({
     type: RECEIVE_PLAYBAR_LIST,
-    list
+    list, title
 });
 
 const loadingTrue = ()=> ({
@@ -40,7 +40,7 @@ export const fetchSingleTrack = id => dispatch => {
     PBAPIUtil.fetchPlaybarSong(id).then(payload => {
         
         dispatch(receivePlaybarSong(payload));
-        dispatch(receivePlaybarPlaylist([id]));
+        dispatch(receivePlaybarPlaylist([id], payload.track.title));
     });
 };
 
@@ -68,7 +68,7 @@ export const fetchAlbumList = id=> dispatch => {
         const artist  = payload.artists[track.artistId];
         
         dispatch(receivePlaybarSong({ track, artist }));
-        dispatch(receivePlaybarPlaylist(payload.album.trackIds));
+        dispatch(receivePlaybarPlaylist(payload.album.trackIds, payload.album.title));
     });
 };
 
@@ -87,7 +87,7 @@ export const fetchPlaybarPlaylist = id => dispatch => {
         const artist = payload.artists[track.artistId];
         
         dispatch(receivePlaybarSong({track, artist}));
-        dispatch(receivePlaybarPlaylist(payload.playlist.trackIds));
+        dispatch(receivePlaybarPlaylist(payload.playlist.trackIds, payload.playlist.title));
     });
 };
 
@@ -106,7 +106,7 @@ export const fetchStationList = id => dispatch => {
         const artist = payload.artists[track.artistId];
         
         dispatch(receivePlaybarSong({ track, artist }));
-        dispatch(receivePlaybarPlaylist(payload.trackIds));
+        dispatch(receivePlaybarPlaylist(payload.trackIds, payload.station.title));
     });
 }
 

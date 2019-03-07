@@ -3,17 +3,18 @@ import _ from 'lodash';
 import Loading from '../../../common/Loading';
 // import PlaylistHeader from './PlaylistHeader';
 import cx from 'classnames';
-import AlbumItemContainer from './AlbumItemContainer';
+import AlbumItem from './AlbumItem';
 
 
-class PlaylistShow extends React.Component {
+class AlbumShow extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            playlist: null,
+            playlists: null,
             artists: null,
             tracks: null,
             album: null,
+            userId: null,
             show: false,
         };
         // this.removeSong = this.removeSong.bind(this);
@@ -22,36 +23,36 @@ class PlaylistShow extends React.Component {
     componentDidMount() {
         console.log('hit playlist show');
         this.props.fetchAlbum(this.props.match.params.id);
-        const { playlist, artists, tracks, album, playlistLoading, userId } = this.props;
-        this.setState({ playlist, artists, tracks, album, playlistLoading, userId });
+        this.props.fetchUserPlaylists();
+        const { playlists, artists, tracks, album, userId } = this.props;
+        this.setState({ playlists, artists, tracks, album, userId});
     }
     componentDidUpdate(prevProps) {
 
         if (prevProps !== this.props) {
             console.log(this.props);
-            const { artists, tracks, album } = this.props;
-            this.setState({ artists, tracks, album });
+            const { artists, playlists, tracks, album, userId } = this.props;
+            this.setState({ artists, tracks, album, playlists, userId });
         }
     }
     componentWillUnmount() {
         this.props.clear();
     }
-    removeSong(payload) {
-        const newTracks = this.state.tracks;
-        delete newTracks[payload.trackId];
-        this.setState({ tracks: newTracks });
-        this.props.removeSong(payload);
-    }
-
-
-
+    
     render() {
 
 
-        const { playlist, userId, addFollow, postStation, updatePlaylist } = this.props;
-        const { artists, album, tracks } = this.state;
+        const { addFollow, postStation, createPlaylist, addSongToPlaylist } = this.props;
+        const { artists, album, tracks, playlists, userId } = this.state;
         const albumTitle = _.get(this, 'state.album.title', '');
-        const albumTracks = _.values(tracks).map((track, i) => <li key={i}><AlbumItemContainer track={track} /></li>)
+        const albumTracks = _.values(tracks).map((track, i) => <li key={i}><AlbumItem 
+                        track={track} 
+                        addFollow={addFollow} 
+                        postStation={postStation} 
+                        playlists={playlists} 
+                        userId={userId}
+                        createPlaylist={createPlaylist}
+                        addSongToPlaylist={addSongToPlaylist}/></li>)
 
         const at = (
             <ul>
@@ -59,12 +60,18 @@ class PlaylistShow extends React.Component {
             </ul>
         )
         const content = (album) ? at : <Loading />
-
+        const imgSrc = album ? album.photoUrl : ''
+        const styles = {
+           
+                backgroundImage: `url(${imgSrc})`,
+                backgroundSize: 'cover'
+            
+        };
         return (
             <div className='playlist-show-container'>
 
-                <div className='playlist-show-left'>
-                    <p>Picture goes here</p>
+                <div style={styles} className='playlist-show-left'>
+                    {/* <img src={imgSrc} alt=""/> */}
                 </div>
                 <div className='playlist-show-right'>
                     <h1 className='album-show-header'>
@@ -80,4 +87,4 @@ class PlaylistShow extends React.Component {
 
 };
 
-export default PlaylistShow;
+export default AlbumShow;

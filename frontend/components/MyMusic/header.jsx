@@ -42,13 +42,13 @@ class Header extends React.Component {
     }
     
     render() {
-        const linkClassMM = cx('my-music-header-link', { 'selected-link': this.props.location.pathname.includes('/my-music') });
+        const linkClassMM = cx('my-music-header-link', { 'selected-link': !this.props.location.pathname.includes('/now-playing') });
         const linkClassNP = cx('my-music-header-link', { 'selected-link': this.props.location.pathname.includes('/now-playing')});
         return (
             <div className='my-music-header' >
                 <div className='music-header-left' onClick={this.handleOtherClick}>
                     <div>
-                        <Link to='/now-playing' className={linkClassNP}>Now Playing</Link>
+                        <Link to='/my-music/now-playing' className={linkClassNP}>Now Playing</Link>
                         <Link to='/my-music' className={linkClassMM}>My Music</Link>
                     </div>
                     

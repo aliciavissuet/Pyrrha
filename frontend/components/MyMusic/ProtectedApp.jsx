@@ -15,6 +15,7 @@ import All from './All';
 import StationShow from './stations/StationShow';
 import SearchNav from './search/SearchNav';
 import PlayBarContainer from '../PlayBar/PlayBarContainer';
+import NowPlayingContainer from '../NowPlaying/NowPlayingContainer';
 class ProtectedApp extends Component {
 
     render() {
@@ -22,6 +23,7 @@ class ProtectedApp extends Component {
             <div>
                 <HeaderContainer {...this.props}/>
                 <Switch>
+                    <Route path='/my-music/now-playing' component={NowPlayingContainer}/>
                     <Route path='/my-music/search' component={SearchNav} />
                     <Route path='/my-music/stations/:id' component={StationShowContainer} />
                     <Route path='/my-music/playlists/:id' component={PlaylistShowContainer} />

@@ -2,8 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import cx from 'classnames';
 import { Link } from 'react-router-dom';
-
-class TrackResultItem extends React.Component {
+class AlbumItem extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -20,17 +19,13 @@ class TrackResultItem extends React.Component {
         this.showPlDD = this.showPlDD.bind(this);
         this.hidePlDD = this.hidePlDD.bind(this);
     }
-    componentDidMount(){
-        this.props.fetchPlaylists();
-    }
+    
     componentDidUpdate(prevProps){
         if (prevProps!==this.props) {
             this.setState({playlists: this.props.playlists});
         }
     }
-    componentWillUnmount(){
-        this.props.clear();
-    }
+    
 
     toggle() {
         this.setState({ displayDropdown: !this.state.displayDropdown });
@@ -64,7 +59,7 @@ class TrackResultItem extends React.Component {
         this.props.createPlaylist(pl);
     }
     render() {
-        const { track, playlists } = this.props;
+        const { track, album, playlists } = this.props;
         const dropdownClass = cx('hide', { 'search-result-dropdown': this.state.displayDropdown });
         const playlistDDClass = cx('hidePlDD', { 'showPlDD': this.state.displayPlaylistDropDown });
         const playlists1 = _.values(playlists);
@@ -72,11 +67,13 @@ class TrackResultItem extends React.Component {
         const pL = playlists1.map((playlist, i) => {
             return (<button key={i} onClick={() => this.addTrackToPlaylist(playlist.id)}>{playlist.title}</button>)
         });
+        const imgSrc = album ? album.photoUrl : '';
 
         return (
             <div>
                 <div className='search-result-item'>
-                    <Link to={`/my-music/albums/${album.id}`}><div>
+                <img className='artist-tiny' src={imgSrc} alt=""/>
+                    <div className='spans'>
                         <span className='search-result-title'>{track && track.title}</span>
                         <br />
                         <span className='search-result-type'>Song</span>
@@ -84,18 +81,18 @@ class TrackResultItem extends React.Component {
                     <div>
                         <button className='more-options' onClick={this.toggle}>...</button>
 
-                        </div></Link>
+                        </div>
                 </div>
                 <div className={dropdownClass}>
-                    <button onClick={this.postStation} className='start-station'><FontAwesomeIcon icon={["fas", "circle-notch"]} className='icon' />   Start station from song</button>
+                    <button onClick={this.postStation} className='start-station'><FontAwesomeIcon icon={["fas", "headphones-alt"]} className='icon' />   Start station from song</button>
                     <div className='playlist-button' onMouseOver={this.showPlDD} onMouseLeave={this.hidePlDD}>
-                        <button className='start-station'><FontAwesomeIcon icon={["fas", "circle-notch"]} className='icon' />   Add song to playlist > </button>
+                        <button className='start-station'><FontAwesomeIcon icon={["fas", "bars"]} className='icon' />   Add song to playlist > </button>
                         <div className={playlistDDClass}>
-                            <button onClick={this.createPlaylist}>Add Song to new playlist</button>
+                            <button onClick={this.createPlaylist}><FontAwesomeIcon icon={["fas", "star-of-life"]} className='icon' />Add Song to new playlist</button>
                             {pL}
                         </div>
                     </div>
-                    <button onClick={this.followTrack} className='start-station'><FontAwesomeIcon className='icon' icon={["fas", "circle-notch"]} />   Add song to My Music</button>
+                    <button onClick={this.followTrack} className='start-station'><FontAwesomeIcon className='icon' icon={["fas", "heart"]} />   Add song to My Music</button>
 
                 </div>
             </div>
@@ -105,4 +102,4 @@ class TrackResultItem extends React.Component {
 
 };
 
-export default TrackResultItem;
+export default AlbumItem;

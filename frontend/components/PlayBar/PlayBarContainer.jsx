@@ -4,7 +4,7 @@ import {fetchPlaybarPlaylist, fetchPlaybarSong} from '../../actions/PlayBarActio
 
 const mapStateToProps = state => ({
     currentTrack: state.currentlyPlaying.currentSong,
-    currentPlaylist: state.currentlyPlaying.playQueue,
+    currentPlaylist: state.currentlyPlaying.playQueue.list,
 });
 const mapDispatchToProps = dispatch => ({
     fetchPlaybarPlaylist: (id) => dispatch(fetchPlaybarPlaylist(id)),

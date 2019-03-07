@@ -113,3 +113,9 @@ export const updatePlaylist = (playlist) => dispatch => {
         dispatch(receivePlaylist(payload.playlist));
     });
 };
+
+export const fetchUserPlaylistsOnly = () => dispatch => {
+    PlaylistAPIUtil.fetchPlaylists().then(payload => {
+        dispatch(receivePlaylists(payload.playlists));
+    });
+};

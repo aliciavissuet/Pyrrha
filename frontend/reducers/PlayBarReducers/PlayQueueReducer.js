@@ -4,7 +4,7 @@ const initialState = {};
 export default (state = initialState, action) => {
     switch(action.type) {
         case RECEIVE_PLAYBAR_LIST:
-            return action.list;
+            return {list: action.list, title: action.title};
         default: 
             return state;
     }

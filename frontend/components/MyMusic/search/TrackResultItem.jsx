@@ -1,7 +1,8 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import cx from 'classnames';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
+import _ from 'lodash'
 
 class TrackResultItem extends React.Component {
     constructor(props) {
@@ -18,7 +19,9 @@ class TrackResultItem extends React.Component {
         this.createPlaylist = this.createPlaylist.bind(this);
         this.showPlDD = this.showPlDD.bind(this);
         this.hidePlDD = this.hidePlDD.bind(this);
+        // this.handleRedirect = this.handleRedirect.bind(this);
     }
+    
     toggle() {
         this.setState({displayDropdown: !this.state.displayDropdown});
     }
@@ -26,8 +29,10 @@ class TrackResultItem extends React.Component {
 
         const { title, id } = this.props.track;
         const station_title = title + ' Station';
-
-        this.props.postStation({ title: station_title, mediable_id: id, mediable_type: 'Track' });
+        this.props.postStation({ title: station_title, mediable_id: id, mediable_type: 'Track' })
+        this.props.history.push('/my-music/stations');
+        
+        
     }
     followTrack(){
         const {userId, track} = this.props;

@@ -5,7 +5,7 @@ class RecentItem extends Component {
         const { data, type } = this.props;
         const id = _.get(data, 'id', '');
         console.log(data)
-        const imgSrc = data ? data.photoUrl : '';
+        const imgSrc = data.photoUrl ? data.photoUrl : 'https://s3-us-west-1.amazonaws.com/pyrrha-dev/station.jpg';
         const styles = {
 
             backgroundImage: `url(${imgSrc})`,
@@ -14,9 +14,12 @@ class RecentItem extends Component {
 
         };
         return (
-            <div className='track-item-top-level' >
-                <div style={styles} className='Track-item'>
-                </div>
+            <div className='recent-item-top-level' >
+                
+                    <div style={styles} className='Recent-item'>
+                    </div>
+
+                
                 {/* <button className='more' onClick={this.toggle}>...</button> */}
                 {/* <FontAwesomeIcon onClick={() => playTrack(id)} className='play icon' icon={["fas", "play"]} /> */}
                 {/* <div className='track-item-text'> */}

@@ -3,10 +3,12 @@ import {RECEIVE_TRACKS} from './track_actions';
 import { RECEIVE_ALBUMS } from './album_actions';
 import { RECEIVE_ARTISTS } from './artist_actions';
 import {RECEIVE_CURRENT_USER} from './session_actions';
+import {fetchStationList} from './PlayBarActions';
 export const RECEIVE_STATION = 'RECEIVE_STATION';
 export const RECEIVE_STATIONS = 'RECEIVE_STATIONS';
 export const LOADING_STATION = 'LOADING_STATION';
 export const REMOVE_TRACK_ID = 'REMOVE_MEDIA_ID';
+
 
 const receiveStation = (station) => ({
     type: RECEIVE_STATION,
@@ -65,6 +67,8 @@ export const postStation = station => dispatch => {
         dispatch(receiveTracks(payload.tracks));
         dispatch(receiveCurrentUser(payload.user));
         dispatch(receiveStation(payload.station));
+        dispatch(fetchStationList(payload.station.id));
+        // history.push(`/my-music/stations/${payload.station.id}`);
     });
 };
 

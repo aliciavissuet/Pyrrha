@@ -50,25 +50,25 @@ class RecentlyPlayed extends Component {
         const stations = _.get(this, 'state.stations', {});
         const tracks = _.get(this, 'state.tracks', {});
         const tL = _.values(tracks).map((track, i) => {
-            return (<li key={i}><ResultItem className='Track-item' data={track} type={'track'} /></li>)
+            return (<ResultItem className='Track-item' data={track} type={'track'} />)
         });
         const pl = _.values(playlists).map((playlist, i) => {
-            return (<li key={i}><ResultItem className='Track-item' data={playlist} type={'playlist'} /></li>)
+            return (<ResultItem className='Track-item' data={playlist} type={'playlist'} />)
         });
         const st = _.values(stations).map((station, i) => {
-            return (<li key={i}><ResultItem className='Track-item' data={station} type={'station'} /></li>)
+            return (<ResultItem className='Track-item' data={station} type={'station'} />)
         });
         const al = _.values(albums).map((album, i) => {
-            return (<li key={i}><ResultItem className='Track-item' data={album} type={'station'}/></li>)
+            return (<ResultItem className='Track-item' data={album} type={'station'}/>)
         });
 
         const itemList = (
-            <ul className='track-display-container'>
+            <div className='recent-display-container'>
                 {tL}
                 {pl}
                 {st}
                 {al}
-            </ul>
+            </div>
         )
         let content;
         if (!tracks && !albums && !stations && !playlists || this.props.ui.loading) {
@@ -77,7 +77,8 @@ class RecentlyPlayed extends Component {
             content = itemList
         };
         return (
-            < div className = 'Tracks-component' >
+            < div className = 'Tracks-component' style={{'height':'270px'}}>
+                <h1 className='my-music-component-header'>Recently Played</h1>
                 { content }
 
             </div >

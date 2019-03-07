@@ -41,7 +41,7 @@ class Api::RecentPlaysController < ApplicationController
         @playlists = []
         @recent_plays.each do |rp| 
             if rp.media_type == 'album'
-                album = Album.find(rp.media_id)
+                album = Album.find(rp.media_id.to_i)
                 @albums.push(album)
             elsif rp.media_type == 'track'
                 track = Track.find(rp.media_id)

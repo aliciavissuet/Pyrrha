@@ -22,7 +22,9 @@ class PlayBar extends Component {
             progress: null,
             background: `#5d85c6`,
             hover: false,
-            volume: 0.7
+            volume: 0.7,
+            
+             
 
         };
         this.playPause = this.playPause.bind(this);
@@ -45,6 +47,7 @@ class PlayBar extends Component {
                     playlistQueue: currentPlaylist,
                     url: currentTrack.track.songUrl,
                     player: {playing: true},
+                    background: currentTrack.color
                      
                     
                 });
@@ -53,19 +56,19 @@ class PlayBar extends Component {
     }
     
     nextSong(){
-        const colors = [ `#4ba870`, `#b3d66d`, `#8e596d`, `#edc361`, `#469695`, `#416693`, `#3b277c`, `#0b5284`];
+        // const colors = [ `#4ba870`, `#b3d66d`, `#8e596d`, `#edc361`, `#469695`, `#416693`, `#3b277c`, `#0b5284`];
         const {playlistIndex, playlistQueue} = this.state;
         const id = playlistQueue[(playlistIndex+1)%playlistQueue.length];
         this.props.fetchPlaybarSong(id);
-        this.setState({ playlistIndex: (playlistIndex + 1) % playlistQueue.length, background: _.sample(colors)});
+        this.setState({ playlistIndex: (playlistIndex + 1) % playlistQueue.length});
     }
     prevSong(){
-        const colors = [`#4ba870`, `#b3d66d`, `#8e596d`, `#edc361`, `#469695`, `#416693`, `#3b277c`, `#0b5284`];
+        // const colors = [`#4ba870`, `#b3d66d`, `#8e596d`, `#edc361`, `#469695`, `#416693`, `#3b277c`, `#0b5284`];
         const { playlistIndex, playlistQueue } = this.state;
         const mod = (x, n) => (x % n + n) % n
         const id = playlistQueue[mod((playlistIndex - 1), playlistQueue.length)]; 
         this.props.fetchPlaybarSong(id);
-        this.setState({ playlistIndex: mod((playlistIndex - 1), playlistQueue.length), background: _.sample(colors) });
+        this.setState({ playlistIndex: mod((playlistIndex - 1), playlistQueue.length) });
     }
     onDuration(duration){
         let min = Math.floor(duration/60);

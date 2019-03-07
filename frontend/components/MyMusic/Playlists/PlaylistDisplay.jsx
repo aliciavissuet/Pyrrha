@@ -11,9 +11,15 @@ class PlaylistDisplay extends Component {
         this.state = {
             artists, tracks, playlists, user, ui
         };
+        this.removePlaylist= this.removePlaylist.bind(this);
 
     }
-
+    removePlaylist(id){
+        let newState = this.state.playlists;
+        delete newState[id];
+        this.props.removePlaylist(id);
+        this.setState({playlists: newState});
+    }
     componentDidMount(){
         
         this.props.fetchPlaylists();
@@ -38,7 +44,7 @@ class PlaylistDisplay extends Component {
         
         const playlistVals = _.values(playlists1);
         const pL = playlistVals.map((playlist, i) => {
-            return (<li key={i}><PlaylistItem className='Track-item' deletePlaylist={this.props.deletePlaylist} playlist={playlist} artist={artists[playlist.artistIds[0]]} play={fetchPlaybarPlaylist}/></li>)
+            return (<li key={i}><PlaylistItem className='Track-item' deletePlaylist={this.removePlaylist} playlist={playlist} artist={artists[playlist.artistIds[0]]} play={fetchPlaybarPlaylist}/></li>)
         });
         const playList = (
             <ul className='track-display-container'>

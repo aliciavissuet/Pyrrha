@@ -24,6 +24,7 @@ const App = () => (
             <AuthRoute  path="/signup" component={Signup} className='new-session'/>
             <AuthRoute exact path='/' component={Splash} />
             <ProtectedRoute path='/my-music' component={ProtectedApp} />
+            
         </Switch>
         
     </div>
