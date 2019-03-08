@@ -22,17 +22,11 @@ class UserLogo extends Component {
         return (
             <div>
                 <span onClick={this.props.toggle} className='username-initial'>{this.props.username[0]}</span>
-                <ul className={dropDown}>
-                    <li>
-                        Profile
-                    </li>
-                    <li>
-                        Settings
-                    </li>
-                    <li onClick={this.logoutClick}>
+                <div className={dropDown}>
+                    <div onClick={this.logoutClick}>
                         Log Out
-                    </li>
-                </ul>
+                    </div>
+                </div>
             </div>
         );
     }

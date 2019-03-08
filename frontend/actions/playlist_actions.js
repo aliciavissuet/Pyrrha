@@ -47,11 +47,12 @@ const receivePlaylists = playlists => ({
 
 export const createPlaylist = (playlist) => dispatch => {
     dispatch(loadingTrue());
-    PlaylistAPIUtil.postPlaylist(playlist).then(payload => {
+    return PlaylistAPIUtil.postPlaylist(playlist).then(payload => {
         dispatch(receivePlaylistTracks(payload.tracks));
         dispatch(receivePlaylistAlbums(payload.albums));
         dispatch(receivePlaylistArtists(payload.artists));
         dispatch(receivePlaylist(payload.playlist));
+        return payload.playlist.id;
     });
 };
 export const fetchPlaylists = () => dispatch => {
@@ -77,11 +78,12 @@ export const fetchPlaylist = (id) => dispatch => {
 
 export const addPlaylistSong = (pt) => dispatch => {
     dispatch(loadingTrue());
-    PlaylistAPIUtil.addSongToPlaylist(pt).then(payload => {
+    return PlaylistAPIUtil.addSongToPlaylist(pt).then(payload => {
         dispatch(receivePlaylistTracks(payload.tracks));
         dispatch(receivePlaylistAlbums(payload.albums));
         dispatch(receivePlaylistArtists(payload.artists));
         dispatch(receivePlaylist(payload.playlist));
+        return payload.playlist.id;
     });
 }
 

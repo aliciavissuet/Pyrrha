@@ -11,8 +11,10 @@ const NowPlaying = (props) => {
 
     return (
         <div className='now-playing-container' style={{ background:bg }}>
-            <h1>{_.get(props, 'currentSong.track.title', '')}</h1>
-            <img src={imgSrc} style={{height:'200px', width:'200px', margin:'center'}} alt=""/>
+            <h1>{_.get(props, 'list.title', '')}</h1>
+            <img src={imgSrc} style={{height:'350px', width:'350px', margin:'center'}} alt=""/>
+            <h2>{_.get(props, 'currentSong.track.title', '')}</h2>
+            <h3>{_.get(props, 'currentSong.artist.name', '')}</h3>
         </div>
     );
 

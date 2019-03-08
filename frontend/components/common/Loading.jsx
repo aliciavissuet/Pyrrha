@@ -2,7 +2,7 @@ import React from 'react';
 
 const Loading = () => {
     return (
-            <p>Loading...</p>
+            <p className='loading'>Your music here!</p>
     );
 };
 

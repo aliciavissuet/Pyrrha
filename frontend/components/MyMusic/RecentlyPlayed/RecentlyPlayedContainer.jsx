@@ -24,7 +24,7 @@
 // export default RecentlyPlayedContainer;
 import {connect} from 'react-redux';
 import RecentlyPlayed from './RecentlyPlayed';
-import { fetchRecentPlays } from '../../../actions/PlayBarActions';
+import { fetchRecentPlays, fetchAlbumList, fetchPlaybarPlaylist, fetchPlaybarSong, fetchStationList } from '../../../actions/PlayBarActions';
 
 const mapStateToProps = state => ({
     albums: state.recentlyPlayed.albums,
@@ -35,7 +35,11 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    fetchRecent: () => dispatch(fetchRecentPlays())
+    fetchRecent: () => dispatch(fetchRecentPlays()),
+    fetchAlbumList: (id) => dispatch(fetchAlbumList(id)),
+    fetchPlaylist: (id) => dispatch(fetchPlaybarPlaylist(id)),
+    fetchSong: (id) => dispatch(fetchPlaybarSong(id)),
+    fetchStation: (id) => dispatch(fetchStationList(id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(RecentlyPlayed);

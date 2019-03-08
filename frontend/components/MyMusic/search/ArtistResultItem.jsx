@@ -2,6 +2,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import cx from 'classnames';
+import {withRouter} from 'react-router-dom';
 class ArtistResultItem extends React.Component {
     constructor(props) {
         super(props);
@@ -20,7 +21,8 @@ class ArtistResultItem extends React.Component {
         const { name, id } = this.props.artist;
         const station_title = name + ' Station';
 
-        this.props.postStation({ title: station_title, mediable_id: id, mediable_type: 'Artist' });
+        this.props.postStation({ title: station_title, mediable_id: id, mediable_type: 'Artist' })
+            .then(id => this.props.history.push(`/my-music/stations/${id}`));
     }
     followTrack() {
         const { userId, artist } = this.props;
@@ -49,7 +51,7 @@ class ArtistResultItem extends React.Component {
                 </div>
                 <div className={dropdownClass}>
                     <button onClick={this.postStation} className='start-station'><FontAwesomeIcon icon={["fas", "headphones-alt"]} className='icon' />   Start station from artist</button>
-                    <button className='start-station'><FontAwesomeIcon className='icon' icon={["fas", "bars"]} />   Add artist to playlist</button>
+                    {/* <button className='start-station'><FontAwesomeIcon className='icon' icon={["fas", "bars"]} />   Add artist to playlist</button> */}
                     <button onClick={this.followTrack} className='start-station'><FontAwesomeIcon className='icon' icon={["fas", "heart"]} />   Add artist to My Music</button>
                 </div>
             </div>
@@ -59,4 +61,4 @@ class ArtistResultItem extends React.Component {
 
 };
 
-export default ArtistResultItem;
+export default withRouter(ArtistResultItem);

@@ -1,6 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import cx from 'classnames';
+import {withRouter} from 'react-router-dom';
 class AlbumResultItem extends React.Component {
     constructor(props) {
         super(props);
@@ -19,7 +20,8 @@ class AlbumResultItem extends React.Component {
         const { title, id } = this.props.album;
         const station_title = title + ' Station';
 
-        this.props.postStation({ title: station_title, mediable_id: id, mediable_type: 'Album' });
+        this.props.postStation({ title: station_title, mediable_id: id, mediable_type: 'Album' })
+            .then(id => this.props.history.push(`/my-music/stations/${id}`));
     }
     followTrack() {
         const { userId, album } = this.props;
@@ -35,6 +37,8 @@ class AlbumResultItem extends React.Component {
                 <div className='search-result-item'>
                     <div className='search-result-left'>
                         <img className='artist-tiny' src={imgSrc} alt="" />
+                        <FontAwesomeIcon onClick={() => this.props.playAlbum(album.id)} className='play-small icon' icon={["fas", "play"]} />
+
                         <div className='span'>
                             <span className='search-result-title'>{album && album.title}</span>
                             <br />
@@ -58,4 +62,4 @@ class AlbumResultItem extends React.Component {
 
 };
 
-export default AlbumResultItem;
+export default withRouter(AlbumResultItem);

@@ -11,7 +11,7 @@ const Splash = (props) => {
                         <Link to='/login' className='splash-Log-in-button'>Log In</Link>
                     </div>
                 </nav>
-                <div>
+                <div className='splash-div'>
                     <h1 className='pyrrha-big'>
                         pyrrha
                     </h1>

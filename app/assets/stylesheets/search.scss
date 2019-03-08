@@ -159,9 +159,39 @@
   flex-direction: row;
   width: 150%;
 }
+.search-result-left:hover {
+    .play-small {
+        
+        color: white;
+    position: absolute;
+    left: 40px;
+    top: 40px;
+    }
+    .artist-tiny {
+    filter: brightness(80%);
+//     .play-small {
+//       font-size: 14px;
+//       color: blue;
+//       filter: brightness(100%);
+//       -webkit-filter: brightness(100%);
+//       opacity: 1;
+//       position: absolute;
+//       border: none;
+//       background: transparent;
+//       bottom: 50%;
+//       left: 40%;
+//       margin: 0;
+//       padding: 0;
+}
+}
+
 .icon {
     padding-right: 10px;
 }
 .span {
     width: 120%;
 }
+// .play-small {
+//     color
+//     font-size: 50px
+// }

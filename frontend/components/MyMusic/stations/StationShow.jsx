@@ -9,6 +9,8 @@ import StationHeader from './StationHeader';
 import cx from 'classnames';
 import SearchModal from './SearchModal';
 import ModalContentsContainer from './ModalContentsContainer';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 
 class StationShow extends React.Component {
     constructor(props) {
@@ -19,6 +21,7 @@ class StationShow extends React.Component {
             tracks: null,
             albums: null,
             show: false,
+            popup: false,
         };
         this.removeTrack = this.removeTrack.bind(this);
         this.removeAlbum = this.removeAlbum.bind(this);
@@ -26,6 +29,8 @@ class StationShow extends React.Component {
         this.showModal = this.showModal.bind(this);
         this.hideModal = this.hideModal.bind(this);
         this.search = this.search.bind(this);
+        this.closePopup = this.closePopup.bind(this);
+        this.addFollow= this.addFollow.bind(this);
     }
     componentDidMount(){
         this.props.fetchStation(this.props.match.params.id);
@@ -34,6 +39,8 @@ class StationShow extends React.Component {
 
         if (prevProps !== this.props) {
             const {artists, tracks, albums} = this.props;
+            // const filteredArtists = Object.keys(artists).filter(id => _.get(this, 'props.station.artistIds', [])
+            //     .includes(id)).reduce((obj, id) => {obj[id] = artists[id]; return obj;}, {});
             this.setState({artists, tracks, albums });
             
         }
@@ -70,20 +77,26 @@ class StationShow extends React.Component {
 
         }
     }
-
+    addFollow(info){
+        this.setState({popup: true});
+        this.props.addFollow(info);
+    }
+    closePopup(){
+        this.setState({popup: false});
+    }
     
    
     render(){
         
         
-        const {station, addFollow, postStation} = this.props;
+        const {station,  postStation} = this.props;
         console.log(station);
         const {artists, albums, tracks} = this.props;
         
         
-        const stationArtists = _.values(artists).filter(artist => _.get(station, 'artistIds', []).includes(artist.id)).map((artist, i) => <li key={i}><ArtistStationItem artist={artist} postStation={postStation} updateStation={this.props.updateStation} userId={this.props.userId} addFollow={addFollow}removeArtist={this.removeArtist} id={_.get(station, 'id', 'No ID')}/></li>)
-        const stationTracks = _.values(tracks).filter(track => _.get(station, 'trackIds', []).includes(track.id)).map((track, i) => <li key={i}><TrackStationItem track={track} updateStation={this.props.updateStation} userId={this.props.userId} addFollow={addFollow}removeTrack={this.removeTrack}id={_.get(station, 'id', 'No ID')}/></li>)
-        const stationAlbums = _.values(albums).filter(album => _.get(album, 'albumIds', []).includes(album.id)).map((album, i) => <li key={i}><AlbumStationItem album={album} updateStation={this.props.updateStation} userId={this.props.userId} addFollow={addFollow} removeAlbum={this.removeAlbum}id={_.get(station, 'id', 'No ID')}/></li>)
+        const stationArtists = _.values(artists).filter(artist => _.get(station, 'artistIds', []).includes(artist.id)).map((artist, i) => <li key={i}><ArtistStationItem artist={artist} postStation={postStation} updateStation={this.props.updateStation} userId={this.props.userId} addFollow={this.addFollow}removeArtist={this.removeArtist} id={_.get(station, 'id', 'No ID')}/></li>)
+        const stationTracks = _.values(tracks).filter(track => _.get(station, 'trackIds', []).includes(track.id)).map((track, i) => <li key={i}><TrackStationItem track={track} updateStation={this.props.updateStation} userId={this.props.userId} addFollow={this.addFollow}removeTrack={this.removeTrack}id={_.get(station, 'id', 'No ID')}/></li>)
+        const stationAlbums = _.values(albums).filter(album => _.get(album, 'albumIds', []).includes(album.id)).map((album, i) => <li key={i}><AlbumStationItem album={album} updateStation={this.props.updateStation} userId={this.props.userId} addFollow={this.addFollow} removeAlbum={this.removeAlbum}id={_.get(station, 'id', 'No ID')}/></li>)
         const stations = (
             <ul >
                 {stationArtists}
@@ -91,7 +104,7 @@ class StationShow extends React.Component {
                 {stationAlbums}
             </ul>
         )
-
+        const popup = cx('hide-popup', {'popup': this.state.popup});
         const content = (station) ? stations : <Loading />
         // const av = cx('modal', { 'modal-show': this.state.show });
         const ol = cx('',{'overlay': this.state.show})
@@ -123,6 +136,15 @@ class StationShow extends React.Component {
                     </div>
                 </div>
                 <SearchModal />
+                <div className={popup} onClick={this.closePopup}>
+                    <div className='close' >
+                        <p>x</p>
+                    </div>
+                    <div className='message'>
+                        <FontAwesomeIcon className='icon' icon={["fas", "check"]} />
+                        <p>Successful save</p>
+                    </div>
+                </div>
             </div>        
         );
     }

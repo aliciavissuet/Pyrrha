@@ -10,5 +10,5 @@ export const InputTypesEnum = Object.freeze({
 });
 
 export const ErrorsEnum = Object.freeze({
-    CANNOT_BE_BLANK: 'Cannot be blank',
+    CANNOT_BE_BLANK: 'cannot be blank',
 });

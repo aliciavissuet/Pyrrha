@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class RecentItem extends Component {
     render() {
         const { data, type } = this.props;
         const id = _.get(data, 'id', '');
         console.log(data)
-        const imgSrc = data.photoUrl ? data.photoUrl : 'https://s3-us-west-1.amazonaws.com/pyrrha-dev/station.jpg';
+        const stationCovers = [`https://s3-us-west-1.amazonaws.com/pyrrha-dev/station_cover1.jpg`,
+                            `https://s3-us-west-1.amazonaws.com/pyrrha-dev/station_cover3.jpg`,
+                        `https://s3-us-west-1.amazonaws.com/pyrrha-dev/station_cover2.jpg`,
+                        `https://s3-us-west-1.amazonaws.com/pyrrha-dev/station_cover5.png`,
+                        `https://s3-us-west-1.amazonaws.com/pyrrha-dev/station_cover6.jpeg`];
+        const imgSrc = data.photoUrl ? data.photoUrl : _.sample(stationCovers);
         const styles = {
 
             backgroundImage: `url(${imgSrc})`,
@@ -18,7 +24,8 @@ class RecentItem extends Component {
                 
                     <div style={styles} className='Recent-item'>
                     </div>
-
+                    <FontAwesomeIcon onClick={() => this.props.play(id)} className='play icon' icon={["fas", "play"]} />
+                    <h1>{_.get(data, 'title', '')}</h1>
                 
                 {/* <button className='more' onClick={this.toggle}>...</button> */}
                 {/* <FontAwesomeIcon onClick={() => playTrack(id)} className='play icon' icon={["fas", "play"]} /> */}

@@ -34,6 +34,7 @@
   position:relative;
   max-width: 100vw;
   overflow: hidden;
+  margin-left: 10px;
   
 }
 .Recent-item {
@@ -62,7 +63,28 @@
 
 }
 // .Recent-item:hover{}
-.Recent-item:hover {
+
+// .Recent-item:last-child {
+//     overflow: visible;
+   
+// }
+
+.recent-item-top-level{
+    overflow: hidden;
+    width: 260px;
+    height: 260px;
+    h1 {
+      display: none;
+    }
+
+}
+.recent-item-top-level:hover {
+    // -webkit-transition: overflow(visible) .1s ease;
+    // overflow:visible 
+     overflow:visible;
+    padding-bottom:2%;
+    position: relative;
+    .Recent-item {
     filter: brightness(100%);
     -webkit-filter: brightness(80%);
     -webkit-transition: all .5s ease;
@@ -75,18 +97,38 @@
     // min-width: 
     
 }
-// .Recent-item:last-child {
-//     overflow: visible;
-   
-// }
-
-.recent-item-top-level{
-    overflow: hidden;
-    width: 200px;
-    height: 200px;
-
+    .play {
+      font-size: 40px;
+      color: white;
+      filter: brightness(100%);
+      -webkit-filter: brightness(100%);
+      opacity: 1;
+      position: absolute;
+      border: none;
+      background: transparent;
+      bottom: 50%;
+      left: 50%;
+      margin: 0;
+      padding: 0;
+ }
+ h1 {
+      display: block;
+      color: white;
+      position: absolute;
+      bottom: 20%;
+      left: 40%;
+      font-family: 'Didact Gothic', sans-serif;
+      font-size: 14px;
+      filter: brightness(100%);
+      -webkit-filter: brightness(100%);
+    }
 }
-.recent-item-top-level:hover {
-    overflow:visible;
-    padding-bottom:2%;
+.recent-component {
+    width: inherit;
+    margin-left: 30px;
+    margin-right: 20px;
+    
+}
+.recent-header {
+
 }

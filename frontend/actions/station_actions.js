@@ -61,13 +61,14 @@ export const fetchStation = (id) => dispatch => {
 export const postStation = station => dispatch => {
     
     dispatch(loadingTrue());
-    StationAPIUtil.postStation(station).then(payload => {
+    return StationAPIUtil.postStation(station).then(payload => {
         dispatch(receiveArtists(payload.artists));
         dispatch(receiveAlbums(payload.albums));
         dispatch(receiveTracks(payload.tracks));
         dispatch(receiveCurrentUser(payload.user));
         dispatch(receiveStation(payload.station));
         dispatch(fetchStationList(payload.station.id));
+        return payload.station.id;
         // history.push(`/my-music/stations/${payload.station.id}`);
     });
 };

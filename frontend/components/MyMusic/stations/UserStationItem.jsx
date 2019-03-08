@@ -28,9 +28,9 @@ class UserStationItem extends React.Component {
     render(){
         const {station, deleteStation, artists, tracks, albums} = this.props;
         const squareDD = cx('hidden', { 'square-dropdown': this.state.dropdown });
-        const trs = _.get(station, 'trackIds', []).map(tr => tracks[tr].photoUrl);
-        const als = _.get(station, 'albumIds', []).map(al => albums[al].photoUrl);
-        const ars = _.get(station, 'artistIds', []).map(ar => artists[ar].photoUrl);
+        const trs = _.get(station, 'trackIds', []).map(tr => _.get(tracks, `${[tr]}.photoUrl`, ''));
+        const als = _.get(station, 'albumIds', []).map(al => _.get(albums, `${[al]}.photoUrl`, ''));
+        const ars = _.get(station, 'artistIds', []).map(ar => _.get(artists, `${[ar]}.photoUrl`, ''));
         const id = _.get(station, 'id', '');
         const imgSrc = trs.concat(als, ars)[0] ? trs.concat(als, ars)[0] : '';
         const styles = {
@@ -66,6 +66,7 @@ class UserStationItem extends React.Component {
                     {/* faHeadphonesAlt className='icon' icon={["fal", "faHeadphonesAlt"]} */}
                     {/* <li id='dd'><button className='add-station'><FontAwesomeIcon className='icon' icon={["fas", "trash-alt"]} onClick={() => removeSave(track.id)} />Remove Station</button></li> */}
                 </ul>
+                
             </div>
         );
 

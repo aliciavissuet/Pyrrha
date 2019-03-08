@@ -4,6 +4,7 @@ import MainSearch from './MainSearch';
 import { updateUserFollows } from '../../../actions/user_actions';
 import { addPlaylistSong, fetchPlaylists, createPlaylist} from '../../../actions/playlist_actions';
 import {clearEntities} from '../../../actions/album_actions';
+import { fetchSingleTrack, fetchAlbumList } from '../../../actions/PlayBarActions';
 
 const mapStateToProps = state => ({
     albums: Object.values(state.search.albums),
@@ -20,7 +21,9 @@ const mapDispatchToProps = dispatch => ({
     addSongToPlaylist: (pl) => dispatch(addPlaylistSong(pl)),
     fetchPlaylists: ()=> dispatch(fetchPlaylists()),
     createPlaylist: (playlist) => dispatch(createPlaylist(playlist)),
-    clear: () => dispatch(clearEntities())
+    clear: () => dispatch(clearEntities()),
+    playSong: (id) => dispatch(fetchSingleTrack(id)),
+    playAlbum: (id) => dispatch(fetchAlbumList(id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainSearch);

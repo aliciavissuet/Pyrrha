@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import cx from 'classnames';
-import {Link, Redirect} from 'react-router-dom';
+import {Link, Redirect, withRouter} from 'react-router-dom';
 import _ from 'lodash'
 
 class TrackResultItem extends React.Component {
@@ -30,7 +30,8 @@ class TrackResultItem extends React.Component {
         const { title, id } = this.props.track;
         const station_title = title + ' Station';
         this.props.postStation({ title: station_title, mediable_id: id, mediable_type: 'Track' })
-        this.props.history.push('/my-music/stations');
+            .then(id => this.props.history.push(`/my-music/stations/${id}`));
+        
         
         
     }
@@ -48,12 +49,14 @@ class TrackResultItem extends React.Component {
     }
     addTrackToPlaylist(id){
         const pl = {playlistId: id, trackId: this.props.track.id};
-        this.props.addSongToPlaylist(pl);
+        this.props.addSongToPlaylist(pl)
+            .then(id => this.props.history.push(`/my-music/playlists/${id}`))
 
     }
     createPlaylist(){
         let pl = {title: 'New Playlist', trackId: this.props.track.id}
-        this.props.createPlaylist(pl);
+        this.props.createPlaylist(pl)
+        .then(id => this.props.history.push(`/my-music/playlists/${id}`));
     }
     render() {
         const {track, playlists, album} = this.props;
@@ -70,7 +73,7 @@ class TrackResultItem extends React.Component {
                 <div className='search-result-item'>
                     <div className='search-result-left'>
                         <img className='artist-tiny' src={imgSrc} alt="" />
-                        <FontAwesomeIcon onClick={() => playTrack(id)} className='play-small icon' icon={["fas", "play"]} />
+                        <FontAwesomeIcon onClick={() => this.props.playSong(track.id)} className='play-small icon' icon={["fas", "play"]} />
                        
                         <div className='span'>
                             <span className='search-result-title'>{track && track.title }</span>
@@ -102,4 +105,4 @@ class TrackResultItem extends React.Component {
     
 };
 
-export default TrackResultItem;
+export default withRouter(TrackResultItem);

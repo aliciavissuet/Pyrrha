@@ -45,29 +45,28 @@ class RecentlyPlayed extends Component {
         }
     }
     render() {
+        const {fetchAlbumList, fetchPlaylist, fetchSong, fetchStation} = this.props;
         const albums = _.get(this, 'state.albums', {});
         const playlists = _.get(this, 'state.playlists', {});
         const stations = _.get(this, 'state.stations', {});
         const tracks = _.get(this, 'state.tracks', {});
         const tL = _.values(tracks).map((track, i) => {
-            return (<ResultItem className='Track-item' data={track} type={'track'} />)
+            return (<ResultItem className='Track-item' data={track} type={'track'} play={fetchSong}/>)
         });
         const pl = _.values(playlists).map((playlist, i) => {
-            return (<ResultItem className='Track-item' data={playlist} type={'playlist'} />)
+            return (<ResultItem className='Track-item' data={playlist} type={'playlist'} play={fetchPlaylist}/>)
         });
         const st = _.values(stations).map((station, i) => {
-            return (<ResultItem className='Track-item' data={station} type={'station'} />)
+            return (<ResultItem className='Track-item' data={station} type={'station'} play={fetchStation}/>)
         });
         const al = _.values(albums).map((album, i) => {
-            return (<ResultItem className='Track-item' data={album} type={'station'}/>)
+            return (<ResultItem className='Track-item' data={album} type={'station'} play={fetchAlbumList}/>);
         });
+        const items = _.shuffle(al.concat(st, pl, tL));
 
         const itemList = (
             <div className='recent-display-container'>
-                {tL}
-                {pl}
-                {st}
-                {al}
+                {items}
             </div>
         )
         let content;
@@ -77,8 +76,8 @@ class RecentlyPlayed extends Component {
             content = itemList
         };
         return (
-            < div className = 'Tracks-component' style={{'height':'270px'}}>
-                <h1 className='my-music-component-header'>Recently Played</h1>
+            < div className = 'Tracks-component recent-component' style={{'height':'300px'}}>
+                <h1 className='my-music-component-header recent-header'>Recently Played</h1>
                 { content }
 
             </div >
