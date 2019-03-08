@@ -5,13 +5,24 @@ class AlbumStationItem extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            id: null, 
+            album: null,
             displayDropdown: false
         };
         this.toggle = this.toggle.bind(this);
         this.postStation = this.postStation.bind(this);
         this.removeMedia = this.removeMedia.bind(this);
+        this.followAlbum=this.followAlbum.bind(this);
+    }
+    componentDidUpdate(prevProps) {
+
+        if (prevProps !== this.props) {
+            const { album, id} = this.props;
+            this.setState({ album, id });
+        }
     }
     toggle() {
+        console.log('toggle');
         this.setState({ displayDropdown: !this.state.displayDropdown });
     }
     postStation() {
@@ -19,24 +30,33 @@ class AlbumStationItem extends React.Component {
         const { title, id } = this.props.album;
         const station_title = title + ' Station';
 
-        this.props.postStation({ title: station_title, mediable_id: id, mediable_type: 'Album' });
+        this.props.postStation({ title: station_title, mediable_id: _.get(this, 'props.album.id'), mediable_type: 'Album' });
     }
     removeMedia() {
         const { album, id } = this.state;
         const info = { func: 'Delete', mediable_id: _.get(album, 'id', 'No ID'), mediable_type: 'Album', id: id };
         this.props.updateStation(info);
-        this.props.removeTrack(_.get(album, 'id', 'No ID'));
+        this.props.removeAlbum(_.get(album, 'id', 'No ID'));
 
+    }
+    followAlbum() {
+        console.log('here')
+        const { album, userId } = this.props;
+        const info = { userId: userId, type: 'Album', mediaId: album.id };
+        this.props.addFollow(info);
     }
     render() {
         const { album } = this.props;
-        const dropdownClass = cx('hide', { 'search-result-dropdown': this.state.displayDropdown });
+        const dropdownClass = cx('hide', { 'search-result-dropdown-st': this.state.displayDropdown });
         const imgSrc = album.photoUrl ? album.photoUrl : '';
         return (
             <div>
+                <div>
+                    <br></br>
+                </div>
                 <div className='search-result-item'>
                     <img className='artist-tiny' src={imgSrc} alt="" />
-                    <div>
+                    <div className='span'>
                         <span className='search-result-title'>{album && album.title}</span>
                         <br />
                         <span className='search-result-type'>Album</span>
@@ -47,11 +67,11 @@ class AlbumStationItem extends React.Component {
                     </div>
                 </div>
                 <div className={dropdownClass}>
-                    <button onClick={this.postStation} className='start-station'><FontAwesomeIcon icon={["fas", "circle-notch"]} />   Start station from album</button>
-                    <button onClick={this.removeMedia} className='start-station'><FontAwesomeIcon icon={["fas", "circle-notch"]} />   Remove album from station</button>
-                    <button className='start-station'><FontAwesomeIcon icon={["fas", "circle-notch"]} />   Add album to My Music</button>
-                </div>
+                    <button onClick={this.postStation} className='start-station'><FontAwesomeIcon className='icon' icon={["fas", "headphones-alt"]} />   Start station from song</button>
+                    <button onClick={this.removeMedia} className='start-station'><FontAwesomeIcon className='icon' icon={["fas", "trash-alt"]} />   Remove song from station</button>
+                    <button onClick={this.followAlbum} className='start-station'><FontAwesomeIcon className='icon' icon={["fas", "heart"]} />   Add song to My Music</button>
             </div>
+           </div>
         );
     }
 

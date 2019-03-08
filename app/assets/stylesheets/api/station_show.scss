@@ -53,6 +53,7 @@
     ul {
         width:100%;
     }
+    margin-bottom: 60px;
     // flex-direction: column;
 }
 .search-lis {
@@ -233,7 +234,7 @@
 .search-lis-st {
     width: 100%;
     margin: 0px;
-    overflow: scroll;
+    overflow-y: scroll;
     li {
         width:100%;
         box-sizing: border-box;

@@ -34,8 +34,8 @@ class ArtistItem extends Component {
         return (
             <div className='track-item-top-level'>
                 <div style={styles.artistImg} className='Track-item'>
-                    <button className='more' onClick={this.toggle}>...</button>
                 </div>
+                <button className='more' onClick={this.toggle}>...</button>
                 <div className='track-item-text'>
                     <h1>{_.get(artist, 'name', 'No Title Found')}</h1>
                     <h2>Artist</h2>
