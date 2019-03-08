@@ -73,6 +73,8 @@ class AlbumItem extends React.Component {
             <div>
                 <div className='search-result-item'>
                 <img className='artist-tiny' src={imgSrc} alt=""/>
+                    <FontAwesomeIcon onClick={() => this.props.playSong(track.id)} className='play-small-pt icon' icon={["fas", "play"]} />
+
                     <div className='spans'>
                         <span className='search-result-title'>{track && track.title}</span>
                         <br />

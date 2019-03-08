@@ -5,6 +5,7 @@ import {postStation} from '../../../../actions/station_actions'
 import { clearEntities, fetchAlbum } from '../../../../actions/album_actions';
 import { fetchUserPlaylistsOnly } from '../../../../actions/playlist_actions';
 import { updateUserFollows } from '../../../../actions/user_actions';
+import { fetchAlbumList, fetchSingleTrack } from '../../../../actions/PlayBarActions';
 
 const mapStateToProps = (state, ownProps) => {
     const userId = state.session.currentUser;
@@ -26,7 +27,9 @@ const mapDispatchToProps = dispatch => ({
     createPlaylist: (playlist) => dispatch(createPlaylist(playlist)),
     addSongToPlaylist: (pl) => dispatch(addPlaylistSong(pl)),
     clear: () => dispatch(clearEntities()),
-    addFollow: (info) => dispatch(updateUserFollows(info))
+    addFollow: (info) => dispatch(updateUserFollows(info)),
+    playAlbum: (id) => dispatch(fetchAlbumList(id)),
+    playSong: (id) => dispatch(fetchSingleTrack(id))
 });
 
 

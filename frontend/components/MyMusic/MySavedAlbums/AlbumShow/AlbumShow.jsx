@@ -64,7 +64,9 @@ class AlbumShow extends React.Component {
                         playlists={playlists} 
                         userId={userId}
                         createPlaylist={createPlaylist}
-                        addSongToPlaylist={addSongToPlaylist}/></li>)
+                        addSongToPlaylist={addSongToPlaylist}
+                        playSong={this.props.playSong}/></li>)
+                        
 
         const at = (
             <ul>
@@ -85,7 +87,7 @@ class AlbumShow extends React.Component {
             <div className='playlist-show-container'>
 
                 <div style={styles} className='playlist-show-left'>
-                    {/* <img src={imgSrc} alt=""/> */}
+                    <FontAwesomeIcon onClick={() => this.props.playAlbum(album.id)} className='play-large-pt icon' icon={["fas", "play"]} />    
                 </div>
                 <div className='playlist-show-right'>
                     <h1 className='album-show-header'>
