@@ -27,6 +27,7 @@ class SearchNav extends Component {
                     <button className='search-link' onClick={() => this.changeDisplay('albums')} className={linkClassAl}>Albums</button>
                     <button className='search-link' onClick={() => this.changeDisplay('tracks')} className={linkClasstr}>Tracks</button>
                     <br/>
+                    <br/>
                 </div>
                 <MainSearchContainer searchResultType={this.state.searchResultType}/>
 

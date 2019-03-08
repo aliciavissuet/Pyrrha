@@ -19,9 +19,11 @@
     // position: absolute;
     // left: 25%;
     display: flex;
-    flex-wrap: wrap;
+    // flex-wrap: wrap;
     justify-content: center;
     margin: 0px;
+    position: absolute;
+    left: 45%;
     button {
         border: none;
         outline: none;
@@ -87,6 +89,7 @@
 }
 
 .search-lis {
+    padding-top: 30px;
     width: 60%;
 }
 
