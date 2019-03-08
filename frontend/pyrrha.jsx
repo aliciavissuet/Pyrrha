@@ -20,7 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
             entities: {
                 users: { [window.currentUser.id]: window.currentUser }
             },
-            session: { currentUser: window.currentUser.id }
+            session: { currentUser: window.currentUser.id },
+            // recentlyPlayed: {}
         };
         store = configureStore(preloadedState);
         delete window.currentUser;
@@ -28,29 +29,29 @@ document.addEventListener('DOMContentLoaded', () => {
         store = configureStore();
     }
     library.add(faCircle, faCircleNotch, faSearch, faBullseye, faCompactDisc, faHeadphonesAlt, faTrashAlt, faAsterisk, faPen, faPlay, faFastForward, faFastBackward, faVolumeDown, faPause, faHeart, faBars, faStarOfLife, faCheck);
-    window.getState = store.getState;
-    window.dispatch = store.dispatch;
-    window.fetchTrack = fetchTrack;
-    window.fetchArtist = fetchArtist;
-    window.fetchAlbum = fetchAlbum;
-    window.fetchStation  = fetchStation;
-    window.postStation = postStation;
-    window.fetchStations = fetchStations;
-    window.search = fetchSearchResults;
-    window.deleteStation = deleteStation;
-    window.updateStation = updateStation;
-    window.updateUserFollows = updateUserFollows;
-    window.fetchAlbums = fetchAlbums;
-    window.fetchArtists = fetchArtists;
-    window.fetchTracks = fetchTracks;
-    window.removeAlbumFollow = removeAlbumFollow;
-    window.removeTrackFollow = removeTrackFollow;
-    window.createPlaylist = createPlaylist;
-    window.addPlaylistSong = addPlaylistSong;
-    window.removePlaylistSong = removePlaylistSong;
-    window.deletePlaylist = deletePlaylist;
-    window.fetchPlaybarPlaylist = fetchPlaybarPlaylist;
-    window.fetchStationList = fetchStationList;
+    // window.getState = store.getState;
+    // window.dispatch = store.dispatch;
+    // window.fetchTrack = fetchTrack;
+    // window.fetchArtist = fetchArtist;
+    // window.fetchAlbum = fetchAlbum;
+    // window.fetchStation  = fetchStation;
+    // window.postStation = postStation;
+    // window.fetchStations = fetchStations;
+    // window.search = fetchSearchResults;
+    // window.deleteStation = deleteStation;
+    // window.updateStation = updateStation;
+    // window.updateUserFollows = updateUserFollows;
+    // window.fetchAlbums = fetchAlbums;
+    // window.fetchArtists = fetchArtists;
+    // window.fetchTracks = fetchTracks;
+    // window.removeAlbumFollow = removeAlbumFollow;
+    // window.removeTrackFollow = removeTrackFollow;
+    // window.createPlaylist = createPlaylist;
+    // window.addPlaylistSong = addPlaylistSong;
+    // window.removePlaylistSong = removePlaylistSong;
+    // window.deletePlaylist = deletePlaylist;
+    // window.fetchPlaybarPlaylist = fetchPlaybarPlaylist;
+    // window.fetchStationList = fetchStationList;
     const root = document.getElementById('root');
     ReactDOM.render(<Root store={store}/>, root);
 });

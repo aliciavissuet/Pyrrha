@@ -30,10 +30,7 @@ class TrackResultItem extends React.Component {
         const { title, id } = this.props.track;
         const station_title = title + ' Station';
         this.props.postStation({ title: station_title, mediable_id: id, mediable_type: 'Track' })
-            .then(id => this.props.history.push(`/my-music/stations/${id}`));
-        
-        
-        
+            .then(id => this.props.history.push(`/my-music/stations/${id}`));  
     }
     followTrack(){
         const {userId, track} = this.props;
@@ -41,7 +38,7 @@ class TrackResultItem extends React.Component {
         this.props.addFollow(info);
     }
     showPlDD() {
-        console.log('show')
+        
         this.setState({ displayPlaylistDropDown: true})
     }
     hidePlDD() {

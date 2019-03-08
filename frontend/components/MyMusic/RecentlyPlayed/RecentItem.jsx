@@ -10,7 +10,11 @@ class RecentItem extends Component {
                             `https://s3-us-west-1.amazonaws.com/pyrrha-dev/station_cover3.jpg`,
                         `https://s3-us-west-1.amazonaws.com/pyrrha-dev/station_cover2.jpg`,
                         `https://s3-us-west-1.amazonaws.com/pyrrha-dev/station_cover5.png`,
-                        `https://s3-us-west-1.amazonaws.com/pyrrha-dev/station_cover6.jpeg`];
+                        `https://s3-us-west-1.amazonaws.com/pyrrha-dev/station_cover6.jpeg`,
+                        `https://s3-us-west-1.amazonaws.com/pyrrha-dev/cover_10.jpeg`,
+                        `https://s3-us-west-1.amazonaws.com/pyrrha-dev/cover_9.jpg`,
+                        `https://s3-us-west-1.amazonaws.com/pyrrha-dev/cover_8.jpg`,
+                        `https://s3-us-west-1.amazonaws.com/pyrrha-dev/cover_7.jpg`];
         const imgSrc = data.photoUrl ? data.photoUrl : _.sample(stationCovers);
         const styles = {
 

@@ -5,6 +5,7 @@ import { updateUserFollows } from '../../../actions/user_actions';
 import { addPlaylistSong, fetchPlaylists, createPlaylist} from '../../../actions/playlist_actions';
 import {clearEntities} from '../../../actions/album_actions';
 import { fetchSingleTrack, fetchAlbumList } from '../../../actions/PlayBarActions';
+import {postStation} from '../../../actions/station_actions';
 
 const mapStateToProps = state => ({
     albums: Object.values(state.search.albums),

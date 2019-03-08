@@ -28,13 +28,14 @@ class Api::RecentPlaysController < ApplicationController
         @tracks = @tracks.uniq
         @playlists = @playlists.uniq
         @stations = @stations.uniq
+        
         render '/api/recent_plays/index'
     end
 
     def index
         userId = current_user.id
         # mediaId = params[:recent][:mediaId]
-        @recent_plays = RecentPlay.where(user_id: userId).order(created_at: :asc).limit(8)
+        @recent_plays = RecentPlay.where(user_id: userId).order(created_at: :desc).limit(8)
         @tracks = []
         @albums = []
         @stations = []
@@ -55,6 +56,11 @@ class Api::RecentPlaysController < ApplicationController
                 @playlists.push(playlist) if (playlist)
             end
         end
+        @albums = @albums.uniq
+        @tracks = @tracks.uniq
+        @playlists = @playlists.uniq
+        @stations = @stations.uniq
+        
         render '/api/recent_plays/index'
     end
     def recent_play_params 
