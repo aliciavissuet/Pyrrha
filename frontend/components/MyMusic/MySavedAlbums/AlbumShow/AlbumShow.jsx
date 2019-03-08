@@ -4,6 +4,7 @@ import Loading from '../../../common/Loading';
 // import PlaylistHeader from './PlaylistHeader';
 import cx from 'classnames';
 import AlbumItem from './AlbumItem';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 class AlbumShow extends React.Component {
@@ -16,9 +17,16 @@ class AlbumShow extends React.Component {
             album: null,
             userId: null,
             show: false,
+            popup: false
         };
+        this.closePopup = this.closePopup.bind(this);
+        this.addFollow=this.addFollow.bind(this);
         // this.removeSong = this.removeSong.bind(this);
 
+    }
+    addFollow(info) {
+        this.setState({ popup: true });
+        this.props.addFollow(info);
     }
     componentDidMount() {
         console.log('hit playlist show');
@@ -39,6 +47,10 @@ class AlbumShow extends React.Component {
         this.props.clear();
     }
     
+    closePopup() {
+        console.log('here')
+        this.setState({ popup: false });
+    }
     render() {
 
 
@@ -47,7 +59,7 @@ class AlbumShow extends React.Component {
         const albumTitle = _.get(this, 'state.album.title', '');
         const albumTracks = _.values(tracks).map((track, i) => <li key={i}><AlbumItem 
                         track={track} 
-                        addFollow={addFollow} 
+                        addFollow={this.addFollow} 
                         postStation={postStation} 
                         playlists={playlists} 
                         userId={userId}
@@ -67,6 +79,8 @@ class AlbumShow extends React.Component {
                 backgroundSize: 'cover'
             
         };
+        const popup = cx('hide-popup-search', { 'popup-search': this.state.popup });
+
         return (
             <div className='playlist-show-container'>
 
@@ -79,6 +93,15 @@ class AlbumShow extends React.Component {
                     </h1>
                     <div className='search-lis'>
                         {content}
+                    </div>
+                </div>
+                <div className={popup} onClick={this.closePopup}>
+                    <div className='close' >
+                        <p>x</p>
+                    </div>
+                    <div className='message'>
+                        <FontAwesomeIcon className='icon' icon={["fas", "check"]} />
+                        <p>Successful save</p>
                     </div>
                 </div>
             </div>

@@ -55,13 +55,14 @@ class PlaylistTrackItem extends React.Component {
 
     // }
     render() {
-        const { track, album } = this.props;
+        const { track, album, playSong } = this.props;
         const dropdownClass = cx('hide', { 'search-result-dropdown': this.state.displayDropdown });
         const imgSrc =  album ? album.photoUrl : '';
         return (
             <div>
                 <div className='search-result-item'>
                     <img className='artist-tiny' src={imgSrc} alt="" />
+                    <FontAwesomeIcon onClick={() => playSong(track.id)} className='play-small-pt icon' icon={["fas", "play"]} />
                     <div className='spans'>
                         <span className='search-result-title'>{track && track.title}</span>
                         <br />

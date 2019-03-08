@@ -39,7 +39,9 @@ class PlayBar extends Component {
     componentDidUpdate(prevProps){
         // console.log('updating playbar');
         if (this.props.currentTrack!==prevProps.currentTrack) {
+            console.log('props',this.props)
             const {currentTrack, currentPlaylist} = this.props;
+            
             if (currentTrack.track){
                 this.setState({
                     currentArtist: currentTrack.artist,
@@ -57,10 +59,13 @@ class PlayBar extends Component {
     
     nextSong(){
         // const colors = [ `#4ba870`, `#b3d66d`, `#8e596d`, `#edc361`, `#469695`, `#416693`, `#3b277c`, `#0b5284`];
-        const {playlistIndex, playlistQueue} = this.state;
-        const id = playlistQueue[(playlistIndex+1)%playlistQueue.length];
+        const {currentTrack, currentPlaylist} = this.props;
+        const {playlistIndex} = this.state;
+        const i = this.state.playlistIndex;
+        const id = currentPlaylist[(playlistIndex+1)%currentPlaylist.length];
+        console.log('id', id, currentPlaylist)
         this.props.fetchPlaybarSong(id);
-        this.setState({ playlistIndex: (playlistIndex + 1) % playlistQueue.length});
+        this.setState({ playlistIndex: (playlistIndex + 1) % currentPlaylist.length});
     }
     prevSong(){
         // if (this.state.progress && this.state.progress[0]===0 && this.state.progress[3]===0) {

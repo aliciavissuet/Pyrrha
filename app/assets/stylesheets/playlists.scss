@@ -66,3 +66,21 @@
     width: 50%
 }
 
+.play-large-pt {
+    position: absolute;
+    color: black;
+    top: 66%;
+    left: 25%;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 1;
+}
+.play-large-st {
+    position: absolute;
+    top: 33%;
+    left: 50%;
+    color: white;
+    cursor: pointer;
+    font-size: 30px;
+}
+

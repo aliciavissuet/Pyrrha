@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import cx from 'classnames';
-import {withRouter} from 'react-router-dom';
+import {withRouter, Link} from 'react-router-dom';
 class AlbumResultItem extends React.Component {
     constructor(props) {
         super(props);
@@ -39,11 +39,11 @@ class AlbumResultItem extends React.Component {
                         <img className='artist-tiny' src={imgSrc} alt="" />
                         <FontAwesomeIcon onClick={() => this.props.playAlbum(album.id)} className='play-small icon' icon={["fas", "play"]} />
 
-                        <div className='span'>
+                        <Link to={`/my-music/albums/${this.props.album.id}`}><div className='span'>
                             <span className='search-result-title'>{album && album.title}</span>
                             <br />
                             <span className='search-result-type'>Album</span>
-                        </div>
+                        </div></Link>
                     </div>
                     <div>
                         <button className='more-options' onClick={this.toggle}>...</button>

@@ -69,3 +69,87 @@ zombie_song = open('https://s3-us-west-1.amazonaws.com/pyrrha-dev/mp3/untitled+f
 zombie.song.attach(io: zombie_song, filename: 'mp3/untitled folder/03 - I Will Wait.mp3')
 zombie_photo = open('https://s3-us-west-1.amazonaws.com/pyrrha-dev/zombiesongpic.jpg')
 zombie.photo.attach(io: zombie_photo, filename: 'zombiesongpic.jpg')
+
+m83 = Artist.create(name: 'M83')
+m83_photo = open('https://s3-us-west-1.amazonaws.com/pyrrha-dev/mp3/m83artist.jpg')
+m83.photo.attach(io: m83_photo, filename: 'mp3/m83artist.jpg')
+
+m83album = Album.create(title: 'Hurry Up, We\'re Dreaming', year: 2014)
+m83album_photo = open('https://s3-us-west-1.amazonaws.com/pyrrha-dev/mp3/m83album.jpg')
+m83album.photo.attach(io: m83album_photo, filename: 'mp3/m83album.jpg')
+
+m83_intro = Track.create(title: 'Intro', album_id: m83album.id, artist_id: m83.id)
+m83_intro_song = open('https://s3-us-west-1.amazonaws.com/pyrrha-dev/mp3/M83+-+Intro.mp3')
+m83_intro.song.attach(io: m83_intro_song, filename: 'mp3/M83 - Intro.mp3')
+m83_intro_photo = open('https://s3-us-west-1.amazonaws.com/pyrrha-dev/mp3/m83album.jpg')
+m83_intro.photo.attach(io: m83_intro_photo, filename: 'mp3/m83album.jpg')
+
+m83_midnightcity = Track.create(title: 'Midnight City', album_id: m83album.id, artist_id: m83.id)
+m83_midnightcity_song = open('https://s3-us-west-1.amazonaws.com/pyrrha-dev/mp3/Midnight+City.mp3')
+m83_midnightcity.song.attach(io: m83_midnightcity_song, filename: 'mp3/Midnight City.mp3')
+m83_midnightcity_photo = open('https://s3-us-west-1.amazonaws.com/pyrrha-dev/mp3/m83album.jpg')
+m83_midnightcity.photo.attach(io: m83_midnightcity_photo, filename: 'mp3/m83album.jpg')
+
+m83_wait = Track.create(title: 'Wait', album_id: m83album.id, artist_id: m83.id)
+m83_wait_song = open('https://s3-us-west-1.amazonaws.com/pyrrha-dev/mp3/M83+-+Wait+(Official+Video).mp3')
+m83_wait.song.attach(io: m83_wait_song, filename: 'mp3/M83 - Wait (Official Video).mp3')
+m83_wait_photo = open('https://s3-us-west-1.amazonaws.com/pyrrha-dev/mp3/m83album.jpg')
+m83_wait.photo.attach(io: m83_wait_photo, filename: 'mp3/m83album.jpg')
+
+rs = Artist.create(name: 'Regina Spektor')
+rs_photo = open('https://s3-us-west-1.amazonaws.com/pyrrha-dev/mp3/rs.jpg')
+rs.photo.attach(io: rs_photo, filename: 'mp3/rs.jpg')
+
+rsalbum = Album.create(title: 'Begin To Hope', year: 2014)
+rsalbum_photo = open('https://s3-us-west-1.amazonaws.com/pyrrha-dev/mp3/rsAlbum.jpg')
+rsalbum.photo.attach(io: rsalbum_photo, filename: 'mp3/rsAlbum.jpg')
+
+rs_us = Track.create(title: 'Us', album_id: rsalbum.id, artist_id: rs.id)
+rs_us_song = open('https://s3-us-west-1.amazonaws.com/pyrrha-dev/mp3/Regina+Spektor+-+Us+%5BOFFICIAL+Video%5D.mp3')
+rs_us.song.attach(io: rs_us_song, filename: 'mp3/Regina Spektor - Us [OFFICIAL Video].mp3')
+rsalbum_photo1 = open('https://s3-us-west-1.amazonaws.com/pyrrha-dev/mp3/rsAlbum.jpg')
+rs_us.photo.attach(io: rsalbum_photo1, filename: 'mp3/rsAlbum.jpg')
+
+rs_samson = Track.create(title: 'Samson', album_id: rsalbum.id, artist_id: rs.id)
+rs_samson_song = open('https://s3-us-west-1.amazonaws.com/pyrrha-dev/mp3/Regina+Spektor+-+Samson+(songs).mp3')
+rs_samson.song.attach(io: rs_samson_song, filename: 'mp3/Regina Spektor - Samson (songs).mp3')
+rsalbum_photo2 = open('https://s3-us-west-1.amazonaws.com/pyrrha-dev/mp3/rsAlbum.jpg')
+rs_samson.photo.attach(io: rsalbum_photo2, filename: 'mp3/rsAlbum.jpg')
+
+rs_fidelity = Track.create(title: 'Fidelity', album_id: rsalbum.id, artist_id: rs.id)
+rs_fidelity_song = open('https://s3-us-west-1.amazonaws.com/pyrrha-dev/mp3/Regina+Spektor+-+Fidelity+%5BOfficial+Music+Video%5D.mp3')
+rs_fidelity.song.attach(io: rs_fidelity_song, filename: 'mp3/Regina Spektor - Fidelity [Official Music Video].mp3')
+rsalbum3_photo = open('https://s3-us-west-1.amazonaws.com/pyrrha-dev/mp3/rsAlbum.jpg')
+rs_fidelity.photo.attach(io: rsalbum3_photo, filename: 'mp3/rsAlbum.jpg')
+
+lg = Artist.create(name: 'Lady Gaga')
+lg_photo = open('https://s3-us-west-1.amazonaws.com/pyrrha-dev/mp3/lg.png')
+lg.photo.attach(io: lg_photo, filename: 'mp3/lg.png')
+
+lg_album = Album.create(title: 'A Star Is Born', year: 2014)
+lg_album_photo = open('https://s3-us-west-1.amazonaws.com/pyrrha-dev/mp3/lg_album.jpg')
+lg_album.photo.attach(io: lg_album_photo, filename: 'mp3/lg_album.jpg')
+
+lg_shallow = Track.create(title: 'Shallow', album_id: lg_album.id, artist_id: lg.id)
+lg_shallow_song = open('https://s3-us-west-1.amazonaws.com/pyrrha-dev/mp3/Lady+Gaga%2C+Bradley+Cooper+-+Shallow+(A+Star+Is+Born).mp3')
+lg_shallow.song.attach(io: lg_shallow_song, filename: 'mp3/Lady Gaga, Bradley Cooper - Shallow (A Star Is Born).mp3')
+lg_album_photo2 = open('https://s3-us-west-1.amazonaws.com/pyrrha-dev/mp3/lg_album.jpg')
+lg_shallow.photo.attach(io: lg_album_photo2, filename: 'mp3/lg_Album.jpg')
+
+rs_inl = Track.create(title: 'I\'ll Never Love Again', album_id: lg_album.id, artist_id: lg.id)
+rs_inl_song = open('https://s3-us-west-1.amazonaws.com/pyrrha-dev/mp3/Lady+Gaga+-+Ill+Never+Love+Again+(Lyrics).mp3')
+rs_inl.song.attach(io: rs_inl_song, filename: 'mp3/Lady Gaga - Ill Never Love Again (Lyrics).mp3')
+lg_album_photo3 = open('https://s3-us-west-1.amazonaws.com/pyrrha-dev/mp3/lg_album.jpg')
+rs_inl.photo.attach(io: lg_album_photo3, filename: 'mp3/lg_Album.jpg')
+
+lg_2 = Track.create(title: 'Always Remember Us This Way', album_id: lg_album.id, artist_id: lg.id)
+lg_2_song = open('https://s3-us-west-1.amazonaws.com/pyrrha-dev/mp3/Lady+Gaga+-+Always+Remember+Us+This+Way+(+Lyrics+Video+)+(1).mp3')
+lg_2.song.attach(io: lg_2_song, filename: 'mp3/Lady Gaga - Always Remember Us This Way ( Lyrics Video ) (1).mp3')
+lg_album_photo4 = open('https://s3-us-west-1.amazonaws.com/pyrrha-dev/mp3/lg_album.jpg')
+lg_2.photo.attach(io: lg_album_photo4, filename: 'mp3/lg_Album.jpg')
+
+lg_lwif = Track.create(title: 'Look What I Found', album_id: lg_album.id, artist_id: lg.id)
+lg_lwif_song = open('https://s3-us-west-1.amazonaws.com/pyrrha-dev/mp3/Lady+Gaga+-+Look+What+I+Found+(A+Star+Is+Born+Soundtrack)+%5BFull+HD%5D+lyrics.mp3')
+lg_lwif.song.attach(io: lg_lwif_song, filename: 'mp3/Lady Gaga - Look What I Found (A Star Is Born Soundtrack) [Full HD] lyrics.mp3')
+lg_album_photo5 = open('https://s3-us-west-1.amazonaws.com/pyrrha-dev/mp3/lg_album.jpg')
+lg_lwif.photo.attach(io: lg_album_photo5, filename: 'mp3/lg_Album.jpg')

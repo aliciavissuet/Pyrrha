@@ -67,7 +67,7 @@ class AlbumItem extends React.Component {
         const pL = playlists1.map((playlist, i) => {
             return (<button key={i} onClick={() => this.addTrackToPlaylist(playlist.id)}>{playlist.title}</button>)
         });
-        const imgSrc = album ? album.photoUrl : '';
+        const imgSrc = track ? track.photoUrl : '';
 
         return (
             <div>

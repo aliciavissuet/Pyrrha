@@ -89,7 +89,7 @@ class StationShow extends React.Component {
     render(){
         
         
-        const {station,  postStation} = this.props;
+        const {station,  postStation, playSong, playStation} = this.props;
         console.log(station);
         const {artists, albums, tracks} = this.state;
         
@@ -116,6 +116,8 @@ class StationShow extends React.Component {
             <div>
                 <div className={ol} id='overlay'>{olc}</div>
                 <StationHeader title={_.get(station, 'title', 'No Title Found')}/>
+                <FontAwesomeIcon onClick={() => playStation(station.id)} className='play-large-st icon' icon={["fas", "play"]} />    
+
                 <div className='station-main'>
                 <div className='station-main-top'>
                     <h3 className='station-created-from'>Station Created From: </h3>
