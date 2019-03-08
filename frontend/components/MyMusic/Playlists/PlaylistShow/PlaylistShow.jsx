@@ -53,7 +53,7 @@ class PlaylistShow extends React.Component {
         const { artists, albums, tracks } = this.state;
         
 
-        const playlistTracks = _.values(tracks).map((track, i) => <li key={i}><PlaylistTrackItem track={track} id={_.get(playlist, 'id', 'No ID')} addFollow={addFollow} userId={userId} removeSong={this.removeSong} postStation={postStation} playSong={playSong} album={albums[_.get(track, 'albumId', 'No ID')]}/></li>)
+        const playlistTracks = _.values(tracks).filter(tr => _.get(playlist, 'trackIds', []).includes(tr.id)).map((track, i) => <li key={i}><PlaylistTrackItem track={track} id={_.get(playlist, 'id', 'No ID')} addFollow={addFollow} userId={userId} removeSong={this.removeSong} postStation={postStation} playSong={playSong} album={albums[_.get(track, 'albumId', 'No ID')]}/></li>)
          
         const pl = (
             <ul>

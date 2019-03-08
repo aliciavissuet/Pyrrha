@@ -17,10 +17,12 @@ class AlbumShow extends React.Component {
             album: null,
             userId: null,
             show: false,
-            popup: false
+            popup: false,
+            popup2: false,
         };
         this.closePopup = this.closePopup.bind(this);
         this.addFollow=this.addFollow.bind(this);
+        this.addSongToPlaylist=this.addSongToPlaylist.bind(this);
         // this.removeSong = this.removeSong.bind(this);
 
     }
@@ -28,6 +30,7 @@ class AlbumShow extends React.Component {
         this.setState({ popup: true });
         this.props.addFollow(info);
     }
+
     componentDidMount() {
         console.log('hit playlist show');
         this.props.fetchAlbum(this.props.match.params.id);
@@ -49,7 +52,11 @@ class AlbumShow extends React.Component {
     
     closePopup() {
         console.log('here')
-        this.setState({ popup: false });
+        this.setState({ popup: false, popup2: false });
+    }
+    addSongToPlaylist(info){
+        this.setState({popup2: true});
+        this.props.addSongToPlaylist(info);
     }
     render() {
 
@@ -57,14 +64,14 @@ class AlbumShow extends React.Component {
         const { addFollow, postStation, createPlaylist, addSongToPlaylist } = this.props;
         const { artists, album, tracks, playlists, userId } = this.state;
         const albumTitle = _.get(this, 'state.album.title', '');
-        const albumTracks = _.values(tracks).map((track, i) => <li key={i}><AlbumItem 
+        const albumTracks = _.values(tracks).filter(tr => _.get(album, 'trackIds', []).includes(tr.id)).map((track, i) => <li key={i}><AlbumItem 
                         track={track} 
                         addFollow={this.addFollow} 
                         postStation={postStation} 
                         playlists={playlists} 
                         userId={userId}
                         createPlaylist={createPlaylist}
-                        addSongToPlaylist={addSongToPlaylist}
+                        addSongToPlaylist={this.addSongToPlaylist}
                         playSong={this.props.playSong}/></li>)
                         
 
@@ -82,6 +89,7 @@ class AlbumShow extends React.Component {
             
         };
         const popup = cx('hide-popup-search', { 'popup-search': this.state.popup });
+        const popup2 = cx('hide-popup-search-2', { 'popup-search-2': this.state.popup2 });
 
         return (
             <div className='playlist-show-container'>
@@ -104,6 +112,15 @@ class AlbumShow extends React.Component {
                     <div className='message'>
                         <FontAwesomeIcon className='icon' icon={["fas", "check"]} />
                         <p>Successful save</p>
+                    </div>
+                </div>
+                <div className={popup2} onClick={this.closePopup}>
+                    <div className='close' >
+                        <p>x</p>
+                    </div>
+                    <div className='message'>
+                        <FontAwesomeIcon className='icon' icon={["fas", "check"]} />
+                        <p>Song added</p>
                     </div>
                 </div>
             </div>

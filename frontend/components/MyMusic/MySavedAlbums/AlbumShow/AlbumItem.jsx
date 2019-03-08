@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import cx from 'classnames';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 class AlbumItem extends React.Component {
     constructor(props) {
         super(props);
@@ -44,10 +44,10 @@ class AlbumItem extends React.Component {
     }
     showPlDD() {
         console.log('show')
-        this.setState({ displayPlaylistDropDown: true })
+        this.setState({ displayPlaylistDropDown: true });
     }
     hidePlDD() {
-        this.setState({ displayPlaylistDropDown: false })
+        this.setState({ displayPlaylistDropDown: false });
     }
     addTrackToPlaylist(id) {
         const pl = { playlistId: id, trackId: this.props.track.id };
@@ -55,8 +55,10 @@ class AlbumItem extends React.Component {
 
     }
     createPlaylist() {
-        let pl = { title: 'New Playlist', trackId: this.props.track.id }
-        this.props.createPlaylist(pl);
+        let pl = { title: 'New Playlist', trackId: this.props.track.id };
+        this.props.createPlaylist(pl)
+            .then(id => this.props.history.push(`/my-music/playlists/${id}`));
+;
     }
     render() {
         const { track, album, playlists } = this.props;
@@ -104,4 +106,4 @@ class AlbumItem extends React.Component {
 
 };
 
-export default AlbumItem;
+export default withRouter(AlbumItem);
