@@ -11,16 +11,32 @@ class Api::RecentPlaysController < ApplicationController
         @playlists = []
         @recent_plays.each do |rp| 
             if rp.media_type == 'album'
-                album = Album.find(rp.media_id) 
+                album = Album.find(rp.media_id)
+                album.last_played = rp.created_at 
                 @albums.push(album)
             elsif rp.media_type == 'track'
                 track = Track.find(rp.media_id)
+                track.last_played = rp.created_at 
                 @tracks.push(track)
             elsif rp.media_type == 'station'
                 station = Station.find(rp.media_id)
+                station.last_played = rp.created_at
+                first_media = station.station_created_froms.first
+                if first_media.mediable_type == 'Artist'
+                    media = Artist.find(first_media.id)
+                end 
+                if first_media.mediable_type == 'Album'
+                    media = Album.find(first_media.id)
+                end 
+                if first_media.mediable_type == 'Track'
+                    media = Track.find(first_media.id)
+                end 
+                station.photo = media.photo
                 @stations.push(station)
             elsif rp.media_type == 'playlist'
                 playlist = Playlist.find(rp.media_id)
+                playlist.photo= playlist.tracks.first.photo
+                playlist.last_played = rp.created_at 
                 @playlists.push(playlist)
             end
         end
@@ -43,16 +59,31 @@ class Api::RecentPlaysController < ApplicationController
         @recent_plays.each do |rp| 
             if rp.media_type == 'album'
                 album = Album.find(rp.media_id.to_i)
-               
+                album.last_played = rp.created_at 
                 @albums.push(album) if (album)
             elsif rp.media_type == 'track'
                 track = Track.find(rp.media_id)
-                 @tracks.push(track) if (track)
+                track.last_played = rp.created_at 
+                @tracks.push(track) if (track)
             elsif rp.media_type == 'station'
                 station = Station.find(rp.media_id)
+                station.last_played = rp.created_at
+                first_media = station.station_created_froms.first
+                if first_media.mediable_type == 'Artist'
+                    media = Artist.find(first_media.mediable_id)
+                end 
+                if first_media.mediable_type == 'Album'
+                    media = Album.find(first_media.mediable_id)
+                end 
+                if first_media.mediable_type == 'Track'
+                    media = Track.find(first_media.mediable_id)
+                end 
+                station.photo = media.photo 
                 @stations.push(station) if (station)
             elsif rp.media_type == 'playlist'
                 playlist = Playlist.find(rp.media_id.to_i)
+                playlist.last_played = rp.created_at
+                playlist.photo= playlist.tracks.first.photo 
                 @playlists.push(playlist) if (playlist)
             end
         end

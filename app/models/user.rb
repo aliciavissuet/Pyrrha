@@ -11,7 +11,8 @@ class User < ApplicationRecord
     has_many :artist_follows
     has_many :artists, through: :artist_follows
     has_many :playlists
-
+    has_many :play_histories
+    has_many :recent_plays
     attr_reader :password
     after_initialize :ensure_session_token 
 
