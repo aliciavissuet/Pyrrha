@@ -36,7 +36,7 @@ class Login extends Component {
     }
     handleClick(e) {
         e.preventDefault();
-        this.props.login(this.state).then(() => this.setState(this.state));
+        this.props.login(this.state);
         
     }
    
@@ -46,7 +46,8 @@ class Login extends Component {
         }
     }
 
-    loginAsGuest () {
+    loginAsGuest (e) {
+        e.preventDefault();
         const name = 'guest@email.com'.split('');
         const pw = 'password'.split('');
         const button = document.getElementById('submit');

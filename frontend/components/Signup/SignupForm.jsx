@@ -5,14 +5,28 @@ import { InputTypesEnum, SignupFieldsEnum, ErrorsEnum } from './signup_errors_en
 class Signup extends React.Component {
     constructor(props) {
         super(props);
-
-        const password = this.props.errors ? this.props.errors[0] : null;
+        let password = null;
+        let username = null;
+        let email = null;
+        this.props.errors.forEach(err => {
+            if (err.includes('email')){
+                email = err;
+            } else if (err.includes('username')){
+                username = err;
+            } else if (err.includes('password')){
+                password = err;
+            }
+        });
+        
 
         this.state = {
             username: '',
             email: '',
             password: '',
-            errors: {password},
+            errors: {
+                password: password,
+                username: username,
+                email: email},
         };
         this.handleClick = this.handleClick.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -26,8 +40,25 @@ class Signup extends React.Component {
     }
     componentDidUpdate(prevProps) {
         if (prevProps !== this.props){
-            const password = this.props.errors ? this.props.errors[0] : null;
-            this.setState({errors:{...this.state.errors, password}});
+            // const password = this.props.errors && this.props.errors.includes('password') ? this.props.errors[0] : null;
+            // const username = this.props.errors && this.props.errors.includes('username') ? this.props.errors[0] : null;
+            // const email = this.props.errors && this.props.errors.includes('email') ? this.props.errors[0] : null;
+            let password = null;
+            let username = null;
+            let email = null;
+            this.props.errors.forEach(err => {
+                if (err.includes('Email')) {
+                    email = err;
+                } else if (err.includes('Username')) {
+                    username = err;
+                } else if (err.includes('Password')) {
+                    password = err;
+                }
+            });
+            this.setState({errors:
+                {password: password,
+                username: username,
+                email: email}});
         }
     }
     
@@ -83,9 +114,13 @@ class Signup extends React.Component {
     }
 
    onBlur( field,e ) {
+       
        if (e.target.value.length === 0){
-           this.setState({errors:{...this.state.errors, [field]:`${field} ${ErrorsEnum.CANNOT_BE_BLANK}`}});
+           let error = this.state.errors;
+           error[[field]] = `${field} ${ErrorsEnum.CANNOT_BE_BLANK}`;
+           this.setState({errors: error});
        }
+       //...this.state.errors[[field]], 
    }
    
     render() {

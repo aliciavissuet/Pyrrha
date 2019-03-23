@@ -77,5 +77,5 @@ export const login = (user) => dispatch => {
         dispatch(receiveAlbums(payload.albums));
         dispatch(receiveTracks(payload.tracks));
         dispatch(receiveCurrentUser(payload.user));
-    });
+    }, errors => (dispatch(receiveErrors(errors.responseJSON))));
 };
