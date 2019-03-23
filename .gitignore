@@ -1,4 +1,4 @@
 node_modules/
 bundle.js*
 tmp/
-development.log
+log/development.log
