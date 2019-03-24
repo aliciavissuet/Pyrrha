@@ -110,13 +110,13 @@
     // transition: transform 1s, top 1s left 1s, opacity 1s, z-index 0s;
     // opacity: 1;
     width: 300px;
-    transition: width .25s;
+    transition: width .2s height 0s;
   }
       .hideLeft {
         z-index: 3;
         width: 150px;
         height: 250px;
-        // transition: width .5s, height 0s, z-index 0s ;
+        transition: width .5s, height 0s, z-index 0s ;
         overflow: hidden;
   
       }
@@ -130,7 +130,7 @@
         z-index: 3;
         width: 150px;
         height: 250px;
-        // transition: width .5s height .5s, z-index 0s ;
+        transition: width .5s height 0s, z-index 0s ;
         overflow: hidden;
   
       }
@@ -143,7 +143,7 @@
     width: 230px;
     height: 250px;
 
-    // transition: width .5s height .5s, z-index 0s ;
+    transition: width .5s height 0s, z-index 0s ;
     overflow: hidden;
 
   }
@@ -155,7 +155,7 @@
         width: 180px;
         height: 250px;
 
-        // transition: width .5s, height .5s, z-index 0s ;
+        transition: width .5s, height 0s, z-index 0s ;
         overflow: hidden;
       }
    .selected-car{
@@ -166,7 +166,7 @@
       overflow: visible;
       // left: 50%;
       // transform: translateY(0px) translateX(-50%);
-        // transition: width .5s height .5s, z-index 0s ;
+        transition: width 1s height 0s, z-index 0s ;
     }
     .nextSecondRight{
       // opacity: .7;
@@ -178,7 +178,7 @@
       width: 180px;
       height: 250px;
 
-        // transition: width .5s, height .5s, z-index 0s ;
+        transition: width .5s, height 0s, z-index 0s ;
 
       
   }
@@ -186,7 +186,7 @@
       // opacity: .8;
       overflow: hidden;
       // position: absolute;
-      // transition: width .5s height .5s, z-index 0s ;
+      transition: width .5s height 0s, z-index 0s ;
       z-index: 5;
       // left: 70%;
       // transform: translateY(50px) translateX(-50%);
@@ -206,7 +206,7 @@
     filter: brightness(100%);
     -webkit-filter: brightness(80%);
     transition: brightness .5s ease;
-    -webkit-transition: all .5s ease;
+    // -webkit-transition: all .5s ease;
     // -moz-transition: all 1s ease;
     // -o-transition: all 1s ease;
     // -ms-transition: all 1s ease;

@@ -19,7 +19,8 @@ class PlaylistShow extends React.Component {
             show: false,
         };
         this.removeSong = this.removeSong.bind(this);
-       
+        this.showNotification = this.showNotification.bind(this);
+        this.addFollow = this.addFollow.bind(this);
     }
     componentDidMount() {
         console.log('hit playlist show');
@@ -34,8 +35,18 @@ class PlaylistShow extends React.Component {
             this.setState({ artists, tracks, albums, playlist });
         }
     }
+    showNotification() {
+        document.getElementById("note").style.display = "block";
+        setTimeout(function () {
+            document.getElementById("note").style.display = "none";
+        }, 3000);
+    }
     componentWillUnmount(){
         this.props.clear();
+    }
+    addFollow(info){
+        this.showNotification();
+        this.props.addFollow(info);
     }
     removeSong(payload){
         const newTracks = this.state.tracks;
@@ -53,7 +64,7 @@ class PlaylistShow extends React.Component {
         const { artists, albums, tracks } = this.state;
         
 
-        const playlistTracks = _.values(tracks).filter(tr => _.get(playlist, 'trackIds', []).includes(tr.id)).map((track, i) => <li key={i}><PlaylistTrackItem track={track} id={_.get(playlist, 'id', 'No ID')} addFollow={addFollow} userId={userId} removeSong={this.removeSong} postStation={postStation} playSong={playSong} album={albums[_.get(track, 'albumId', 'No ID')]}/></li>)
+        const playlistTracks = _.values(tracks).filter(tr => _.get(playlist, 'trackIds', []).includes(tr.id)).map((track, i) => <li key={i}><PlaylistTrackItem track={track} id={_.get(playlist, 'id', 'No ID')} addFollow={this.addFollow} userId={userId} removeSong={this.removeSong} postStation={postStation} playSong={playSong} album={albums[_.get(track, 'albumId', 'No ID')]}/></li>)
          
         const pl = (
             <ul>

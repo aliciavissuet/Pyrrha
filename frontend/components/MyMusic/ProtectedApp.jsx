@@ -21,6 +21,12 @@ class ProtectedApp extends Component {
     render() {
         return (
             <div className='loggedin-container'>
+                <div id="note">
+                    Saved!
+                </div>
+                <div id="note2">
+                    Added to playlist!
+                </div>
                 <HeaderContainer {...this.props}/>
                 <Switch>
                     <Route path='/my-music/now-playing' component={NowPlayingContainer}/>

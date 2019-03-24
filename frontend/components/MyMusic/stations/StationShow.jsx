@@ -31,6 +31,7 @@ class StationShow extends React.Component {
         this.search = this.search.bind(this);
         this.closePopup = this.closePopup.bind(this);
         this.addFollow= this.addFollow.bind(this);
+        this.showNotification = this.showNotification.bind(this);
     }
     componentDidMount(){
         this.props.fetchStation(this.props.match.params.id);
@@ -77,8 +78,15 @@ class StationShow extends React.Component {
 
         }
     }
+    showNotification() {
+        document.getElementById("note").style.display = "block";
+        setTimeout(function () {
+            document.getElementById("note").style.display = "none";
+        }, 3000);
+    }
     addFollow(info){
-        this.setState({popup: true});
+        // this.setState({popup: true});
+        this.showNotification();
         this.props.addFollow(info);
     }
     closePopup(){
