@@ -31,18 +31,23 @@ class RecentlyPlayed extends Component {
         const stations = _.get(this, 'state.stations', {});
         const tracks = _.get(this, 'state.tracks', {});
         const tL = _.values(tracks).map((track, i) => {
-            return (<ResultItem className='Track-item' data={track} type={'track'} play={fetchSong}/>)
+            
+            return (<ResultItem className='Track-item' data={track} type={'track'} play={fetchSong} lp={Date.parse(track.createdAt)}/>)
         });
         const pl = _.values(playlists).map((playlist, i) => {
-            return (<ResultItem className='Track-item' data={playlist} type={'playlist'} play={fetchPlaylist}/>)
+            return (<ResultItem className='Track-item' data={playlist} type={'playlist'} play={fetchPlaylist} lp={Date.parse(playlist.createdAt)}/>)
         });
         const st = _.values(stations).map((station, i) => {
-            return (<ResultItem className='Track-item' data={station} type={'station'} play={fetchStation}/>)
+            return (<ResultItem className='Track-item' data={station} type={'station'} play={fetchStation} lp={Date.parse(station.createdAt)}/>)
         });
         const al = _.values(albums).map((album, i) => {
-            return (<ResultItem className='Track-item' data={album} type={'station'} play={fetchAlbumList}/>);
+            return (<ResultItem className='Track-item' data={album} type={'station'} play={fetchAlbumList} lp={Date.parse(album.createdAt)}/>);
         });
-        const items = _.shuffle(al.concat(st, pl, tL));
+        const items = (al.concat(st, pl, tL));
+       
+        items.sort(function (a, b) {
+            return b.props.lp - a.props.lp;
+        });
 
         const itemList = (
             <div className='recent-display-container'>

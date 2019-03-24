@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link, Route, Switch } from 'react-router-dom';
 
-import AlbumModalResultItem from './ArtistModalResultItem';
+import AlbumModalResultItem from './AlbumModalResultItem';
 import TrackModalResultItem from './TrackModalResultItem';
 import ArtistModalResultItem from './ArtistModalResultItem';
 

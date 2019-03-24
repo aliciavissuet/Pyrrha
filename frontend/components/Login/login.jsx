@@ -9,7 +9,7 @@ class Login extends React.Component {
         return (
             <div className='new-session'>
                 <div className='signup-header'>
-                    <Link to='/my-music' className='pyrrha-signup'>pyrrha</Link>
+                    <Link to='/' className='pyrrha-signup'>pyrrha</Link>
                     <Link to='/signup'><button className="Sign-up-button">Sign Up</button></Link>
                 </div>
                 <div className='signup-contents'>

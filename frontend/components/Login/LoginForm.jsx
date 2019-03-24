@@ -31,7 +31,7 @@ class Login extends Component {
     
     handleChange(field) {
         return (e) => {
-            this.setState({ [field]: e.target.value, errors: { ...this.state.errors, [field]: null } });
+            this.setState({ [field.toLowerCase()]: e.target.value, errors: { ...this.state.errors, [field.toLowerCase()]: null } });
         }
     }
     handleClick(e) {
@@ -42,7 +42,7 @@ class Login extends Component {
    
     onBlur(field, e) {
         if (e.target.value.length === 0) {
-            this.setState({ errors: { ...this.state.errors, [field]: `${field} cannot be empty` } });
+            this.setState({ errors: { ...this.state.errors, [field.toLowerCase()]: `${field} can\'t be empty` } });
         }
     }
 
@@ -79,13 +79,13 @@ class Login extends Component {
 
     render() {
         const { errors } = this.state;
-        const inputs = ['email', 'password'].map((field, i) => (
+        const inputs = ['Email', 'Password'].map((field, i) => (
             <SignupComponent
                 key={i}
                 label={field}
-                value={this.state[field]}
+                value={this.state[field.toLowerCase()]}
                 handleChange={this.handleChange}
-                errorMessage={errors[field]}
+                errorMessage={errors[field.toLowerCase()]}
                 onBlur={this.onBlur}
                 type={'login'}
             />

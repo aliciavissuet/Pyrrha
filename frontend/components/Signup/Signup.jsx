@@ -11,7 +11,7 @@ const NewSessionForm = (props) => {
     return (
         <div className='new-session'>
             <div className='signup-header'>
-                <span className='pyrrha-signup'>pyrrha</span>
+                <Link to='/' className='pyrrha-signup'>pyrrha</Link>
                 <Link to="/login"><button className="Log-in-button">Log In</button></Link>
             </div>
             <div className='signup-contents'>

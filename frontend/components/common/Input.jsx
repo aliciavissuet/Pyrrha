@@ -22,7 +22,7 @@ const signupComponent = (props) => {
                     className ={cx({}, {
                             'signup-error': errorMessage,
                     })}
-                    type={ label === 'password' ? 'password': 'text'} 
+                    type={ label === 'Password' ? 'password': 'text'} 
                     onChange={handleChange(label)} 
                     value={value}
                     onBlur = {(e) => onBlur(label,e)}

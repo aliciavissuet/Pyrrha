@@ -18,7 +18,14 @@ class Station < ApplicationRecord
         through: :station_created_froms,
         source: :mediable,
         source_type: :Artist
-
+    has_many :play_histories, :as => :playable
+    attr_accessor :photo, :last_played
+    def photo=(photo)
+        @photo = photo
+    end
+    def last_played=(date)
+        @last_played = date
+    end
     def first_media
         creates = StationCreatedFrom.where(station_id: self.id)
         

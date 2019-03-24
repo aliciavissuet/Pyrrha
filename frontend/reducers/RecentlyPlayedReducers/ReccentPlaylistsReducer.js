@@ -1,4 +1,4 @@
-import {RECEIVE_RECENT_PLAYLISTS} from '../../actions/recently_played_actions';
+import { RECEIVE_RECENT_PLAYLISTS } from '../../actions/PlayBarActions';
 import merge from 'lodash/merge';
 
 const initialState = {

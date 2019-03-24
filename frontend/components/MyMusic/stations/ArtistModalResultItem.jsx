@@ -12,7 +12,7 @@ const ArtistModalResultItem = (props) => {
             {/* className='search-result-item' */}
             <div className='station-result-item'>
                 <div className='station-result-text'v>
-                     <span className='search-result-title'>{artist && artist.name}</span>
+                     <span className='search-result-title'>{artist ? artist.name : ''}</span>
                      <span className='search-result-type'>Artist</span>
                  </div>
                  <div>

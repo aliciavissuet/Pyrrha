@@ -2,6 +2,7 @@ class User < ApplicationRecord
     validates :username, :email, :session_token, :password_digest, presence: true
     validates :username, :email, :session_token, uniqueness: true
     validates :password, length: {minimum: 6, allow_nil: true}
+    validates :email, format: { with: URI::MailTo::EMAIL_REGEXP } 
     
     has_many :stations
     has_many :track_follows
@@ -11,7 +12,8 @@ class User < ApplicationRecord
     has_many :artist_follows
     has_many :artists, through: :artist_follows
     has_many :playlists
-
+    has_many :play_histories
+    has_many :recent_plays
     attr_reader :password
     after_initialize :ensure_session_token 
 
