@@ -8,7 +8,7 @@ class PlayBar extends Component {
         super(props);
         this.state = {
             player: {
-                playing: false,
+                playing: true,
                 
                 // background: `#5d85c6`,
             },
@@ -35,6 +35,30 @@ class PlayBar extends Component {
         this.setVolume = this.setVolume.bind(this);
         this.hover=this.hover.bind(this);
         this.hoverOff = this.hoverOff.bind(this);
+    }
+    componentDidMount(){
+        this.props.fetchRecentPlays().then(()=> {
+            if (Object.keys(this.props.recentlyPlayedStations).length) {
+                const stations = this.props.recentlyPlayedStations;
+                const station = Object.keys(stations).reduce(function (a, b) { return Date.parse(stations[a].createdAt) > Date.parse(stations[b].createdAt) ? a : b });
+                this.props.fetchPlaybarStation(station);
+                
+            } else if (Object.keys(this.props.recentlyPlayedAlbums).length) {
+                const albums = this.props.recentlyPlayedAlbums;
+                const album = Object.keys(albums).reduce(function (a, b) { return Date.parse(albums[a].createdAt) > Date.parse(albums[b].createdAt) ? a : b });
+                this.props.fetchPlaybarAlbum(album);
+                
+            } else if (Object.keys(this.props.recentlyPlayedPlaylists).length) {
+                const playlists = this.props.recentlyPlayedPlaylists;
+                const playlist = Object.keys(playlists).reduce(function (a, b) { return Date.parse(playlists[a].createdAt) > Date.parse(playlists[b].createdAt) ? a : b });
+                this.props.fetchPlaybarPlaylist(playlist);
+                
+            } else {
+                this.props.fetchPlaybarAlbum(1);
+            }
+        });
+        
+
     }
     componentDidUpdate(prevProps){
         // console.log('updating playbar');

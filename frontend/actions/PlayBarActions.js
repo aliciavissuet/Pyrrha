@@ -63,12 +63,13 @@ export const fetchAlbumList = id=> dispatch => {
         dispatch(receiveRecentTracks(payload.tracks));
     });
     PBAPIUtil.fetchAlbum(id).then(payload => {
-        console.log(payload)
+        
         const track = payload.tracks[payload.album.trackIds[0]];
         const artist  = payload.artists[track.artistId];
         
         dispatch(receivePlaybarSong({ track, artist }));
         dispatch(receivePlaybarPlaylist(payload.album.trackIds, payload.album.title));
+        
     });
 };
 
@@ -111,6 +112,8 @@ export const fetchStationList = id => dispatch => {
 }
 
 
+
+
 export const loadingTrueRecent = () => ({
     type: LOADING_RECENTLY_PLAYED
 });
@@ -134,8 +137,8 @@ export const receiveRecentStations = (stations) => ({
 
 export const fetchRecentPlays = () => dispatch => {
     dispatch(loadingTrueRecent());
-    console.log('in fetch pb actions')
-    RPApiUtil.fetchRecentPlays().then(payload => {
+    
+    return RPApiUtil.fetchRecentPlays().then(payload => {
         dispatch(receiveRecentPlaylists(payload.playlists));
         dispatch(receiveRecentAlbums(payload.albums));
         dispatch(receiveRecentStations(payload.stations));
