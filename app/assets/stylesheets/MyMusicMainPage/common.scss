@@ -43,7 +43,7 @@
     top: 79%;
     left: 39%;
     box-shadow: 0 0 1px lightgrey;
-    z-index: 2;
+    z-index: 12;
     li {
         font-size: 20px;
         list-style: none;
@@ -160,7 +160,8 @@
 }
 .clear-fix {
 
-    position: relative;
+    position: fixed;
+    bottom: 50px;
     width: 100vw;
     height: 50px;
     color: white;
@@ -271,4 +272,55 @@
     }
     padding: 10px;
     
+}
+.loggedin-container {
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+#note {
+    position: absolute;
+    z-index: 101;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #4286f4;
+    color: white;
+    font-family: 'Didact Gothic', sans-serif;
+    text-align: center;
+    line-height: 2.5;
+    overflow: hidden; 
+    -webkit-box-shadow: 0 0 5px black;
+    -moz-box-shadow:    0 0 5px black;
+    box-shadow:         0 0 5px black;
+    display: none;
+    
+}
+#note2 {
+    position: absolute;
+    z-index: 101;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #4286f4;
+    color: white;
+    font-family: 'Didact Gothic', sans-serif;
+    text-align: center;
+    line-height: 2.5;
+    overflow: hidden; 
+    -webkit-box-shadow: 0 0 5px black;
+    -moz-box-shadow:    0 0 5px black;
+    box-shadow:         0 0 5px black;
+    display: none;
+    
+}
+
+
+
+@-webkit-keyframes slideDown {
+    0%, 100% { -webkit-transform: translateY(-50px); }
+    10%, 90% { -webkit-transform: translateY(0px); }
+}
+@-moz-keyframes slideDown {
+    0%, 100% { -moz-transform: translateY(-50px); }
+    10%, 90% { -moz-transform: translateY(0px); }
 }

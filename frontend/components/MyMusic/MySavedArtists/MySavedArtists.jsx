@@ -42,7 +42,7 @@ class MySavedArtists extends React.Component {
         // const userArtists = ars.filter(ar => userAr.includes(ar.id));
 
         const artList = ars.map((artist, i) => {
-            return (<li key={i}><ArtistItem className='Track-item' userId={userId} artist={artist} removeSave={this.removeSave}  postStation={this.props.postStation}/></li>)
+            return (<li className='track-item-li' key={i}><ArtistItem className='Track-item' userId={userId} artist={artist} removeSave={this.removeSave}  postStation={this.props.postStation}/></li>)
         });
 
         const artistList = (

@@ -6,6 +6,7 @@ import { clearEntities, fetchAlbum } from '../../../../actions/album_actions';
 import { fetchUserPlaylistsOnly } from '../../../../actions/playlist_actions';
 import { updateUserFollows } from '../../../../actions/user_actions';
 import { fetchAlbumList, fetchSingleTrack } from '../../../../actions/PlayBarActions';
+import {addPlaylistSong} from '../../../../actions/playlist_actions';
 
 const mapStateToProps = (state, ownProps) => {
     const userId = state.session.currentUser;

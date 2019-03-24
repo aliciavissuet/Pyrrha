@@ -15,6 +15,7 @@ class Api::StationPlaylistsController < ApplicationController
         
         @albums1.each do |album|
             @tracks.concat(album.tracks)
+            @artists.concat(album.artists)
         end
         @tracks1.each do |track|
             @tracks.concat(track.artist.tracks)

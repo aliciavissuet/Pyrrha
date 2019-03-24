@@ -55,6 +55,7 @@ class TrackResultItem extends React.Component {
         this.props.createPlaylist(pl)
         .then(id => this.props.history.push(`/my-music/playlists/${id}`));
     }
+    
     render() {
         const {track, playlists, album} = this.props;
         const dropdownClass = cx('hide', { 'search-result-dropdown': this.state.displayDropdown });

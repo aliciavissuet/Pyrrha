@@ -10,6 +10,7 @@ export const RECEIVE_RECENT_PLAYLISTS = 'RECEIVE_RECENT_PLAYLIST';
 export const RECEIVE_RECENT_ALBUMS = 'RECEIVE_RECENT_ALBUM';
 export const RECEIVE_RECENT_TRACKS = 'RECEIVE_RECENT_TRACK';
 export const RECEIVE_RECENT_STATIONS = 'RECEIVE_RECENT_STATION';
+export const CLEAR_RECENT = 'CLEAR_RECENT';
 
 const receivePlaybarSong = track => ({
     type: RECEIVE_PLAYBAR_SONG,
@@ -25,6 +26,9 @@ const receivePlaybarPlaylist = (list, title) => ({
 const loadingTrue = ()=> ({
     type: LOADING_PLAYBAR,
 
+});
+const clearRecent = () =>({
+    type: CLEAR_RECENT,
 });
 
 export const fetchSingleTrack = id => dispatch => {
@@ -103,6 +107,7 @@ export const fetchStationList = id => dispatch => {
         dispatch(receiveRecentTracks(payload.tracks));
     });
     PBAPIUtil.fetchStation(id).then(payload => {
+        // console.log('payload', payload)
         const track = payload.tracks[payload.trackIds[0]];
         const artist = payload.artists[track.artistId];
         
@@ -139,6 +144,7 @@ export const fetchRecentPlays = () => dispatch => {
     dispatch(loadingTrueRecent());
     
     return RPApiUtil.fetchRecentPlays().then(payload => {
+        console.log('payload', payload);
         dispatch(receiveRecentPlaylists(payload.playlists));
         dispatch(receiveRecentAlbums(payload.albums));
         dispatch(receiveRecentStations(payload.stations));

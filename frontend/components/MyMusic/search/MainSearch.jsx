@@ -17,6 +17,7 @@ class MainSearch extends Component {
         };
         this.addFollow=this.addFollow.bind(this);
         this.closePopup=this.closePopup.bind(this);
+        this.showNotification = this.showNotification.bind(this);
     }
     componentDidMount(){
         this.props.fetchPlaylists();
@@ -30,8 +31,15 @@ class MainSearch extends Component {
     componentWillUnmount(){
         this.props.clear();
     }
+    showNotification() {
+        document.getElementById("note").style.display = "block";
+        setTimeout(function () {
+            document.getElementById("note").style.display = "none";
+        }, 3000);
+    }
     addFollow(info){
-        this.setState({popup: true});
+        // this.setState({popup: true});
+        this.showNotification();
         this.props.addFollow(info);
     }
     closePopup() {

@@ -23,13 +23,12 @@ class AlbumShow extends React.Component {
         this.closePopup = this.closePopup.bind(this);
         this.addFollow=this.addFollow.bind(this);
         this.addSongToPlaylist=this.addSongToPlaylist.bind(this);
+        this.showNotification = this.showNotification.bind(this);
+        // this.addFollow = this
         // this.removeSong = this.removeSong.bind(this);
 
     }
-    addFollow(info) {
-        this.setState({ popup: true });
-        this.props.addFollow(info);
-    }
+    
 
     componentDidMount() {
         console.log('hit playlist show');
@@ -49,13 +48,30 @@ class AlbumShow extends React.Component {
     componentWillUnmount() {
         this.props.clear();
     }
-    
+    showNotification() {
+        document.getElementById("note").style.display = "block";
+        setTimeout(function () {
+            document.getElementById("note").style.display = "none";
+        }, 3000);
+    }
+    showNotification2() {
+        document.getElementById("note2").style.display = "block";
+        setTimeout(function () {
+            document.getElementById("note2").style.display = "none";
+        }, 3000);
+    }
     closePopup() {
         console.log('here')
         this.setState({ popup: false, popup2: false });
     }
+    addFollow(info) {
+        // this.setState({ popup: true });
+        this.showNotification();
+        this.props.addFollow(info);
+    }
     addSongToPlaylist(info){
-        this.setState({popup2: true});
+        // this.setState({popup2: true});
+        this.showNotification2();
         this.props.addSongToPlaylist(info);
     }
     render() {

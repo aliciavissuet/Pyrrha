@@ -10,9 +10,13 @@ class RecentlyPlayed extends Component {
     constructor(props) {
         super(props);
         const {tracks, albums, stations, playlists, ui} = this.props;
+        const num = Object.keys(tracks).length + 
+            Object.keys(albums).length + Object.keys(stations).length +
+            Object.keys(playlists).length;
         this.state = {
-            tracks, albums, stations, playlists, ui
+            tracks, albums, stations, playlists, ui, num, selectedI: Math.floor(num/2)
         };
+        this.selectRecent = this.selectRecent.bind(this);
     }
     componentDidMount(){
         this.props.fetchRecent();
@@ -20,10 +24,24 @@ class RecentlyPlayed extends Component {
     componentDidUpdate(prevProps) {
         if (prevProps !== this.props) {
             // console.log(this.props);
-            const { albums, tracks, stations, playlists, ui } = this.props;
-            this.setState({ playlists, stations, albums, tracks, ui });
+
+            const { albums, tracks, stations, playlists, ui } = this.props; 
+            const num = Object.keys(tracks).length +
+                Object.keys(albums).length + Object.keys(stations).length +
+                Object.keys(playlists).length ;
+
+            this.setState({ playlists, stations, albums, tracks, ui, num, selectedI: Math.floor(num/2)  });
+            console.log(this.state.num);
         }
     }
+   
+    selectRecent(i){
+        console.log('here');
+        this.setState({selectedI: i});
+    }
+    
+    
+
     render() {
         const {fetchAlbumList, fetchPlaylist, fetchSong, fetchStation} = this.props;
         const albums = _.get(this, 'state.albums', {});
@@ -48,10 +66,34 @@ class RecentlyPlayed extends Component {
         items.sort(function (a, b) {
             return b.props.lp - a.props.lp;
         });
+        
+        
+        
+        const classMap = {
+            '-8': 'hideLeft',
+            '-7': 'hideLeft',
+            '-6': 'hideLeft',
+            '-5': 'hideLeft',
+            '-4': 'hideLeft',
+            '-3': 'hideLeft',
+            '-2': 'prevLeftSecond',
+            '-1': 'prev',
+            '0': 'selected-car',
+            '1': 'next',
+            '2': 'nextSecondRight',
+            '3': 'hideRight',
+            '4': 'hideRight',
+            '5': 'hideRight',
+            '6': 'hideRight',
+            '7': 'hideRight',
+            '8': 'hideRight',
+            '9': 'hideRight'
+        }
+        let itemsWithIndex = items.map((item, i) => <ResultItem className='Track-item' data={item.props.data} type={item.props.type} play={item.props.play} lp={item.props.lp} index={i} cn={classMap[parseInt(i)-this.state.selectedI]} selectRecent={this.selectRecent} left={this.state.num}/>)
 
         const itemList = (
-            <div className='recent-display-container'>
-                {items}
+            <div id='carousel'>
+                {itemsWithIndex}
             </div>
         )
         let content;

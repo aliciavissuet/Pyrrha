@@ -46,6 +46,7 @@ class Header extends React.Component {
         const linkClassNP = cx('my-music-header-link', { 'selected-link': this.props.location.pathname.includes('/now-playing')});
         return (
             <div className='my-music-header' >
+                
                 <div className='music-header-left' onClick={this.handleOtherClick}>
                     <div>
                         <Link to='/my-music/now-playing' className={linkClassNP}>Now Playing</Link>

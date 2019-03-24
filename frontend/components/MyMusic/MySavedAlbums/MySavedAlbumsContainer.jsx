@@ -3,7 +3,7 @@ import MySavedAlbums from './MySavedAlbums'
 import { fetchAlbum, fetchAlbums, removeAlbumFollow, clearEntities } from '../../../actions/album_actions';
 import { receiveCurrentUser } from '../../../actions/user_actions';
 import { fetchAlbumList } from '../../../actions/PlayBarActions';
-// import { postStation } from '../../../actions/station_actions';
+import { postStation } from '../../../actions/station_actions';
 
 const mapStateToProps = state => ({
     
