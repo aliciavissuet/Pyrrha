@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import PlayBar from './PlayBar';
-import {fetchPlaybarPlaylist, fetchPlaybarSong, fetchAlbumList, fetchStationList, fetchRecentPlays} from '../../actions/PlayBarActions'; 
+import {fetchPlaybarPlaylist, fetchPlaybarSong, fetchAlbumList, fetchStationList, fetchRecentPlays, fetchSingleTrack} from '../../actions/PlayBarActions'; 
 
 const mapStateToProps = state => ({
     recentlyPlayedAlbums: state.recentlyPlayed.albums,
@@ -15,7 +15,7 @@ const mapDispatchToProps = dispatch => ({
     fetchPlaybarPlaylist: (id) => dispatch(fetchPlaybarPlaylist(id)),
     fetchPlaybarAlbum: (id) => dispatch(fetchAlbumList(id)),
     fetchPlaybarStation: (id) => dispatch(fetchStationList(id)),
-    fetchPlaybarSong: (id)=> dispatch(fetchPlaybarSong(id)),
+    fetchPlaybarSong: (id)=> dispatch(fetchSingleTrack(id)),
     
 });
 

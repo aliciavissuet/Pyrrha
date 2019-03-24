@@ -3,6 +3,7 @@ class Api::RecentPlaysController < ApplicationController
         
         @recent_play = RecentPlay.find_by(user_id: current_user.id, media_type: params[:recent][:media_type], media_id: params[:recent][:media_id])
         if @recent_play
+            puts 'here'
             # @recent_play.update_attributes(recent_play_params)
             @recent_play.touch
         else
@@ -11,7 +12,8 @@ class Api::RecentPlaysController < ApplicationController
             @recent_play.save
         end
         
-        @recent_plays = RecentPlay.where(user_id: current_user.id).order(updated_at: :desc).limit(8)
+        @recent_plays = current_user.recent_plays.order(updated_at: :desc).limit(10)
+       
         @tracks = []
         @albums = []
         @stations = []
@@ -24,7 +26,7 @@ class Api::RecentPlaysController < ApplicationController
             elsif rp.media_type == 'track'
                 track = Track.find(rp.media_id)
                 track.last_played = rp.updated_at 
-                @tracks.push(track)
+                @tracks.push(track) 
             elsif rp.media_type == 'station'
                 station = Station.find(rp.media_id)
                 station.last_played = rp.updated_at
