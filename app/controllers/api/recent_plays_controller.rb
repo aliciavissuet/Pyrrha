@@ -23,13 +23,13 @@ class Api::RecentPlaysController < ApplicationController
                 station.last_played = rp.created_at
                 first_media = station.station_created_froms.first
                 if first_media.mediable_type == 'Artist'
-                    media = Artist.find(first_media.id)
+                    media = Artist.find(first_media.mediable_id)
                 end 
                 if first_media.mediable_type == 'Album'
-                    media = Album.find(first_media.id)
+                    media = Album.find(first_media.mediable_id)
                 end 
                 if first_media.mediable_type == 'Track'
-                    media = Track.find(first_media.id)
+                    media = Track.find(first_media.mediable_id)
                 end 
                 station.photo = media.photo
                 @stations.push(station)
