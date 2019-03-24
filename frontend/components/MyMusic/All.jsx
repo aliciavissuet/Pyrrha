@@ -28,6 +28,7 @@ class All extends Component {
                     <Route path='/my-music/stations' component={UserStationContainer} />
                     <Route path='/my-music/playlists' component={PlaylistDisplayContainer}/>
                     <Route path='/my-music' component={TracksDisplayContainer}/>
+                    
                 </Switch>
             </div>
            

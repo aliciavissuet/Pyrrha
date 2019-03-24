@@ -103,6 +103,7 @@ export const fetchStationList = id => dispatch => {
         dispatch(receiveRecentTracks(payload.tracks));
     });
     PBAPIUtil.fetchStation(id).then(payload => {
+        console.log('payload', payload)
         const track = payload.tracks[payload.trackIds[0]];
         const artist = payload.artists[track.artistId];
         

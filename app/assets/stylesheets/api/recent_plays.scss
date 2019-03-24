@@ -42,8 +42,8 @@
   flex-direction: row;
   justify-content: center;
   box-sizing: border-box;
-    padding: 60%;
-    margin-bottom: 10%;
+  padding: 50%;
+  margin-bottom: 10%;
     // box-sizing: border-box;
     background-size:cover;
     // background: cover;
@@ -58,7 +58,7 @@
     background: lightcyan;
     z-index: 0;
     min-width:270px;
-    min-height: 180px;
+    min-height: 250px;
     // overflow: hidden;
 
 }
@@ -70,13 +70,131 @@
 // }
 
 .recent-item-top-level{
-    overflow: hidden;
-    width: 260px;
-    height: 260px;
+    // overflow: hidden;
+    // width: 260px;
+    // height: 260px;
+    // position: absolute;
     h1 {
       display: none;
     }
 
+}
+
+.recent-component {
+    // position: relative;
+    // width: 100%;
+    // height: 30%;
+    width: inherit;
+    margin-left: 30px;
+    margin-right: 20px;
+   
+    
+}
+
+#carousel {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 100vw;
+  height: 280px;
+  align-items: center;
+  overflow: hidden;
+  // top: 50%;
+  // transform: translateY(-50%);
+  // overflow: hidden;
+  // width: 200px;
+  // height: 100px;
+
+  div {
+    // position: absolute;
+    // transition: transform 1s, top 1s left 1s, opacity 1s, z-index 0s;
+    // opacity: 1;
+    width: 300px;
+    transition: width .25s;
+  }
+      .hideLeft {
+        z-index: 3;
+        width: 150px;
+        height: 250px;
+        // transition: width .5s, height 0s, z-index 0s ;
+        overflow: hidden;
+  
+      }
+  
+      .hideRight {
+        // opacity: .6;
+  
+        // left: 100%;
+        // opacity: 0;
+        // transform: translateY(50%) translateX(-50%);
+        z-index: 3;
+        width: 150px;
+        height: 250px;
+        // transition: width .5s height .5s, z-index 0s ;
+        overflow: hidden;
+  
+      }
+  .prev {
+    // opacity: .8;
+    // position: absolute;
+    z-index: 5;
+    // left: 30%;
+    // transform: translateY(50px) translateX(-50%);
+    width: 230px;
+    height: 250px;
+
+    // transition: width .5s height .5s, z-index 0s ;
+    overflow: hidden;
+
+  }
+  .prevLeftSecond{
+        z-index: 4;
+        // left: 15%;
+        // transform: translateY(50%) translateX(-50%);
+        // opacity: .7;
+        width: 180px;
+        height: 250px;
+
+        // transition: width .5s, height .5s, z-index 0s ;
+        overflow: hidden;
+      }
+   .selected-car{
+      // position: absolute;
+      z-index: 10;
+      width: 300px;
+      height: 280px;
+      overflow: visible;
+      // left: 50%;
+      // transform: translateY(0px) translateX(-50%);
+        // transition: width .5s height .5s, z-index 0s ;
+    }
+    .nextSecondRight{
+      // opacity: .7;
+      overflow: hidden;
+      z-index: 4;
+      // left: 85%;
+      // transform: translateY(50%) translateX(-50%);
+      // opacity: .7;
+      width: 180px;
+      height: 250px;
+
+        // transition: width .5s, height .5s, z-index 0s ;
+
+      
+  }
+  .next{
+      // opacity: .8;
+      overflow: hidden;
+      // position: absolute;
+      // transition: width .5s height .5s, z-index 0s ;
+      z-index: 5;
+      // left: 70%;
+      // transform: translateY(50px) translateX(-50%);
+      width: 230px;
+      height: 250px;
+
+
+    }
 }
 .recent-item-top-level:hover {
     // -webkit-transition: overflow(visible) .1s ease;
@@ -87,11 +205,12 @@
     .Recent-item {
     filter: brightness(100%);
     -webkit-filter: brightness(80%);
-    -webkit-transition: all 1s ease;
-    -moz-transition: all 1s ease;
-    -o-transition: all 1s ease;
-    -ms-transition: all 1s ease;
-    transition: all 1s ease;
+    transition: brightness .5s ease;
+    -webkit-transition: all .5s ease;
+    // -moz-transition: all 1s ease;
+    // -o-transition: all 1s ease;
+    // -ms-transition: all 1s ease;
+    // transition: all 1s ease;
     z-index: 0;
     // overflow:visible
     // min-width: 
@@ -116,7 +235,7 @@
       color: white;
       position: absolute;
       bottom: 20%;
-      left: 40%;
+      left: 35%;
       font-family: 'Didact Gothic', sans-serif;
       font-size: 14px;
       filter: brightness(100%);
@@ -125,10 +244,8 @@
 }
 .recent-component {
     width: inherit;
+    height: inherit;
     margin-left: 30px;
     margin-right: 20px;
     
-}
-.recent-header {
-
 }

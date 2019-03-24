@@ -44,7 +44,7 @@ class PlaylistDisplay extends Component {
         
         const playlistVals = _.values(playlists1);
         const pL = playlistVals.map((playlist, i) => {
-            return (<li key={i}><PlaylistItem className='Track-item' deletePlaylist={this.removePlaylist} playlist={playlist} artist={artists[playlist.artistIds[0]]} play={fetchPlaybarPlaylist}/></li>)
+            return (<li className='track-item-li' key={i}><PlaylistItem className='Track-item' deletePlaylist={this.removePlaylist} playlist={playlist} artist={artists[playlist.artistIds[0]]} play={fetchPlaybarPlaylist}/></li>)
         });
         const playList = (
             <ul className='track-display-container'>

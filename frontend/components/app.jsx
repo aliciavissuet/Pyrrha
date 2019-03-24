@@ -6,7 +6,7 @@ import {
     Link,
     HashRouter
 } from 'react-router-dom';
-import { AuthRoute, ProtectedRoute } from '../utils/frontend_route_util';
+import { AuthRoute, ProtectedRoute, PrivateRoute } from '../utils/frontend_route_util';
 import Login from './Login/loginContainer';
 import Signup from './Signup/Signup';
 import Splash from './Splash/splash';
@@ -24,7 +24,7 @@ const App = () => (
             <AuthRoute  path="/signup" component={Signup} className='new-session'/>
             <AuthRoute exact path='/' component={Splash} />
             <ProtectedRoute path='/my-music' component={ProtectedApp} />
-            
+            <Redirect to='/my-music'/>
         </Switch>
         
     </div>

@@ -37,7 +37,7 @@ class UserStations extends Component {
         const artists = _.get(this, 'state.artists', {});
         const stations1 = _.values(stations);
         
-        if (this.props.stationLoading) {
+        if (this.props.stationLoading || stations1.length===0) {
             return (
             <div className='Tracks-component'>
                  <Loading />
@@ -45,7 +45,7 @@ class UserStations extends Component {
         } else {
             
             const stationsL = stations1.map((station, i) => {
-                return (<li key={i}><UserStationItem station={station} playStation={this.props.playStation} albums={this.props.albums} tracks={this.props.tracks} deleteStation={this.deleteStation} artists={artists}/></li>)
+                return (<li className='track-item-li' key={i}><UserStationItem station={station} playStation={this.props.playStation} albums={this.props.albums} tracks={this.props.tracks} deleteStation={this.deleteStation} artists={artists}/></li>)
             });
             return (
             < div className = 'Tracks-component' >

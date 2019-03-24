@@ -20,7 +20,7 @@ class ProtectedApp extends Component {
 
     render() {
         return (
-            <div>
+            <div className='loggedin-container'>
                 <HeaderContainer {...this.props}/>
                 <Switch>
                     <Route path='/my-music/now-playing' component={NowPlayingContainer}/>
@@ -29,6 +29,7 @@ class ProtectedApp extends Component {
                     <Route path='/my-music/playlists/:id' component={PlaylistShowContainer} />
                     <Route path='/my-music/albums/:id' component={AlbumShowContainer}/>
                     <Route path="/my-music" component={All}/>
+                    
                 </Switch>
                 <div className='clear-fix'><p>hey there</p></div>
                 <PlayBarContainer {...this.props}/>
