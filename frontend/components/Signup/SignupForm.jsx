@@ -9,11 +9,11 @@ class Signup extends React.Component {
         let username = null;
         let email = null;
         this.props.errors.forEach(err => {
-            if (err.includes('email')){
+            if (err.includes('email') || err.includes('Email')){
                 email = err;
-            } else if (err.includes('username')){
+            } else if (err.includes('username') || err.includes('Username')){
                 username = err;
-            } else if (err.includes('password')){
+            } else if (err.includes('password') || err.includes('Password')){
                 password = err;
             }
         });
@@ -24,9 +24,9 @@ class Signup extends React.Component {
             email: '',
             password: '',
             errors: {
-                password: password,
-                username: username,
-                email: email},
+                Password: password,
+                Username: username,
+                Email: email},
         };
         this.handleClick = this.handleClick.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -47,30 +47,33 @@ class Signup extends React.Component {
             let username = null;
             let email = null;
             this.props.errors.forEach(err => {
-                if (err.includes('Email')) {
+                if (err.includes('Email') || err.includes('email')) {
                     email = err;
-                } else if (err.includes('Username')) {
+                } else if (err.includes('Username') || err.includes('username')) {
                     username = err;
-                } else if (err.includes('Password')) {
+                } else if (err.includes('Password') || err.includes('password')) {
                     password = err;
                 }
             });
             this.setState({errors:
-                {password: password,
-                username: username,
-                email: email}});
+                {password,username,email}});
         }
     }
     
    handleChange(field) {
        return (e) => {
-           this.setState({ [field]: e.target.value, errors: { ...this.state.errors, [field]: null } });
+           this.setState({ [field.toLowerCase()]: e.target.value, errors: { ...this.state.errors, [field.toLowerCase()]: null } });
        };
    }
    
    handleClick (e) {
        e.preventDefault();
-       this.props.createUser(this.state)
+       const signUpInfo = {
+           username: this.state.username,
+           password: this.state.password,
+           email: this.state.email 
+    };
+       this.props.createUser(signUpInfo);
        this.setState({
            username: '',
            email: '',
@@ -117,22 +120,22 @@ class Signup extends React.Component {
        
        if (e.target.value.length === 0){
            let error = this.state.errors;
-           error[[field]] = `${field} ${ErrorsEnum.CANNOT_BE_BLANK}`;
+           error[[field.toLowerCase()]] = `${field} ${ErrorsEnum.CANNOT_BE_BLANK}`;
            this.setState({errors: error});
        }
        //...this.state.errors[[field]], 
    }
    
     render() {
-        const { errors } = this.state;
+        const { errors} = this.state;
 
         const inputs = Object.values(SignupFieldsEnum).map( (field, i) => (
             <SignupComponent
                 key={i} 
                 label={field} 
-                value={this.state[field]} 
+                value={this.state[[field.toLowerCase()]]} 
                 handleChange={this.handleChange} 
-                errorMessage={errors[field]} 
+                errorMessage={errors[[field.toLowerCase()]]} 
                 onBlur={this.onBlur} 
                 type='signup'
                 />

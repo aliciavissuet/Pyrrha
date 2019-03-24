@@ -33,7 +33,7 @@ class TrackStationItem extends React.Component {
         const { title, id } = this.props.track;
         const station_title = title + ' Station';
 
-        this.props.updateStation({ title: station_title, mediable_id: id, mediable_type: 'Track' });
+        this.props.postStation({ title: station_title, mediable_id: id, mediable_type: 'Track' });
     }
     removeMedia(){
         const { track, id } = this.props;

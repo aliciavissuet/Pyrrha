@@ -14,10 +14,10 @@ const AlbumModalResultItem = (props) => {
             <div className='station-result-item' >
                 <div className='station-result-text'>
                     <span className='search-result-title'>{album && album.title}</span>
-                    <span className='search-result-type'>Artist</span>
+                    <span className='search-result-type'>Album</span>
                 </div>
                 <div>
-                    <button className='add-to-station' onClick={() => props.addToStation(info)}> + </button>
+                    <button className='start-station' onClick={() => props.addToStation(info)}> + </button>
                 </div>
             </div>
         </div>

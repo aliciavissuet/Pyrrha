@@ -1,7 +1,7 @@
 export const SignupFieldsEnum = Object.freeze({
-    USERNAME: 'username',
-    EMAIL: 'email',
-    PASSWORD: 'password'
+    USERNAME: 'Username',
+    EMAIL: 'Email',
+    PASSWORD: 'Password'
 });
 
 export const InputTypesEnum = Object.freeze({
@@ -10,5 +10,5 @@ export const InputTypesEnum = Object.freeze({
 });
 
 export const ErrorsEnum = Object.freeze({
-    CANNOT_BE_BLANK: 'cannot be blank',
+    CANNOT_BE_BLANK: 'can\'t be blank',
 });
