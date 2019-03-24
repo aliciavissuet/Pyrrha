@@ -3,6 +3,7 @@ import {RECEIVE_STATIONS} from './station_actions';
 import { RECEIVE_ALBUMS } from './album_actions';
 import { RECEIVE_ARTISTS } from './artist_actions';
 import { RECEIVE_TRACKS } from './track_actions';
+import {CLEAR_RECENT} from './PlayBarActions';
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
 export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
@@ -48,6 +49,9 @@ const receiveTracks = (tracks) => ({
     type: RECEIVE_TRACKS,
     tracks
 });
+const clearRecent = () => ({
+    type: CLEAR_RECENT,
+});
 
 // const receiveSessions = (session) => ({
 //     type: RECEIVE_SESSION,
@@ -58,9 +62,10 @@ const receiveTracks = (tracks) => ({
 //     APIUtils.postSession(user).then(payload => (dispatch(receiveCurrentUser(user))), errors => (dispatch(receiveErrors(errors.responseJSON)))));
 
 
-export const logout = () => dispatch => (
-    APIUtils.deleteSession().then(res => dispatch(logoutCurrentUser()))
-);
+export const logout = () => dispatch => {
+    dispatch(clearRecent());
+    APIUtils.deleteSession().then(res => dispatch(logoutCurrentUser()));
+};
 
 export const createUser = user => dispatch => (
     APIUtils.postUser(user).then(payload => (dispatch(receiveCurrentUser(payload.user))), errors => (dispatch(receiveErrors(errors.responseJSON)))));

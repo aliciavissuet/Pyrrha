@@ -2,7 +2,20 @@ class Api::UsersController < ApplicationController
     def create 
         @user = User.new(user_params)
         @stations = {}
-        if @user.save 
+        if @user.save
+            a = RecentPlay.new(user_id: @user.id, media_type: 'album', media_id: 1)
+            a.save
+            b = RecentPlay.new(user_id: @user.id, media_type: 'album', media_id: 2)
+            b.save
+            c = RecentPlay.new(user_id: @user.id, media_type: 'album', media_id: 3)
+            c.save
+            d = RecentPlay.new(user_id: @user.id, media_type: 'track', media_id: 1)
+            d.save
+            e = RecentPlay.new(user_id: @user.id, media_type: 'track', media_id: 13)
+            e.save
+            f = RecentPlay.new(user_id: @user.id, media_type: 'track', media_id: 5)
+            f.save
+
             login!(@user)
             render '/api/users/show'
         else 

@@ -6,7 +6,7 @@ class RecentItem extends Component {
     render() {
         const { data, type } = this.props;
         const id = _.get(data, 'id', '');
-        console.log(data);
+        // console.log(data);
         const stationCovers = [`https://s3-us-west-1.amazonaws.com/pyrrha-dev/station_cover1.jpg`,
                             `https://s3-us-west-1.amazonaws.com/pyrrha-dev/station_cover3.jpg`,
                         `https://s3-us-west-1.amazonaws.com/pyrrha-dev/station_cover2.jpg`,
@@ -22,7 +22,7 @@ class RecentItem extends Component {
             backgroundSize: 'cover',
         };
         const pos = {position: 'absolute', left: `${Math.floor(this.props.index/this.props.left*100)}%`};
-        console.log(pos);
+        // console.log(pos);
         return (
             <div className={`recent-item-top-level ${this.props.cn}`} onMouseOver={()=>this.props.selectRecent(this.props.index)}>
                 
