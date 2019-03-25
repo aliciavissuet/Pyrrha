@@ -34,7 +34,7 @@ class Api::PlaylistsController < ApplicationController
 
     def destroy 
         @playlist = Playlist.find(params[:id]);
-        RecentPlay.where(user_id: current_user.id, mediable_type: 'playlist', media_id: params[:id]).destroy_all
+        RecentPlay.where(user_id: current_user.id, media_type: 'playlist', media_id: params[:id]).destroy_all
 
         @playlist.delete
         @playlists = Playlist.includes(:tracks, :albums, :artists).where(user_id: current_user.id)

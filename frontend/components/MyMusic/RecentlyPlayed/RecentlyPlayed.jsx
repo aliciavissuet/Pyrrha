@@ -31,12 +31,12 @@ class RecentlyPlayed extends Component {
                 Object.keys(playlists).length ;
 
             this.setState({ playlists, stations, albums, tracks, ui, num, selectedI: Math.floor(num/2)  });
-            console.log(this.state.num);
+            // console.log(this.state.num);
         }
     }
    
     selectRecent(i){
-        console.log('here');
+        // console.log('here');
         this.setState({selectedI: i});
     }
     
@@ -89,7 +89,7 @@ class RecentlyPlayed extends Component {
             '8': 'hideRight',
             '9': 'hideRight'
         }
-        let itemsWithIndex = items.map((item, i) => <ResultItem className='Track-item' data={item.props.data} type={item.props.type} play={item.props.play} lp={item.props.lp} index={i} cn={classMap[parseInt(i)-this.state.selectedI]} selectRecent={this.selectRecent} left={this.state.num}/>)
+        let itemsWithIndex = items.map((item, i) => <ResultItem key={i} className='Track-item' data={item.props.data} type={item.props.type} play={item.props.play} lp={item.props.lp} index={i} cn={classMap[parseInt(i)-this.state.selectedI]} selectRecent={this.selectRecent} left={this.state.num}/>)
 
         const itemList = (
             <div id='carousel'>

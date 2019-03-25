@@ -31,7 +31,7 @@ class AlbumShow extends React.Component {
     
 
     componentDidMount() {
-        console.log('hit playlist show');
+        // console.log('hit playlist show');
         this.props.fetchAlbum(this.props.match.params.id);
         this.props.fetchUserPlaylists();
         const { playlists, artists, tracks, album, userId } = this.props;
@@ -40,7 +40,7 @@ class AlbumShow extends React.Component {
     componentDidUpdate(prevProps) {
 
         if (prevProps !== this.props) {
-            console.log(this.props);
+            // console.log(this.props);
             const { artists, playlists, tracks, album, userId } = this.props;
             this.setState({ artists, tracks, album, playlists, userId });
         }
@@ -61,7 +61,7 @@ class AlbumShow extends React.Component {
         }, 3000);
     }
     closePopup() {
-        console.log('here')
+        // console.log('here')
         this.setState({ popup: false, popup2: false });
     }
     addFollow(info) {

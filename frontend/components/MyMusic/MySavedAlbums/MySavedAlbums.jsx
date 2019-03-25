@@ -14,13 +14,13 @@ class MySavedAlbums extends React.Component {
         this.removeSave = this.removeSave.bind(this);
     }
     componentDidMount(){
-        console.log(this.state.userId);
+        // console.log(this.state.userId);
         this.props.fetchUserAlbums(this.state.userId);
 
     }
     componentDidUpdate(prevProps) {
         if (prevProps !== this.props) {
-            console.log(this.props);
+            // console.log(this.props);
             const { userId, albums, tracks, artists, ui, user } = this.props; 
             this.setState({ userId, albums, tracks, artists, ui, user } );
         }

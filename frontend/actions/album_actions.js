@@ -50,10 +50,10 @@ export const fetchAlbum = (id) => dispatch => {
 };
 
 export const fetchAlbums = (userId) => dispatch => {
-    console.log('userId',userId)
+    // console.log('userId',userId)
     dispatch(loadingTrue());
     AlbumAPIUtil.fetchAlbums(userId).then(payload => {
-        console.log('payload', payload)
+        // console.log('payload', payload)
         // debugger
         dispatch(receiveAlbumArtists(payload.artists));
         dispatch(receiveAlbumTracks(payload.tracks));

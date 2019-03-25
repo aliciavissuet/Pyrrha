@@ -98,7 +98,7 @@ class StationShow extends React.Component {
         
         
         const {station,  postStation, playSong, playStation} = this.props;
-        console.log(station);
+        // console.log(station);
         const {artists, albums, tracks} = this.state;
         
         
@@ -107,7 +107,7 @@ class StationShow extends React.Component {
         const stationAlbums = _.values(albums).filter(album => _.get(station, 'albumIds', []).includes(album.id)).map((album, i) => <li key={i}><AlbumStationItem album={album} postStation={postStation} updateStation={this.props.updateStation} userId={this.props.userId} addFollow={this.addFollow} removeAlbum={this.removeAlbum} id={_.get(station, 'id', 'No ID')} /></li>)
         //  => <li key={i}><AlbumStationItem album={album} updateStation={this.props.updateStation} userId={this.props.userId} addFollow={this.addFollow} removeAlbum={this.removeAlbum} id={_.get(station, 'id', 'No ID')} /></li>)
         // 
-        console.log(_.get(station, 'albumIds', []))
+        // console.log(_.get(station, 'albumIds', []))
         const stations = (
             <ul >
                 {stationArtists}

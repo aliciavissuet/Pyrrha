@@ -8,7 +8,7 @@ export default (state = initialState, action) => {
         case RECEIVE_PLAYBAR_SONG:
             const colors = [`#4ba870`, `#b3d66d`, `#8e596d`, `#edc361`, `#469695`, `#416693`, `#3b277c`, `#0b5284`];
             let color =  _.sample(colors);
-            console.log('track', action.track);
+            // console.log('track', action.track);
             let track = action.track.track;
             let artist = action.track.artist;
             return {track, artist, color};

@@ -18,7 +18,7 @@ class Header extends React.Component {
         this.updateSearch = this.updateSearch.bind(this);
     }
     componentDidMount(){
-        console.log('mounted')
+        // console.log('mounted')
         // this.props.fetchPlaylists();
     }
     handleClick() {

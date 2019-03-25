@@ -98,7 +98,7 @@ export const deleteStation = (id) => dispatch => {
 export const updateStation = (station) => dispatch => {
     dispatch(loadingTrue());
     StationAPIUtil.updateStation(station).then(payload => {
-        console.log(payload)
+        // console.log(payload)
         dispatch(receiveArtists(payload.artists));
         dispatch(receiveAlbums(payload.albums));
         dispatch(receiveTracks(payload.tracks));

@@ -19,7 +19,7 @@ class PlaylistItem extends Component {
         this.setState({ dropdown: !this.state.dropdown });
     }
     componentDidUpdate(prevProps) {
-        console.log('playlist item', this.props);
+        // console.log('playlist item', this.props);
         if (this.props!== prevProps) {
             this.setState({artist: this.props.artist});
         }

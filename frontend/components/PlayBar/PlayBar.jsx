@@ -63,7 +63,7 @@ class PlayBar extends Component {
     componentDidUpdate(prevProps){
         // console.log('updating playbar');
         if (this.props.currentTrack!==prevProps.currentTrack) {
-            console.log('props',this.props)
+            // console.log('props',this.props)
             const {currentTrack, currentPlaylist} = this.props;
             
             if (currentTrack.track){
@@ -87,7 +87,7 @@ class PlayBar extends Component {
         const {playlistIndex} = this.state;
         const i = this.state.playlistIndex;
         const id = currentPlaylist[(playlistIndex+1)%currentPlaylist.length];
-        console.log('id', id, currentPlaylist)
+        // console.log('id', id, currentPlaylist)
         this.props.fetchPlaybarSong(id);
         this.setState({ playlistIndex: (playlistIndex + 1) % currentPlaylist.length});
     }
@@ -106,7 +106,7 @@ class PlayBar extends Component {
         let min = Math.floor(duration/60);
         let secs = Math.floor(duration % 60);
         secs = (secs < 10) ? `0${secs}` : secs;
-        console.log(secs)
+        // console.log(secs)
         this.setState({ duration: `${min}:${secs}`});
     }
     onProgress(progress){

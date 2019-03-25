@@ -144,7 +144,7 @@ export const fetchRecentPlays = () => dispatch => {
     dispatch(loadingTrueRecent());
     
     return RPApiUtil.fetchRecentPlays().then(payload => {
-        console.log('payload', payload);
+        // console.log('payload', payload);
         dispatch(receiveRecentPlaylists(payload.playlists));
         dispatch(receiveRecentAlbums(payload.albums));
         dispatch(receiveRecentStations(payload.stations));

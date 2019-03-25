@@ -27,7 +27,7 @@ class PlaylistTrackItem extends React.Component {
         }
     }
     toggle() {
-        console.log('.')
+        // console.log('.')
         this.setState({ displayDropdown: !this.state.displayDropdown });
     }
     followTrack() {
@@ -42,7 +42,7 @@ class PlaylistTrackItem extends React.Component {
     postStation() {
 
         const { title, id } = this.props.track;
-        console.log(this.props.track)
+        // console.log(this.props.track)
         const station_title = title + ' Station';
 
         this.props.postStation({ title: station_title, mediable_id: id, mediable_type: 'Track' });

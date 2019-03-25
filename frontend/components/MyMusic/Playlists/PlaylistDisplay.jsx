@@ -26,7 +26,7 @@ class PlaylistDisplay extends Component {
         
     }
     componentDidUpdate(prevProps){
-        console.log(this.state)
+        // console.log(this.state)
         if (prevProps !== this.props) {
             const { artists, tracks, playlists, user, ui } = this.props;
             this.setState({ artists, tracks, playlists, user, ui});

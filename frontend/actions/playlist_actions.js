@@ -66,7 +66,7 @@ export const fetchPlaylists = () => dispatch => {
 };
 
 export const fetchPlaylist = (id) => dispatch => {
-    console.log('playlist actions')
+    // console.log('playlist actions')
     dispatch(loadingTrue());
     PlaylistAPIUtil.fetchPlaylist(id).then(payload => {
         dispatch(receivePlaylistTracks(payload.tracks));

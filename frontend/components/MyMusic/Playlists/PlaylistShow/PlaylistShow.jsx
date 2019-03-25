@@ -23,7 +23,7 @@ class PlaylistShow extends React.Component {
         this.addFollow = this.addFollow.bind(this);
     }
     componentDidMount() {
-        console.log('hit playlist show');
+        // console.log('hit playlist show');
         this.props.fetchPlaylist(this.props.match.params.id);
         const { playlist, artists, tracks, albums, playlistLoading, userId } = this.props;
         this.setState({ playlist, artists, tracks, albums, playlistLoading, userId});
