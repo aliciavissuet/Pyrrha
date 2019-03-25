@@ -43,7 +43,7 @@ export const fetchPlaybarPlaylist = id => dispatch => {
     });
 };
 ```
-**When a http request is made to the server, to fetch a playlist, a post request is also made to record the user's play history.**
+**When a http request is made to the server to fetch a playlist, a post request is also made to record the user's play history.**
 ### Creating Playlists
 ![alt text](app/assets/images/create_playlist.png "Create Playlists")
 Pyrrha makes it easy to add songs to both new and already-created playlists. Users can add songs through both search results as well as while viewing albums and playlists. Dropdown menus make it easy to specify exactly what playlist a user wants to add the song to.

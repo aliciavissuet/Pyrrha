@@ -37,7 +37,7 @@ class ProtectedApp extends Component {
                     <Route path="/my-music" component={All}/>
                     
                 </Switch>
-                <div className='clear-fix'><p>hey there</p></div>
+                <div className='clear-fix'><p></p></div>
                 <PlayBarContainer {...this.props}/>
             </div>
         );
