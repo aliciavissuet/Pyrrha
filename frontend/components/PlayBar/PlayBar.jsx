@@ -23,6 +23,7 @@ class PlayBar extends Component {
             background: `#5d85c6`,
             hover: false,
             volume: 0.7,
+            seconds: null
             
              
 
@@ -83,23 +84,41 @@ class PlayBar extends Component {
     
     nextSong(){
         // const colors = [ `#4ba870`, `#b3d66d`, `#8e596d`, `#edc361`, `#469695`, `#416693`, `#3b277c`, `#0b5284`];
+        this.setState({url: ''});
         const {currentTrack, currentPlaylist} = this.props;
         const {playlistIndex} = this.state;
         const i = this.state.playlistIndex;
-        const id = currentPlaylist[(playlistIndex+1)%currentPlaylist.length];
+        const id = currentPlaylist[(i+1)%currentPlaylist.length];
         // console.log('id', id, currentPlaylist)
         this.props.fetchPlaybarSong(id);
+        
         this.setState({ playlistIndex: (playlistIndex + 1) % currentPlaylist.length});
+        // console.log('playlist index', playlistIndex);
+
     }
     prevSong(){
         // if (this.state.progress && this.state.progress[0]===0 && this.state.progress[3]===0) {
         //     this.props.fetchPlaybarSong(this.state.currentSong.id);
         // } else {
-            const { playlistIndex, playlistQueue } = this.state;
-            const mod = (x, n) => (x % n + n) % n
-            const id = playlistQueue[mod((playlistIndex - 1), playlistQueue.length)]; 
-            this.props.fetchPlaybarSong(id);
-            this.setState({ playlistIndex: mod((playlistIndex - 1), playlistQueue.length) });
+            const {seconds} = this.state;
+            
+            let id;
+            this.setState({ url: '' });
+            const { currentTrack, currentPlaylist } = this.props;
+            const { playlistIndex } = this.state;
+            console.log('queue', currentPlaylist);
+            console.log('seconds', seconds)
+            if (seconds.playedSeconds > 10) {
+                id = currentPlaylist[this.state.playlistIndex];
+                this.props.fetchPlaybarSong(id);
+            } else {
+                // const { playlistIndex, playlistQueue } = this.state;
+                const mod = (x, n) => (x % n + n) % n;
+                id = currentPlaylist[mod((playlistIndex - 1), currentPlaylist.length)]; 
+                this.props.fetchPlaybarSong(id);
+                this.setState({ playlistIndex: mod((playlistIndex - 1), currentPlaylist.length) });
+                console.log(playlistIndex);
+            }
           
     }
     onDuration(duration){
@@ -114,8 +133,9 @@ class PlayBar extends Component {
         let secs = Math.floor(progress.playedSeconds % 60);
         secs = (secs < 10) ? `0${secs}` : secs;
         // console.log(min, secs)
-        this.setState({ progress: `${min}:${secs}`});
+        this.setState({ progress: `${min}:${secs}`, seconds: progress});
     }
+    
     
     playPause(){
         // console.log(this.state.player.playing);

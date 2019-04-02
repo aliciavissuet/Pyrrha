@@ -15,7 +15,7 @@ const mapDispatchToProps = dispatch => ({
     fetchPlaybarPlaylist: (id) => dispatch(fetchPlaybarPlaylist(id)),
     fetchPlaybarAlbum: (id) => dispatch(fetchAlbumList(id)),
     fetchPlaybarStation: (id) => dispatch(fetchStationList(id)),
-    fetchPlaybarSong: (id)=> dispatch(fetchSingleTrack(id)),
+    fetchPlaybarSong: (id)=> dispatch(fetchPlaybarSong(id)),
     
 });
 
