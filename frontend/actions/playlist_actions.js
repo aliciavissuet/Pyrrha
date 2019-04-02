@@ -2,7 +2,7 @@ import * as PlaylistAPIUtil from '../utils/playlist_api_util';
 import { RECEIVE_TRACKS } from './track_actions';
 import { RECEIVE_ARTISTS } from './artist_actions';
 import { RECEIVE_ALBUMS } from './album_actions';
-
+import {clearRecent, fetchRecentPlays} from './PlayBarActions';
 export const RECEIVE_PLAYLIST = 'RECEIVE_PLAYLIST';
 export const RECEIVE_PLAYLISTS = 'RECEIVE_PLAYLISTS';
 export const LOADING_PLAYLIST = 'LOADING_PLAYLIST';
@@ -103,6 +103,8 @@ export const deletePlaylist = (id) => dispatch => {
         dispatch(receivePlaylistAlbums(payload.albums));
         dispatch(receivePlaylistArtists(payload.artists));
         dispatch(receivePlaylists(payload.playlists));
+        dispatch(clearRecent());
+        dispatch(fetchRecentPlays());
     });
 }
 

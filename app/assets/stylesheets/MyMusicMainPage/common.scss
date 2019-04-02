@@ -31,6 +31,9 @@
      color: white;
      padding: 1%;
 }
+.more:hover{
+    cursor: pointer;
+}
 
 .hidden {
     display: none;
@@ -136,6 +139,10 @@
       margin: 0;
       padding: 0;
  }
+ .play:hover {
+     cursor: pointer;
+ }
+ 
 }
 .track-item-text {
     display: flex;

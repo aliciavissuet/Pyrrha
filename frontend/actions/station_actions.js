@@ -4,6 +4,7 @@ import { RECEIVE_ALBUMS } from './album_actions';
 import { RECEIVE_ARTISTS } from './artist_actions';
 import {RECEIVE_CURRENT_USER} from './session_actions';
 import {fetchStationList} from './PlayBarActions';
+import {fetchRecentPlays, clearRecent} from './PlayBarActions';
 export const RECEIVE_STATION = 'RECEIVE_STATION';
 export const RECEIVE_STATIONS = 'RECEIVE_STATIONS';
 export const LOADING_STATION = 'LOADING_STATION';
@@ -92,7 +93,10 @@ export const deleteStation = (id) => dispatch => {
         dispatch(receiveTracks(payload.tracks));
         dispatch(receiveCurrentUser(payload.user));
         dispatch(receiveStations(payload.stations));
+        dispatch(clearRecent());
+        dispatch(fetchRecentPlays());
     });
+    
 };
  
 export const updateStation = (station) => dispatch => {
