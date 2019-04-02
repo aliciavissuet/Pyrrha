@@ -73,6 +73,9 @@
         font-size: 30px;
         outline: none;
     }
+    button:hover {
+        cursor: pointer;
+    }
     .play-small-pt {
         color: white;
     }
@@ -118,6 +121,7 @@
     }
     button:hover {
         background: #edeeef;
+        cursor: pointer;
     }
 }
 .playlist-button {

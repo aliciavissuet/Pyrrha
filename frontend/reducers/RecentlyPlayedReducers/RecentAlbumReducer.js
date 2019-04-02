@@ -10,6 +10,7 @@ export default (state = initialState, action) => {
         case RECEIVE_RECENT_ALBUMS:
             return merge({}, state, action.albums);
         case CLEAR_RECENT:
+            console.log('album clear recent');
             return {};
         default:
             return state;

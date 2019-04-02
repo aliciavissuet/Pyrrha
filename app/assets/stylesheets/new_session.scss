@@ -56,6 +56,7 @@ body {
     font-family: 'Didact Gothic', sans-serif;
     border-radius: 5px;
     text-decoration: none;
+    cursor: pointer;
 }
 .sign-up {
     position: relative;
@@ -103,6 +104,7 @@ body {
     height: 50px;
     font-size: 15px;
     font-family: 'Didact Gothic', sans-serif;
+    cursor: pointer;
 }
 .signup-contents {
     position: relative;
@@ -194,6 +196,7 @@ body {
     height: 50px;
     font-size: 15px;
     font-family: 'Didact Gothic', sans-serif;
+    cursor: pointer;
 }
 .log-in  input{
     border-radius: 3px;
@@ -221,5 +224,7 @@ body {
 }
 .login-label {
     margin-top: -15px;
-
+    button {
+        cursor: pointer;
+    }
 }

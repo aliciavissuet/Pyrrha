@@ -27,7 +27,7 @@ const loadingTrue = ()=> ({
     type: LOADING_PLAYBAR,
 
 });
-const clearRecent = () =>({
+export const clearRecent = () =>({
     type: CLEAR_RECENT,
 });
 
@@ -142,6 +142,7 @@ export const receiveRecentStations = (stations) => ({
 
 export const fetchRecentPlays = () => dispatch => {
     dispatch(loadingTrueRecent());
+    // dispatch(clearRecent());
     
     return RPApiUtil.fetchRecentPlays().then(payload => {
         // console.log('payload', payload);

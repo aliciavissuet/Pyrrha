@@ -106,8 +106,7 @@ class PlayBar extends Component {
             this.setState({ url: '' });
             const { currentTrack, currentPlaylist } = this.props;
             const { playlistIndex } = this.state;
-            console.log('queue', currentPlaylist);
-            console.log('seconds', seconds)
+            
             if (seconds.playedSeconds > 10) {
                 id = currentPlaylist[this.state.playlistIndex];
                 this.props.fetchPlaybarSong(id);

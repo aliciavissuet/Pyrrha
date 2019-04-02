@@ -83,7 +83,7 @@ class Api::StationsController < ApplicationController
     def destroy
         
         @station = Station.find(params[:id])
-        RecentPlay.where(user_id: current_user.id, mediable_type: 'station', media_id: params[:id]).destroy_all
+        RecentPlay.where(user_id: current_user.id, media_type: 'station', media_id: params[:id]).destroy_all
         @station.delete
         @stations = Station.includes(:tracks, :albums, :artists).where(stations: {user_id: current_user.id})
         
