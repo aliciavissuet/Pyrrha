@@ -6,7 +6,7 @@ const initialState = {};
 export default (state = initialState, action) => {
     switch (action.type) {
         case RECEIVE_PLAYBAR_SONG:
-        console.log('here');
+        
             // const colors = [`#4ba870`, `#b3d66d`, `#8e596d`, `#edc361`, `#469695`, `#416693`, `#3b277c`, `#0b5284`];
             const colors = {
                 'a': `#4ba870`,
